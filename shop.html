@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Visit D'Marie Vivre Learning Hub — 139 Trademore Avenue, Lugbe, Abuja. Call 08068600747 or 09015566523. Open Monday to Saturday."/>
-  <title>Contact & Location | D'Marie Vivre Learning Hub — Abuja</title>
+  <meta name="description" content="Shop D'Marie Vivre Learning Hub — Gift packages, prayer packs, devotionals, affirmations, birthday surprises, and the children's book. All on Selar."/>
+  <title>Shop | D'Marie Vivre Learning Hub</title>
   <link rel="icon" type="image/jpeg" href="assets/images/logo/logo.jpg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -11,32 +11,43 @@
   <link rel="stylesheet" href="assets/css/style.css"/>
   <style>
     .page-hero{background:var(--navy);padding:140px 0 80px;position:relative;overflow:hidden}
-    .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,125,30,.12) 0%,transparent 60%);pointer-events:none}
+    .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,125,30,.14),transparent 60%);pointer-events:none}
+    .page-hero::after{content:'🛍️';position:absolute;right:-20px;bottom:-30px;font-size:260px;opacity:.05;pointer-events:none}
     .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:20px}
-    .breadcrumb a{color:rgba(255,255,255,.5);transition:color .18s}.breadcrumb a:hover{color:var(--orange)}.breadcrumb span{color:rgba(255,255,255,.3)}
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-    .contact-card{background:#fff;border-radius:var(--r-xl);padding:40px;box-shadow:var(--s-sm)}
-    .contact-item{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--border)}
-    .contact-item:last-child{border:none;padding-bottom:0}
-    .contact-item-icon{width:44px;height:44px;background:var(--orange-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
-    .contact-item-label{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-deep);margin-bottom:4px}
-    .contact-item-value{font-size:.95rem;color:var(--ink);line-height:1.6}
-    .contact-item-value a{color:var(--ink);transition:color .18s}.contact-item-value a:hover{color:var(--orange)}
-    .map-placeholder{background:linear-gradient(135deg,var(--orange-pale),var(--light-grey));border-radius:var(--r-xl);aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:32px;box-shadow:var(--s-lg)}
-    .hours-table{width:100%;border-collapse:collapse;margin-top:8px}
-    .hours-table tr td{padding:10px 0;font-size:.88rem;border-bottom:1px solid var(--border)}
-    .hours-table tr:last-child td{border:none}
-    .hours-table td:first-child{font-weight:600;color:var(--ink)}
-    .hours-table td:last-child{color:var(--ink-soft);text-align:right}
-    .hours-table .closed{color:var(--red);font-weight:600}
-    .contact-form{background:#fff;border-radius:var(--r-xl);padding:40px;box-shadow:var(--s-sm);margin-top:48px}
-    .form-group{margin-bottom:20px}
-    .form-label{display:block;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:8px}
-    .form-input,.form-textarea{width:100%;padding:13px 16px;border:2px solid var(--border);border-radius:var(--r-md);font-family:var(--font-body);font-size:.9rem;color:var(--ink);background:#fff;transition:border-color .2s,box-shadow .2s;outline:none}
-    .form-input:focus,.form-textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,125,30,.12)}
-    .form-textarea{resize:vertical;min-height:120px}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    @media(max-width:900px){.contact-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
+    .breadcrumb a{color:rgba(255,255,255,.5)}.breadcrumb a:hover{color:var(--orange)}.breadcrumb span{color:rgba(255,255,255,.3)}
+
+    /* Shop sections */
+    .shop-section-title{text-align:center;margin-bottom:52px}
+    .shop-section-title h2{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,3.2rem);color:var(--navy);line-height:1.1;margin-bottom:12px}
+
+    /* Product grid */
+    .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .product-card{background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--s-sm);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
+    .product-card:hover{transform:translateY(-5px);box-shadow:var(--s-lg)}
+    .product-img{aspect-ratio:4/3;background:var(--orange-pale);display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;overflow:hidden}
+    .product-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+    .product-card:hover .product-img img{transform:scale(1.05)}
+    .product-badge{position:absolute;top:12px;left:12px;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:100px}
+    .product-body{padding:22px 24px 26px;flex:1;display:flex;flex-direction:column}
+    .product-cat{font-size:.63rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange-deep);margin-bottom:7px}
+    .product-name{font-family:var(--font-display);font-size:1.3rem;color:var(--navy);line-height:1.15;margin-bottom:10px}
+    .product-desc{font-size:.85rem;color:var(--ink-soft);line-height:1.7;flex:1;margin-bottom:16px}
+    .product-features{margin-bottom:16px;display:flex;flex-direction:column;gap:7px}
+    .product-feat{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--ink-soft)}
+    .product-feat::before{content:'✓';width:16px;height:16px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;font-weight:700;color:var(--orange-deep);flex-shrink:0}
+    .product-cta{margin-top:auto}
+
+    /* Gift packages — tiered layout */
+    .pkg-section{background:var(--off-white);padding:96px 0}
+    .pkg-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}
+
+    /* Selar banner */
+    .selar-banner{background:var(--orange);border-radius:var(--r-xl);padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:64px}
+    .selar-banner-text h3{font-family:var(--font-display);font-size:1.6rem;color:#fff;margin-bottom:6px}
+    .selar-banner-text p{font-size:.9rem;color:rgba(255,255,255,.82)}
+
+    @media(max-width:1000px){.product-grid{grid-template-columns:1fr 1fr}.pkg-row{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){.product-grid{grid-template-columns:1fr}.pkg-row{grid-template-columns:1fr}.selar-banner{flex-direction:column;text-align:center}}
   </style>
 </head>
 <body>
@@ -44,135 +55,277 @@
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><img src="assets/images/logo/logo.jpg" alt="Logo" class="nav-logo-img"/><div><span class="nav-wordmark">D'Marie Vivre</span><span class="nav-tagline-mini">Learning Hub</span></div></a>
-    <div class="nav-links"><a href="learning-hub.html">Programs</a><a href="learning-hub.html#adult">Adult Ed</a><a href="kidspray.html">KidsPray</a><a href="shop.html">Shop</a><a href="about.html">About</a><a href="contact.html" style="color:var(--orange)">Contact</a></div>
-    <div class="nav-right"><a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-orange btn-sm">Enrol Today</a><button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button></div>
+    <div class="nav-links"><a href="learning-hub.html">Programs</a><a href="learning-hub.html#adult">Adult Ed</a><a href="kidspray.html">KidsPray</a><a href="shop.html" style="color:var(--orange)">Shop</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+    <div class="nav-right"><a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-orange btn-sm">Shop Now</a><button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button></div>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu"><button class="mobile-close" id="mobileClose">✕</button><a href="index.html">Home</a><a href="learning-hub.html">Programs</a><a href="kidspray.html">KidsPray</a><a href="shop.html">Shop</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
 
+<!-- HERO -->
 <section class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:rgba(255,255,255,.8)">Contact</span></div>
-    <span class="tag tag-orange reveal">Get In Touch</span>
-    <h1 class="d-xl text-white reveal reveal-d1" style="margin-bottom:16px">Visit us in <em style="color:var(--orange);font-style:italic">Lugbe, Abuja</em></h1>
-    <p class="body-lg reveal reveal-d2" style="color:rgba(255,255,255,.68);max-width:560px">We're open Monday to Saturday. Walk in, call, or WhatsApp — we're always happy to meet you and answer any questions.</p>
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:rgba(255,255,255,.8)">Shop</span></div>
+    <span class="tag tag-orange reveal">Everything in One Place</span>
+    <h1 class="d-xl text-white reveal reveal-d1" style="margin-bottom:16px">Shop D'Marie<br><em style="color:var(--orange);font-style:italic">Vivre</em></h1>
+    <p class="body-lg reveal reveal-d2" style="color:rgba(255,255,255,.68);max-width:540px;margin-bottom:28px">Faith-filled gifts, prayer packs, devotionals, the children's book, and more. All purchases are securely processed on Selar.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap" class="reveal reveal-d3">
+      <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-orange btn-lg">Browse All on Selar ↗</a>
+      <a href="#packages" class="btn btn-outline-white btn-lg">Gift Packages</a>
+    </div>
   </div>
 </section>
 
 <section class="section" style="background:var(--cream)">
   <div class="container">
-    <div class="contact-grid">
 
-      <!-- Left: Map + Info -->
-      <div>
-        <div class="map-placeholder reveal">
-          <span style="font-size:3.5rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.12))">📍</span>
-          <strong style="color:var(--navy);font-family:var(--font-display);font-size:1.4rem">D'Marie Vivre Learning Hub</strong>
-          <p style="font-size:.9rem;color:var(--ink-soft);max-width:280px">No. 139, Trademore Avenue, Trademore Estate, off VON Garden Estate, Lugbe, Abuja, Nigeria</p>
-          <a href="https://maps.google.com/?q=139+Trademore+Avenue+Trademore+Estate+Lugbe+Abuja+Nigeria" target="_blank" rel="noopener" class="btn btn-orange btn-sm">Open in Google Maps →</a>
-        </div>
+    <!-- Selar info banner -->
+    <div class="selar-banner reveal">
+      <div class="selar-banner-text">
+        <h3>All purchases are processed securely on Selar</h3>
+        <p>Selar is Nigeria's trusted digital marketplace. Pay with card, bank transfer, or Paystack. Instant delivery for digital products.</p>
+      </div>
+      <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-navy btn-lg" style="white-space:nowrap">
+        Visit Our Selar Store ↗
+      </a>
+    </div>
 
-        <div class="contact-card reveal" style="margin-top:28px">
-          <h3 style="font-family:var(--font-display);font-size:1.4rem;color:var(--navy);margin-bottom:4px">Opening Hours</h3>
-          <p style="font-size:.8rem;color:var(--ink-soft);margin-bottom:16px">Programs run Monday to Saturday</p>
-          <table class="hours-table">
-            <tr><td>Monday – Friday</td><td>8:00 am – 6:00 pm</td></tr>
-            <tr><td>Saturday</td><td>9:00 am – 4:00 pm</td></tr>
-            <tr><td>Sunday</td><td class="closed">Closed</td></tr>
-          </table>
-        </div>
+    <!-- GIFT PACKAGES -->
+    <div id="packages" style="scroll-margin-top:100px">
+      <div class="shop-section-title">
+        <span class="tag tag-orange reveal">🎁 Birthday & Celebration</span>
+        <h2 class="reveal reveal-d1">Gift Packages</h2>
+        <p class="reveal reveal-d2" style="font-size:.95rem;color:var(--ink-soft);max-width:520px;margin:0 auto">Faith-filled birthday surprises for the special children in your life. Ms. Mary handles everything — you just celebrate them.</p>
       </div>
 
-      <!-- Right: Contact details + form -->
-      <div>
-        <div class="contact-card reveal">
-          <h3 style="font-family:var(--font-display);font-size:1.5rem;color:var(--navy);margin-bottom:4px">Contact Details</h3>
-          <p style="font-size:.82rem;color:var(--ink-soft);margin-bottom:8px">Fastest response via WhatsApp</p>
-
-          <div class="contact-item">
-            <div class="contact-item-icon">📍</div>
-            <div>
-              <p class="contact-item-label">Address</p>
-              <p class="contact-item-value">No. 139, Trademore Avenue, Trademore Estate,<br>off VON Garden Estate, Lugbe, Abuja, Nigeria</p>
-            </div>
+      <div class="pkg-row">
+        <!-- Silver -->
+        <article class="pkg-card reveal" style="background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--s-sm);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column">
+          <div style="padding:28px 22px 18px;text-align:center;border-bottom:1px solid var(--border)">
+            <span style="font-size:2.4rem;display:block;margin-bottom:10px">🥈</span>
+            <h3 style="font-family:var(--font-display);font-size:1.6rem;color:var(--navy)">Silver</h3>
+            <p style="font-size:.75rem;color:var(--ink-soft);margin-top:3px">Starter Blessing</p>
           </div>
-
-          <div class="contact-item">
-            <div class="contact-item-icon">📱</div>
-            <div>
-              <p class="contact-item-label">Phone Numbers</p>
-              <p class="contact-item-value"><a href="tel:+2348068600747">08068600747</a><br><a href="tel:+2349015566523">09015566523</a></p>
-            </div>
+          <div style="padding:20px 22px 26px;flex:1;display:flex;flex-direction:column;gap:9px">
+            <div class="product-feat">Personalised birthday prayer</div>
+            <div class="product-feat">Digital affirmation card</div>
+            <div class="product-feat">Scripture for the day</div>
+            <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-outline-navy btn-sm" style="width:100%;justify-content:center;margin-top:auto">Get Silver ↗</a>
           </div>
+        </article>
 
-          <div class="contact-item">
-            <div class="contact-item-icon">💬</div>
-            <div>
-              <p class="contact-item-label">WhatsApp (Fastest Response)</p>
-              <p class="contact-item-value"><a href="https://wa.me/2348068600747" target="_blank" rel="noopener" style="color:var(--orange);font-weight:700">+234 806 860 0747 — Chat Now →</a></p>
-            </div>
+        <!-- Gold — Featured -->
+        <article class="pkg-card pkg-featured reveal reveal-d1" style="background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--s-lg);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;border:3px solid var(--orange);transform:scale(1.03);position:relative">
+          <div style="position:absolute;top:0;left:50%;transform:translateX(-50%) translateY(-1px);background:var(--orange);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 14px;border-radius:0 0 9px 9px">⭐ Most Popular</div>
+          <div style="padding:28px 22px 18px;text-align:center;border-bottom:1px solid var(--border)">
+            <span style="font-size:2.4rem;display:block;margin-bottom:10px">🥇</span>
+            <h3 style="font-family:var(--font-display);font-size:1.6rem;color:var(--navy)">Gold</h3>
+            <p style="font-size:.75rem;color:var(--ink-soft);margin-top:3px">Full Blessing Bundle</p>
           </div>
-
-          <div class="contact-item">
-            <div class="contact-item-icon">✉️</div>
-            <div>
-              <p class="contact-item-label">Email</p>
-              <p class="contact-item-value"><a href="mailto:info@dmarievivre.org">info@dmarievivre.org</a><br><a href="mailto:dmarievivre@gmail.com">dmarievivre@gmail.com</a></p>
-            </div>
+          <div style="padding:20px 22px 26px;flex:1;display:flex;flex-direction:column;gap:9px">
+            <div class="product-feat">Everything in Silver</div>
+            <div class="product-feat">Physical gift pack delivered</div>
+            <div class="product-feat">Printed affirmation pack</div>
+            <div class="product-feat">Prayer video message</div>
+            <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-orange btn-sm" style="width:100%;justify-content:center;margin-top:auto">Get Gold ↗</a>
           </div>
+        </article>
 
-          <div class="contact-item">
-            <div class="contact-item-icon">📸</div>
-            <div>
-              <p class="contact-item-label">Follow Us</p>
-              <p class="contact-item-value"><a href="https://www.instagram.com/dvlearninghub/" target="_blank" rel="noopener">@dvlearninghub</a> on Instagram</p>
-            </div>
+        <!-- Diamond -->
+        <article class="pkg-card reveal reveal-d2" style="background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--s-sm);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column">
+          <div style="padding:28px 22px 18px;text-align:center;border-bottom:1px solid var(--border)">
+            <span style="font-size:2.4rem;display:block;margin-bottom:10px">💎</span>
+            <h3 style="font-family:var(--font-display);font-size:1.6rem;color:var(--navy)">Diamond</h3>
+            <p style="font-size:.75rem;color:var(--ink-soft);margin-top:3px">Premium Experience</p>
           </div>
-        </div>
+          <div style="padding:20px 22px 26px;flex:1;display:flex;flex-direction:column;gap:9px">
+            <div class="product-feat">Everything in Gold</div>
+            <div class="product-feat">Storybook gift</div>
+            <div class="product-feat">Custom devotional booklet</div>
+            <div class="product-feat">Ms. Mary personal note</div>
+            <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-outline-navy btn-sm" style="width:100%;justify-content:center;margin-top:auto">Get Diamond ↗</a>
+          </div>
+        </article>
 
-        <!-- Quick WhatsApp buttons -->
-        <div class="reveal" style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20enrol%20a%20child%20in%20a%20program" target="_blank" rel="noopener" class="btn btn-orange" style="justify-content:center">
-            💬 Enrol a Child
-          </a>
-          <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27m%20interested%20in%20Adult%20Education%20classes" target="_blank" rel="noopener" class="btn btn-outline-navy" style="justify-content:center">
-            🎓 Adult Education
-          </a>
-          <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20your%20consulting%20services" target="_blank" rel="noopener" class="btn btn-outline-navy" style="justify-content:center">
-            🏫 School Consulting
-          </a>
-          <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20order%20a%20gift%20package" target="_blank" rel="noopener" class="btn btn-outline-navy" style="justify-content:center">
-            🎁 Gift Packages
-          </a>
-        </div>
+        <!-- Emerald -->
+        <article class="pkg-card reveal reveal-d3" style="background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--s-sm);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column">
+          <div style="padding:28px 22px 18px;text-align:center;border-bottom:1px solid var(--border)">
+            <span style="font-size:2.4rem;display:block;margin-bottom:10px">💚</span>
+            <h3 style="font-family:var(--font-display);font-size:1.6rem;color:var(--navy)">Emerald</h3>
+            <p style="font-size:.75rem;color:var(--ink-soft);margin-top:3px">Ultimate Celebration</p>
+          </div>
+          <div style="padding:20px 22px 26px;flex:1;display:flex;flex-direction:column;gap:9px">
+            <div class="product-feat">Everything in Diamond</div>
+            <div class="product-feat">Live birthday prayer session</div>
+            <div class="product-feat">Celebration retreat spot</div>
+            <div class="product-feat">Full-year Bible reading plan</div>
+            <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-navy btn-sm" style="width:100%;justify-content:center;margin-top:auto">Get Emerald ↗</a>
+          </div>
+        </article>
       </div>
+
+      <p class="text-center reveal" style="margin-top:22px;font-size:.84rem;color:var(--ink-soft)">
+        Not sure which to pick? <a href="https://wa.me/2348068600747?text=I%20need%20help%20choosing%20a%20gift%20package" target="_blank" rel="noopener" style="color:var(--orange);font-weight:700;text-decoration:underline">Chat with us on WhatsApp</a> and we'll help you choose.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- DIGITAL PRODUCTS -->
+<section id="digital" style="background:#fff;padding:96px 0">
+  <div class="container">
+    <div class="shop-section-title">
+      <span class="tag tag-navy reveal">📦 Digital & Physical Products</span>
+      <h2 class="reveal reveal-d1">Prayer, Devotion & Affirmation</h2>
+      <p class="reveal reveal-d2" style="font-size:.95rem;color:var(--ink-soft);max-width:500px;margin:0 auto">Resources designed to build faith, confidence, and daily spiritual habits in children.</p>
+    </div>
+
+    <div class="product-grid">
+
+      <article class="product-card reveal">
+        <div class="product-img" style="background:var(--orange-pale)">
+          <!--📸 assets/images/shop/prayer-pack.jpg-->
+          <span>🙏</span>
+          <span class="product-badge" style="background:var(--orange);color:#fff">Digital</span>
+        </div>
+        <div class="product-body">
+          <p class="product-cat">KidsPray</p>
+          <h3 class="product-name">Prayer Packs</h3>
+          <p class="product-desc">Structured, age-appropriate prayers for children. Morning prayers, bedtime prayers, scripture prayers, and prayers for school. Build a daily prayer habit from a young age.</p>
+          <div class="product-features">
+            <div class="product-feat">Age-appropriate language</div>
+            <div class="product-feat">Morning, school, bedtime themes</div>
+            <div class="product-feat">Printable format</div>
+          </div>
+          <div class="product-cta"><a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-orange btn-sm" style="width:100%;justify-content:center">Buy on Selar ↗</a></div>
+        </div>
+      </article>
+
+      <article class="product-card reveal reveal-d1">
+        <div class="product-img" style="background:var(--navy-pale)">
+          <!--📸 assets/images/shop/devotional-pack.jpg-->
+          <span>📖</span>
+          <span class="product-badge" style="background:var(--navy);color:#fff">Digital</span>
+        </div>
+        <div class="product-body">
+          <p class="product-cat">Daily Devotional</p>
+          <h3 class="product-name">Devotional Packs</h3>
+          <p class="product-desc">Daily devotionals designed for children — short, engaging, scripture-based, and easy to understand. Build a morning Bible habit that lasts a lifetime.</p>
+          <div class="product-features">
+            <div class="product-feat">Daily reading plan structure</div>
+            <div class="product-feat">Scripture + reflection prompts</div>
+            <div class="product-feat">Child-friendly language</div>
+          </div>
+          <div class="product-cta"><a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-navy btn-sm" style="width:100%;justify-content:center">Buy on Selar ↗</a></div>
+        </div>
+      </article>
+
+      <article class="product-card reveal reveal-d2">
+        <div class="product-img" style="background:var(--yellow-pale)">
+          <!--📸 assets/images/shop/affirmation-pack.jpg-->
+          <span>⭐</span>
+          <span class="product-badge" style="background:var(--yellow);color:var(--ink)">Digital</span>
+        </div>
+        <div class="product-body">
+          <p class="product-cat">Affirmations</p>
+          <h3 class="product-name">Affirmation Packs</h3>
+          <p class="product-desc">Powerful, faith-based affirmations for children. Speak life, identity, and purpose over your child every single day. Printable cards perfect for bedrooms, mirrors, and school bags.</p>
+          <div class="product-features">
+            <div class="product-feat">Identity-building affirmations</div>
+            <div class="product-feat">Scripture-anchored</div>
+            <div class="product-feat">Printable card format</div>
+          </div>
+          <div class="product-cta"><a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-yellow btn-sm" style="width:100%;justify-content:center">Buy on Selar ↗</a></div>
+        </div>
+      </article>
+
+      <article class="product-card reveal">
+        <div class="product-img" style="background:var(--green-pale)">
+          <span>📅</span>
+          <span class="product-badge" style="background:var(--green);color:#fff">Digital</span>
+        </div>
+        <div class="product-body">
+          <p class="product-cat">Bible Reading</p>
+          <h3 class="product-name">Bible Reading Plan — 1st Edition</h3>
+          <p class="product-desc">A structured full-year Bible reading plan designed to guide children through the Word systematically and joyfully. Perfect for families and Sunday school groups.</p>
+          <div class="product-features">
+            <div class="product-feat">Full-year daily reading schedule</div>
+            <div class="product-feat">Child-friendly plan</div>
+            <div class="product-feat">Downloadable PDF</div>
+          </div>
+          <div class="product-cta"><a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-sm" style="background:var(--green);color:#fff;border:none;border-radius:100px;padding:10px 22px;font-weight:700;width:100%;justify-content:center;display:flex">Get the Plan ↗</a></div>
+        </div>
+      </article>
+
+      <article class="product-card reveal reveal-d1">
+        <div class="product-img" style="background:var(--purple-pale)">
+          <span>🆓</span>
+          <span class="product-badge" style="background:var(--purple);color:#fff">Free</span>
+        </div>
+        <div class="product-body">
+          <p class="product-cat">Free Downloads</p>
+          <h3 class="product-name">Free Prayer Downloads</h3>
+          <p class="product-desc">Get started with our free prayer resources — no payment needed. A gift from Ms. Mary to every family who wants to establish prayer in their home.</p>
+          <div class="product-features">
+            <div class="product-feat">Completely free, no sign-up</div>
+            <div class="product-feat">Instant digital download</div>
+            <div class="product-feat">For all ages</div>
+          </div>
+          <div class="product-cta"><a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-sm" style="background:var(--purple);color:#fff;border:none;border-radius:100px;padding:10px 22px;font-weight:700;width:100%;justify-content:center;display:flex">Download Free ↗</a></div>
+        </div>
+      </article>
+
+      <article class="product-card reveal reveal-d2">
+        <div class="product-img" style="background:var(--orange-pale)">
+          <img src="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye-2.jpg" alt="The Monkey With One Hand book" loading="lazy"/>
+          <span class="product-badge" style="background:var(--orange);color:#fff">Book</span>
+        </div>
+        <div class="product-body">
+          <p class="product-cat">Children's Book</p>
+          <h3 class="product-name">The Monkey With One Hand</h3>
+          <p class="product-desc">A moral children's story about boundaries, consequences, and the love of those who protect us. 44 pages. Ages 2–16. By Fortune Okunloye.</p>
+          <div class="product-features">
+            <div class="product-feat">Ages 2–16, 44 pages</div>
+            <div class="product-feat">Teaches boundaries & consequences</div>
+            <div class="product-feat">ISBN: 978-9787738160</div>
+          </div>
+          <div class="product-cta" style="display:flex;gap:8px;flex-wrap:wrap">
+            <a href="https://selar.co/t8355l" target="_blank" rel="noopener" class="btn btn-orange btn-sm" style="flex:1;justify-content:center">Buy ↗</a>
+            <a href="book.html" class="btn btn-outline-navy btn-sm" style="flex:1;justify-content:center">Details</a>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
 
-<!-- HOW TO FIND US -->
-<section style="background:#fff;padding:80px 0">
+<!-- WHY SHOP WITH US -->
+<section style="background:var(--navy);padding:80px 0">
   <div class="container">
     <div style="text-align:center;margin-bottom:48px">
-      <span class="tag tag-orange reveal">How to Find Us</span>
-      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">Getting to the Hub</h2>
+      <h2 class="d-lg text-white reveal">Why shop with<br><em style="color:var(--orange);font-style:italic">D'Marie Vivre?</em></h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px" class="reveal">
-      <div style="background:var(--cream);border-radius:var(--r-lg);padding:28px;text-align:center">
-        <span style="font-size:2.5rem;display:block;margin-bottom:12px">🚗</span>
-        <h3 style="font-family:var(--font-display);font-size:1.2rem;color:var(--navy);margin-bottom:8px">By Car</h3>
-        <p style="font-size:.85rem;color:var(--ink-soft);line-height:1.65">From Lugbe-Airport Road, enter Trademore Estate via VON Garden Estate. We're at No. 139, Trademore Avenue, Phase 2.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px" class="reveal">
+      <div style="text-align:center;padding:24px">
+        <span style="font-size:2.5rem;display:block;margin-bottom:12px">🔒</span>
+        <h3 style="font-family:var(--font-display);font-size:1.1rem;color:#fff;margin-bottom:8px">Secure Checkout</h3>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.65">All transactions via Selar — Nigeria's trusted digital marketplace. Card, bank transfer, USSD.</p>
       </div>
-      <div style="background:var(--cream);border-radius:var(--r-lg);padding:28px;text-align:center">
-        <span style="font-size:2.5rem;display:block;margin-bottom:12px">📱</span>
-        <h3 style="font-family:var(--font-display);font-size:1.2rem;color:var(--navy);margin-bottom:8px">WhatsApp First</h3>
-        <p style="font-size:.85rem;color:var(--ink-soft);line-height:1.65">Not sure how to find us? WhatsApp us at 08068600747 and we'll send you directions or a location pin directly.</p>
+      <div style="text-align:center;padding:24px">
+        <span style="font-size:2.5rem;display:block;margin-bottom:12px">⚡</span>
+        <h3 style="font-family:var(--font-display);font-size:1.1rem;color:#fff;margin-bottom:8px">Instant Delivery</h3>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.65">Digital products delivered instantly to your inbox after payment. No waiting.</p>
       </div>
-      <div style="background:var(--cream);border-radius:var(--r-lg);padding:28px;text-align:center">
-        <span style="font-size:2.5rem;display:block;margin-bottom:12px">📍</span>
-        <h3 style="font-family:var(--font-display);font-size:1.2rem;color:var(--navy);margin-bottom:8px">Google Maps</h3>
-        <p style="font-size:.85rem;color:var(--ink-soft);line-height:1.65">Search "D'Marie Vivre Learning Hub Lugbe" on Google Maps, or click the button below for direct directions.</p>
-        <a href="https://maps.google.com/?q=139+Trademore+Avenue+Lugbe+Abuja" target="_blank" rel="noopener" class="btn btn-orange btn-sm" style="margin-top:14px">Open Maps</a>
+      <div style="text-align:center;padding:24px">
+        <span style="font-size:2.5rem;display:block;margin-bottom:12px">🙏</span>
+        <h3 style="font-family:var(--font-display);font-size:1.1rem;color:#fff;margin-bottom:8px">Faith-Grounded</h3>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.65">Every product is created with prayer, purpose, and a sincere desire to bless your child and family.</p>
+      </div>
+      <div style="text-align:center;padding:24px">
+        <span style="font-size:2.5rem;display:block;margin-bottom:12px">💬</span>
+        <h3 style="font-family:var(--font-display);font-size:1.1rem;color:#fff;margin-bottom:8px">Personal Support</h3>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.65">Questions? WhatsApp us directly. Ms. Mary and the team respond promptly, Monday to Saturday.</p>
       </div>
     </div>
   </div>
@@ -180,20 +333,20 @@
 
 <section class="cta-section">
   <div class="cta-inner">
-    <h2 class="cta-headline reveal">Ready to visit?</h2>
-    <p class="cta-sub reveal reveal-d1">Send us a WhatsApp before you come — we'll make sure someone is ready to welcome you.</p>
+    <h2 class="cta-headline reveal">Need help choosing?</h2>
+    <p class="cta-sub reveal reveal-d1">Not sure which product is right for your family? Send us a WhatsApp — we'll point you in the right direction.</p>
     <div class="reveal reveal-d2">
-      <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20visit%20the%20D%27Marie%20Vivre%20hub" target="_blank" rel="noopener" class="wa-btn">
+      <a href="https://wa.me/2348068600747?text=Hello%2C%20I%20need%20help%20choosing%20a%20product%20from%20your%20shop" target="_blank" rel="noopener" class="wa-btn">
         <svg viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp Us
+        Chat With Us on WhatsApp
       </a>
       <p class="cta-sub-note">08068600747 · 09015566523</p>
     </div>
   </div>
 </section>
 
-<footer class="footer"><div class="container"><div class="footer-grid"><div class="f-brand"><img src="assets/images/logo/logo.jpg" alt="Logo" style="height:48px;width:auto;border-radius:10px;margin-bottom:12px"/><div class="f-brand-name">D'Marie Vivre</div><span class="f-brand-tag">Learning Hub · Learn. Grow. Thrive.</span><p>Holistic education for children and adults. Lugbe, Abuja.</p></div><div class="f-col"><h4>Programs</h4><ul><li><a href="learning-hub.html#afterschool">After-School</a></li><li><a href="learning-hub.html#reading-club">Reading Club</a></li><li><a href="learning-hub.html#write-well">Creative Writing</a></li><li><a href="learning-hub.html#arts-crafts">Arts & Crafts</a></li><li><a href="learning-hub.html#tech-club">Tech Club</a></li><li><a href="learning-hub.html#adult">Adult Education</a></li></ul></div><div class="f-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="shop.html">Shop</a></li><li><a href="kidspray.html">KidsPray</a></li><li><a href="resources.html">Free Resources</a></li></ul></div><div class="f-col"><h4>Contact</h4><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 15a19.79 19.79 0 01-3.07-8.67A2 2 0 013.88 4.26h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6z"/></svg><div><a href="tel:+2348068600747">08068600747</a><br/><a href="tel:+2349015566523">09015566523</a></div></div><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>139 Trademore Ave, Lugbe, Abuja</span></div></div></div><div class="footer-bottom"><p>© 2025 D'Marie Vivre Learning Hub. All rights reserved.</p><p><a href="index.html">Home</a> · <a href="learning-hub.html">Programs</a> · <a href="shop.html">Shop</a></p></div></div></footer>
+<footer class="footer"><div class="container"><div class="footer-grid"><div class="f-brand"><img src="assets/images/logo/logo.jpg" alt="Logo" style="height:48px;width:auto;border-radius:10px;margin-bottom:12px"/><div class="f-brand-name">D'Marie Vivre</div><span class="f-brand-tag">Learning Hub · Learn. Grow. Thrive.</span><p>Holistic education for children and adults. Lugbe, Abuja.</p></div><div class="f-col"><h4>Shop</h4><ul><li><a href="#packages">Gift Packages</a></li><li><a href="#digital">Prayer Packs</a></li><li><a href="#digital">Devotionals</a></li><li><a href="#digital">Affirmations</a></li><li><a href="book.html">The Book</a></li><li><a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener">Selar Store ↗</a></li></ul></div><div class="f-col"><h4>Programs</h4><ul><li><a href="learning-hub.html#afterschool">After-School</a></li><li><a href="learning-hub.html#reading-club">Reading Club</a></li><li><a href="learning-hub.html#arts-crafts">Arts & Crafts</a></li><li><a href="learning-hub.html#tech-club">Tech Club</a></li><li><a href="learning-hub.html#adult">Adult Education</a></li></ul></div><div class="f-col"><h4>Contact</h4><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 15a19.79 19.79 0 01-3.07-8.67A2 2 0 013.88 4.26h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6z"/></svg><div><a href="tel:+2348068600747">08068600747</a><br/><a href="tel:+2349015566523">09015566523</a></div></div><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>139 Trademore Ave, Lugbe, Abuja</span></div></div></div><div class="footer-bottom"><p>© 2025 D'Marie Vivre Learning Hub. All rights reserved.</p><p><a href="index.html">Home</a> · <a href="learning-hub.html">Programs</a> · <a href="contact.html">Contact</a></p></div></div></footer>
 <a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="float-wa"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 <script src="assets/js/main.js"></script>
-</body></html>
-
+</body>
+</html>
