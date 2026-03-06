@@ -1,6 +1,6 @@
 # D'Marie Vivre Learning Hub — Website
 
-**Live URL (once deployed):** `https://[yourusername].github.io/dmarievivre/`
+**Live URL (once deployed):** `https://isaacfib.github.io/dmarievivre/`
 **Production domain:** `https://dmarievivre.org`
 
 > *"Learn. Grow. Thrive."*
