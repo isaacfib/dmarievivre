@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="D'Marie Vivre Learning Hub programs — After-school, Reading Club, Creative Writing, Arts & Crafts, Saturday Tech Club, Adult Education, Special Needs. Lugbe, Abuja."/>
+  <title>Our Programs | D'Marie Vivre Learning Hub — Abuja</title>
+  <link rel="icon" type="image/jpeg" href="assets/images/logo/logo.jpg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <style>
+    /* Page-specific styles */
+    .page-hero{background:var(--navy);padding:140px 0 80px;position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,125,30,.12) 0%,transparent 60%);pointer-events:none}
+    .page-hero::after{content:'📚';position:absolute;right:-20px;bottom:-40px;font-size:280px;opacity:.05;pointer-events:none;user-select:none}
+    .page-hero-content{position:relative;z-index:1}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:20px;letter-spacing:.04em}
+    .breadcrumb a{color:rgba(255,255,255,.5);transition:color var(--t-fast)}
+    .breadcrumb a:hover{color:var(--orange)}
+    .breadcrumb span{color:rgba(255,255,255,.3)}
+
+    /* Program anchors padding for fixed nav */
+    .prog-anchor{scroll-margin-top:100px}
+
+    /* Full program detail cards */
+    .prog-detail{background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--s-sm);margin-bottom:32px}
+    .prog-detail-inner{display:grid;grid-template-columns:1fr 1.1fr;min-height:420px}
+    .prog-detail-inner.flip{grid-template-columns:1.1fr 1fr}
+    .prog-detail-inner.flip .prog-detail-img{order:2}
+    .prog-detail-inner.flip .prog-detail-body{order:1}
+    .prog-detail-img{position:relative;overflow:hidden}
+    .prog-detail-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+    .prog-detail:hover .prog-detail-img img{transform:scale(1.04)}
+    .prog-detail-body{padding:44px 48px;display:flex;flex-direction:column;justify-content:center}
+    .prog-icon-badge{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:18px;flex-shrink:0}
+    .prog-detail-cat{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
+    .prog-detail-name{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400;color:var(--navy);line-height:1.1;margin-bottom:14px}
+    .prog-detail-desc{font-size:.95rem;color:var(--ink-soft);line-height:1.8;margin-bottom:20px}
+    .prog-includes{margin-bottom:24px}
+    .prog-includes-title{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:12px}
+    .prog-include-list{display:flex;flex-direction:column;gap:8px}
+    .prog-include-item{display:flex;align-items:flex-start;gap:10px;font-size:.88rem;color:var(--ink-soft);line-height:1.5}
+    .prog-check-dot{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:700;flex-shrink:0;margin-top:1px}
+    .prog-meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+    .prog-meta-chip{display:flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;padding:6px 13px;border-radius:100px;background:var(--light-grey);color:var(--ink-soft)}
+    .prog-ctas{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+
+    /* Accent colours per program */
+    .acc-o .prog-detail-cat{color:var(--orange-deep)} .acc-o .prog-icon-badge{background:var(--orange-pale)} .acc-o .prog-check-dot{background:var(--orange-pale);color:var(--orange-deep)} .acc-o .prog-detail{border-top:4px solid var(--orange)}
+    .acc-n .prog-detail-cat{color:var(--navy)} .acc-n .prog-icon-badge{background:var(--navy-pale)} .acc-n .prog-check-dot{background:var(--navy-pale);color:var(--navy)} .acc-n .prog-detail{border-top:4px solid var(--navy)}
+    .acc-y .prog-detail-cat{color:#B87800} .acc-y .prog-icon-badge{background:var(--yellow-pale)} .acc-y .prog-check-dot{background:var(--yellow-pale);color:#B87800} .acc-y .prog-detail{border-top:4px solid var(--yellow)}
+    .acc-p .prog-detail-cat{color:#5B1FBF} .acc-p .prog-icon-badge{background:var(--purple-pale)} .acc-p .prog-check-dot{background:var(--purple-pale);color:#5B1FBF} .acc-p .prog-detail{border-top:4px solid var(--purple)}
+    .acc-g .prog-detail-cat{color:#1A7A4C} .acc-g .prog-icon-badge{background:var(--green-pale)} .acc-g .prog-check-dot{background:var(--green-pale);color:#1A7A4C} .acc-g .prog-detail{border-top:4px solid var(--green)}
+    .acc-r .prog-detail-cat{color:var(--red)} .acc-r .prog-icon-badge{background:#FDE8E0} .acc-r .prog-check-dot{background:#FDE8E0;color:var(--red)} .acc-r .prog-detail{border-top:4px solid var(--red)}
+
+    /* Quick-nav pills */
+    .prog-quicknav{position:sticky;top:70px;z-index:100;background:rgba(255,248,242,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 0}
+    .prog-quicknav-inner{max-width:1240px;margin:0 auto;padding:0 28px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .prog-quicknav-btn{font-size:.72rem;font-weight:700;letter-spacing:.04em;padding:7px 16px;border-radius:100px;background:var(--light-grey);color:var(--ink-mid);transition:all var(--t-fast) var(--ease);cursor:pointer;border:none;white-space:nowrap}
+    .prog-quicknav-btn:hover,.prog-quicknav-btn.active{background:var(--orange);color:#fff}
+
+    @media(max-width:900px){
+      .prog-detail-inner,.prog-detail-inner.flip{grid-template-columns:1fr}
+      .prog-detail-inner.flip .prog-detail-img,.prog-detail-inner.flip .prog-detail-body{order:unset}
+      .prog-detail-img{min-height:240px}
+      .prog-detail-body{padding:30px 28px}
+    }
+    @media(max-width:600px){.prog-detail-body{padding:24px 20px}}
+  </style>
+</head>
+<body>
+
+<div class="ann-bar" id="annBar">
+  🎉 &nbsp;<strong>20% OFF</strong> all products — <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener">Shop on Selar →</a>
+  <button class="ann-close" id="annClose" aria-label="Dismiss">✕</button>
+</div>
+
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logo/logo.jpg" alt="D'Marie Vivre Learning Hub" class="nav-logo-img"/>
+      <div><span class="nav-wordmark">D'Marie Vivre</span><span class="nav-tagline-mini">Learning Hub</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="learning-hub.html" style="color:var(--orange)">Programs</a>
+      <a href="learning-hub.html#adult">Adult Ed</a>
+      <a href="kidspray.html">KidsPray</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-orange btn-sm">Enrol Today</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <a href="index.html">Home</a>
+  <a href="learning-hub.html">Programs</a>
+  <a href="learning-hub.html#adult">Adult Education</a>
+  <a href="kidspray.html">KidsPray</a>
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container page-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span>/</span><span style="color:rgba(255,255,255,.8)">Programs</span>
+    </div>
+    <span class="tag tag-orange reveal">All Programs</span>
+    <h1 class="d-xl text-white reveal reveal-d1" style="max-width:700px;margin-bottom:18px">
+      Programs built for
+      <em style="font-style:italic;color:var(--orange)">real results</em>
+    </h1>
+    <p class="body-lg reveal reveal-d2" style="color:rgba(255,255,255,.68);max-width:580px;margin-bottom:32px">
+      From after-school care to adult literacy — we have a program for every learner.
+      Physical hub in Lugbe, Abuja. Mon–Sat. Online options available.
+    </p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap" class="reveal reveal-d3">
+      <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20enrol%20in%20a%20program" target="_blank" rel="noopener" class="btn btn-orange btn-lg">Enrol via WhatsApp</a>
+      <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-outline-white btn-lg">Shop Programs</a>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY QUICK NAV -->
+<div class="prog-quicknav" role="navigation" aria-label="Jump to program">
+  <div class="prog-quicknav-inner">
+    <span style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-right:4px">Jump to:</span>
+    <button class="prog-quicknav-btn" onclick="document.getElementById('afterschool').scrollIntoView({behavior:'smooth',block:'start'})">After-School</button>
+    <button class="prog-quicknav-btn" onclick="document.getElementById('reading-club').scrollIntoView({behavior:'smooth',block:'start'})">Reading Club</button>
+    <button class="prog-quicknav-btn" onclick="document.getElementById('write-well').scrollIntoView({behavior:'smooth',block:'start'})">Creative Writing</button>
+    <button class="prog-quicknav-btn" onclick="document.getElementById('arts-crafts').scrollIntoView({behavior:'smooth',block:'start'})">Arts & Crafts</button>
+    <button class="prog-quicknav-btn" onclick="document.getElementById('tech-club').scrollIntoView({behavior:'smooth',block:'start'})">Tech Club</button>
+    <button class="prog-quicknav-btn" onclick="document.getElementById('special-needs').scrollIntoView({behavior:'smooth',block:'start'})">Special Needs</button>
+    <button class="prog-quicknav-btn" onclick="document.getElementById('adult').scrollIntoView({behavior:'smooth',block:'start'})" style="background:var(--orange);color:#fff">Adult Education ✨</button>
+  </div>
+</div>
+
+<!-- PROGRAMS -->
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+
+    <!-- 1. AFTER-SCHOOL -->
+    <div id="afterschool" class="prog-anchor acc-o reveal">
+      <div class="prog-detail">
+        <div class="prog-detail-inner">
+          <div class="prog-detail-img">
+            <img src="assets/images/programs/afterschool.jpg" alt="D'Marie Vivre After-School Service" loading="lazy"/>
+          </div>
+          <div class="prog-detail-body">
+            <div class="prog-icon-badge">🏫</div>
+            <p class="prog-detail-cat">After-School · Physical Hub · Mon–Sat</p>
+            <h2 class="prog-detail-name">After-School Service</h2>
+            <p class="prog-detail-desc">A safe, fun, and engaging space for kids after school. We keep children supervised and thriving — giving parents genuine peace of mind until pick-up time.</p>
+            <div class="prog-meta-row">
+              <span class="prog-meta-chip">📍 139 Trademore Ave, Lugbe</span>
+              <span class="prog-meta-chip">⏰ Mon–Fri after school hours</span>
+              <span class="prog-meta-chip">👶 All school ages</span>
+              <span class="prog-meta-chip">🚗 Flexible pick-up</span>
+            </div>
+            <div class="prog-includes">
+              <p class="prog-includes-title">What's included</p>
+              <div class="prog-include-list">
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span><strong>Homework Help</strong> — Supervised homework time with qualified educators</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span><strong>Reading & Literacy</strong> — Daily reading practice to build confidence</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span><strong>Arts & Crafts</strong> — Creative activities that develop fine motor skills</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span><strong>Games & Sports</strong> — Healthy physical activity and social development</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span><strong>Creative/STEM Projects</strong> — Age-appropriate STEM exploration</span></div>
+              </div>
+            </div>
+            <div class="prog-ctas">
+              <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20enrol%20my%20child%20in%20the%20After-School%20program" target="_blank" rel="noopener" class="btn btn-orange">Enrol Now</a>
+              <a href="contact.html" class="btn btn-outline-navy">Visit the Hub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. READING CLUB -->
+    <div id="reading-club" class="prog-anchor acc-n reveal">
+      <div class="prog-detail">
+        <div class="prog-detail-inner flip">
+          <div class="prog-detail-img">
+            <img src="assets/images/programs/reading-club.jpg" alt="D'Marie Vivre Reading Club — Where Young Minds Meet Big Stories" loading="lazy"/>
+          </div>
+          <div class="prog-detail-body">
+            <div class="prog-icon-badge">📖</div>
+            <p class="prog-detail-cat">Reading Club · Physical + Online · Monthly</p>
+            <h2 class="prog-detail-name">Reading Club</h2>
+            <p class="prog-detail-desc">"Where Young Minds Meet Big Stories." Children explore exciting books, role-play characters, and discover that reading is one of the greatest adventures of all.</p>
+            <div class="prog-meta-row">
+              <span class="prog-meta-chip">📍 Physical hub + online</span>
+              <span class="prog-meta-chip">📚 Monthly themed sessions</span>
+              <span class="prog-meta-chip">👧 All reading levels</span>
+            </div>
+            <div class="prog-includes">
+              <p class="prog-includes-title">What children experience</p>
+              <div class="prog-include-list">
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Exciting curated book selections each session</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Character role-play and storytelling activities</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Reading comprehension and discussion circles</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Building a lifelong love of books and reading</span></div>
+              </div>
+            </div>
+            <div class="prog-ctas">
+              <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20join%20the%20Reading%20Club" target="_blank" rel="noopener" class="btn btn-navy">Join the Reading Circle</a>
+              <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-outline-navy">Register on Selar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. CREATIVE WRITING -->
+    <div id="write-well" class="prog-anchor acc-o reveal">
+      <div class="prog-detail">
+        <div class="prog-detail-inner">
+          <div class="prog-detail-img" style="background:var(--orange-pale);display:flex;align-items:center;justify-content:center;min-height:380px">
+            <!--📸 IMAGE NEEDED: assets/images/programs/creative-writing.jpg — child writing, 16:9-->
+            <div style="text-align:center;padding:40px">
+              <span style="font-size:5rem">✍️</span>
+              <p style="font-family:var(--font-display);font-size:2rem;color:var(--navy);margin-top:16px">Write Well</p>
+              <p style="font-size:.9rem;color:var(--ink-soft);margin-top:8px">Creative Writing Club</p>
+            </div>
+          </div>
+          <div class="prog-detail-body">
+            <div class="prog-icon-badge">✍️</div>
+            <p class="prog-detail-cat">Creative Writing · Online · Weekends</p>
+            <h2 class="prog-detail-name">Creative Writing Club</h2>
+            <p class="prog-detail-desc">Remedial and creative writing sessions held online every weekend. Children develop their voice, build vocabulary, gain confidence in expressing themselves, and even develop useful tech skills in the process.</p>
+            <div class="prog-meta-row">
+              <span class="prog-meta-chip">💻 Online (Zoom)</span>
+              <span class="prog-meta-chip">⏰ Sat 10am–12pm</span>
+              <span class="prog-meta-chip">⏰ Sat 4–6pm</span>
+              <span class="prog-meta-chip">⏰ Sun 4–6pm</span>
+            </div>
+            <div class="prog-includes">
+              <p class="prog-includes-title">Skills children develop</p>
+              <div class="prog-include-list">
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Creative storytelling and narrative writing</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Vocabulary building and sentence construction</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Confidence to express ideas clearly and boldly</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Basic digital literacy through online sessions</span></div>
+              </div>
+            </div>
+            <div class="prog-ctas">
+              <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-orange">Register on Selar</a>
+              <a href="https://wa.me/2348068600747?text=I%27d%20like%20to%20register%20for%20the%20Creative%20Writing%20Club" target="_blank" rel="noopener" class="btn btn-outline-navy">WhatsApp to Register</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. ARTS & CRAFTS -->
+    <div id="arts-crafts" class="prog-anchor acc-y reveal">
+      <div class="prog-detail">
+        <div class="prog-detail-inner flip">
+          <div class="prog-detail-img">
+            <img src="assets/images/programs/arts-crafts.jpg" alt="D'Marie Vivre Arts & Crafts Club" loading="lazy"/>
+          </div>
+          <div class="prog-detail-body">
+            <div class="prog-icon-badge">🎨</div>
+            <p class="prog-detail-cat">Arts & Crafts · Physical Hub · Ongoing</p>
+            <h2 class="prog-detail-name">Arts & Crafts Club</h2>
+            <p class="prog-detail-desc">Unleash your child's creativity! A joyful space where children paint, draw, sculpt, and express themselves freely. Builds imagination, confidence, and important social skills through every brushstroke.</p>
+            <div class="prog-meta-row">
+              <span class="prog-meta-chip">📍 Physical hub, Lugbe</span>
+              <span class="prog-meta-chip">👧 All ages welcome</span>
+              <span class="prog-meta-chip">🎨 All materials provided</span>
+            </div>
+            <div class="prog-includes">
+              <p class="prog-includes-title">What children do</p>
+              <div class="prog-include-list">
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Painting, drawing, and mixed media art projects</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Crafts that develop fine motor skills and patience</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Creative expression that builds self-confidence</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Collaborative projects that strengthen social bonds</span></div>
+              </div>
+            </div>
+            <div class="prog-ctas">
+              <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-yellow">Register Now</a>
+              <a href="https://wa.me/2348068600747?text=I%27d%20like%20to%20register%20for%20the%20Arts%20and%20Crafts%20Club" target="_blank" rel="noopener" class="btn btn-outline-navy">Chat With Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. SATURDAY TECH CLUB -->
+    <div id="tech-club" class="prog-anchor acc-p reveal">
+      <div class="prog-detail">
+        <div class="prog-detail-inner">
+          <div class="prog-detail-img">
+            <img src="assets/images/programs/tech-club.jpg" alt="D'Marie Vivre Saturday Tech Club — Every Child is a Digital Creator" loading="lazy"/>
+          </div>
+          <div class="prog-detail-body">
+            <div class="prog-icon-badge">💻</div>
+            <p class="prog-detail-cat">Technology · Saturday Club · Physical Hub</p>
+            <h2 class="prog-detail-name">Saturday Tech Club</h2>
+            <p class="prog-detail-desc">"Every child is a digital creator!" Our Saturday Tech Club gives children the digital edge they need in today's world — from essential computer skills to basic design, all in a fun, hands-on environment.</p>
+            <div class="prog-meta-row">
+              <span class="prog-meta-chip">📅 Every Saturday</span>
+              <span class="prog-meta-chip">📍 Physical hub, Lugbe</span>
+              <span class="prog-meta-chip">💻 Computers provided</span>
+            </div>
+            <div class="prog-includes">
+              <p class="prog-includes-title">Digital skills covered</p>
+              <div class="prog-include-list">
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Essential computer skills — navigating, files, folders</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Typing and keyboard confidence</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Safe internet use and online awareness</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>MS Office tools — Word, PowerPoint basics</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Basic design — creating slides and posters</span></div>
+              </div>
+            </div>
+            <div class="prog-ctas">
+              <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-sm" style="background:var(--purple);color:#fff;border:2px solid var(--purple);border-radius:100px;padding:13px 28px;font-size:.82rem;font-weight:700;display:inline-flex;gap:7px;transition:all .3s">Sign Up on Selar</a>
+              <a href="https://wa.me/2348068600747?text=I%27d%20like%20to%20sign%20up%20for%20the%20Saturday%20Tech%20Club" target="_blank" rel="noopener" class="btn btn-outline-navy">WhatsApp to Enrol</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. SPECIAL NEEDS -->
+    <div id="special-needs" class="prog-anchor acc-g reveal">
+      <div class="prog-detail">
+        <div class="prog-detail-inner flip">
+          <div class="prog-detail-img" style="background:var(--green-pale);display:flex;align-items:center;justify-content:center;min-height:380px">
+            <!--📸 IMAGE NEEDED: assets/images/programs/special-needs.jpg-->
+            <div style="text-align:center;padding:40px">
+              <span style="font-size:5rem">🤝</span>
+              <p style="font-family:var(--font-display);font-size:1.8rem;color:var(--navy);margin-top:16px">Every Learner Counts</p>
+              <p style="font-size:.9rem;color:var(--ink-soft);margin-top:8px">Patient · Personalised · Inclusive</p>
+            </div>
+          </div>
+          <div class="prog-detail-body">
+            <div class="prog-icon-badge">🤝</div>
+            <p class="prog-detail-cat">Inclusive Education · Personalised · By Arrangement</p>
+            <h2 class="prog-detail-name">Special Needs Education</h2>
+            <p class="prog-detail-desc">Specialised, patient, and deeply personalised support for children with unique learning needs. We believe firmly that every learner can thrive with the right approach, the right environment, and the right educator.</p>
+            <div class="prog-meta-row">
+              <span class="prog-meta-chip">📍 Physical hub, Lugbe</span>
+              <span class="prog-meta-chip">👁️ Individual assessment</span>
+              <span class="prog-meta-chip">📋 Personalised plan</span>
+              <span class="prog-meta-chip">🤗 Patient educators</span>
+            </div>
+            <div class="prog-includes">
+              <p class="prog-includes-title">Our approach</p>
+              <div class="prog-include-list">
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Individual learning assessment before programme starts</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Customised, flexible curriculum built around the learner</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Skilled, patient educators trained in inclusive learning</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Regular parent updates and involvement</span></div>
+              </div>
+            </div>
+            <div class="prog-ctas">
+              <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Special%20Needs%20Education" target="_blank" rel="noopener" class="btn btn-sm" style="background:var(--green);color:#fff;border:2px solid var(--green);border-radius:100px;padding:13px 28px;font-weight:700;display:inline-flex;gap:7px;transition:all .3s">Enquire Now</a>
+              <a href="contact.html" class="btn btn-outline-navy">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ADULT EDUCATION — FULL SECTION -->
+<section id="adult" class="prog-anchor" style="background:var(--navy);padding:96px 0;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,125,30,.12) 0%,transparent 60%);pointer-events:none"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div style="text-align:center;margin-bottom:56px">
+      <span class="tag reveal" style="background:rgba(255,125,30,.2);color:var(--orange-light)">✨ Brand New · 2025</span>
+      <h2 class="d-xl text-white reveal reveal-d1" style="margin-bottom:16px">
+        Adult <em style="color:var(--orange);font-style:italic">Education</em>
+      </h2>
+      <p class="body-lg reveal reveal-d2" style="color:rgba(255,255,255,.68);max-width:560px;margin:0 auto">
+        "It's Never Too Late to Learn the Basics." Beginner-friendly adult classes in a welcoming, judgement-free environment.
+      </p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:40px" class="reveal">
+      <div style="background:rgba(255,255,255,.06);border-radius:var(--r-xl);padding:36px;border:1px solid rgba(255,255,255,.1)">
+        <div class="adult-ed-skill-dot" style="margin-bottom:16px">📖</div>
+        <h3 style="font-family:var(--font-display);font-size:1.5rem;color:#fff;margin-bottom:10px">Reading</h3>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.7">Learn to read with confidence — from letters and sounds to full sentences and paragraphs. Patient, step-by-step guidance at your own pace.</p>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border-radius:var(--r-xl);padding:36px;border:1px solid rgba(255,255,255,.1)">
+        <div class="adult-ed-skill-dot" style="margin-bottom:16px">✍️</div>
+        <h3 style="font-family:var(--font-display);font-size:1.5rem;color:#fff;margin-bottom:10px">Writing</h3>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.7">From handwriting basics to composing short messages and letters. Build the skills to communicate clearly and with confidence.</p>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border-radius:var(--r-xl);padding:36px;border:1px solid rgba(255,255,255,.1)">
+        <div class="adult-ed-skill-dot" style="margin-bottom:16px">🔢</div>
+        <h3 style="font-family:var(--font-display);font-size:1.5rem;color:#fff;margin-bottom:10px">Simple Maths</h3>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.7">Numbers, counting, addition, subtraction — the everyday maths that makes life easier. Taught practically and clearly.</p>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border-radius:var(--r-xl);padding:36px;border:1px solid rgba(255,255,255,.1)">
+        <div class="adult-ed-skill-dot" style="margin-bottom:16px">🗣️</div>
+        <h3 style="font-family:var(--font-display);font-size:1.5rem;color:#fff;margin-bottom:10px">Everyday English</h3>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.7">Speak and understand English for daily situations — work, shopping, healthcare, and more. Build confidence in every conversation.</p>
+      </div>
+    </div>
+    <div style="text-align:center" class="reveal reveal-d2">
+      <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27m%20interested%20in%20Adult%20Education%20classes" target="_blank" rel="noopener" class="btn btn-orange btn-xl">
+        Start Your Journey Today
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:18px;height:18px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <p style="margin-top:16px;font-size:.82rem;color:rgba(255,255,255,.45)">Call us: 08068600747 · 09015566523 · No judgement, only encouragement.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION CONSULTING -->
+<section style="background:var(--off-white);padding:80px 0">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px">
+      <span class="tag tag-navy reveal">Additional Services</span>
+      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">
+        We also work with
+        <em style="font-style:italic;color:var(--orange)"> schools & teachers</em>
+      </h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px" class="reveal">
+      <div style="background:#fff;border-radius:var(--r-lg);padding:28px;box-shadow:var(--s-xs);border-top:3px solid var(--orange)">
+        <span style="font-size:2rem;display:block;margin-bottom:14px">🏫</span>
+        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--navy);margin-bottom:10px">School Start-up Consulting</h3>
+        <p style="font-size:.85rem;color:var(--ink-soft);line-height:1.7">Planning to start a school? We guide you through curriculum design, staffing structure, and operational setup.</p>
+      </div>
+      <div style="background:#fff;border-radius:var(--r-lg);padding:28px;box-shadow:var(--s-xs);border-top:3px solid var(--navy)">
+        <span style="font-size:2rem;display:block;margin-bottom:14px">📋</span>
+        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--navy);margin-bottom:10px">Curriculum Development</h3>
+        <p style="font-size:.85rem;color:var(--ink-soft);line-height:1.7">We create tailored, activity-based curricula with detailed illustrations for schools and individual programs.</p>
+      </div>
+      <div style="background:#fff;border-radius:var(--r-lg);padding:28px;box-shadow:var(--s-xs);border-top:3px solid var(--yellow)">
+        <span style="font-size:2rem;display:block;margin-bottom:14px">👩‍🏫</span>
+        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--navy);margin-bottom:10px">Teacher Training</h3>
+        <p style="font-size:.85rem;color:var(--ink-soft);line-height:1.7">Practical, proven training for teachers on effective, engaging, and inclusive teaching methods.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px" class="reveal reveal-d2">
+      <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20your%20consulting%20services" target="_blank" rel="noopener" class="btn btn-navy">Enquire About Consulting</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 class="cta-headline reveal">Ready to get started?</h2>
+    <p class="cta-sub reveal reveal-d1">WhatsApp us to enrol, ask questions, or book a visit to the hub. We're here Monday to Saturday.</p>
+    <div class="reveal reveal-d2">
+      <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20programs" target="_blank" rel="noopener" class="wa-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat With Us on WhatsApp
+      </a>
+      <p class="cta-sub-note">08068600747 · 09015566523 · <a href="mailto:info@dmarievivre.org">info@dmarievivre.org</a></p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-brand">
+        <img src="assets/images/logo/logo.jpg" alt="Logo" style="height:48px;width:auto;border-radius:10px;margin-bottom:12px"/>
+        <div class="f-brand-name">D'Marie Vivre</div>
+        <span class="f-brand-tag">Learning Hub · Learn. Grow. Thrive.</span>
+        <p>Holistic education for children and adults in Lugbe, Abuja, Nigeria.</p>
+        <div class="f-socials">
+          <a href="https://www.instagram.com/dvlearninghub/" target="_blank" rel="noopener" class="f-soc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg></a>
+          <a href="https://www.youtube.com/@kidspraywithmsmary2218" target="_blank" rel="noopener" class="f-soc" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
+          <a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="f-soc" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        </div>
+      </div>
+      <div class="f-col"><h4>Programs</h4><ul><li><a href="#afterschool">After-School</a></li><li><a href="#reading-club">Reading Club</a></li><li><a href="#write-well">Creative Writing</a></li><li><a href="#arts-crafts">Arts & Crafts</a></li><li><a href="#tech-club">Tech Club</a></li><li><a href="#special-needs">Special Needs</a></li><li><a href="#adult">Adult Education</a></li></ul></div>
+      <div class="f-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Ms. Mary</a></li><li><a href="shop.html">Shop</a></li><li><a href="book.html">The Book</a></li><li><a href="kidspray.html">KidsPray</a></li><li><a href="resources.html">Free Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="f-col"><h4>Contact</h4>
+        <div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 15a19.79 19.79 0 01-3.07-8.67A2 2 0 013.88 4.26h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6z"/></svg><div><a href="tel:+2348068600747">08068600747</a><br/><a href="tel:+2349015566523">09015566523</a></div></div>
+        <div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>139 Trademore Ave, Lugbe, Abuja</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 D'Marie Vivre Learning Hub. All rights reserved.</p><p><a href="index.html">Home</a> · <a href="contact.html">Contact</a> · <a href="resources.html">Free Resources</a></p></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="float-wa" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
