@@ -3,21 +3,26 @@
 **Live URL (once deployed):** `https://[yourusername].github.io/dmarievivre/`
 **Production domain:** `https://dmarievivre.org`
 
-> *"Every child is a star waiting to shine."*
-> Your one-stop education solution — Abuja, Nigeria.
+> *"Learn. Grow. Thrive."*
+> Your one-stop education solution — Lugbe, Abuja, Nigeria.
 
 ---
 
 ## About This Project
 
-Complete ground-up redesign and rebuild of dmarievivre.org.
-The old WordPress site (Paloma FSE theme, single scrolling page) has been replaced
-with a fast, mobile-first static site deployed directly to GitHub Pages.
+Complete ground-up redesign of dmarievivre.org. The old WordPress site (Paloma FSE theme)
+has been replaced with a fast, mobile-first static site deployed to GitHub Pages.
+Brand colours, tagline, programs, and contact details are all confirmed from the official
+2025 flyers and Instagram account.
 
 **Business:** D'Marie Vivre Learning Hub
-**Founder:** Mary Okunloye (Ms. Mary)
-**Location:** No. 139 Trademore Avenue, Phase 2, Trademore Estate, Lugbe, Abuja, Nigeria
-**Contact:** info@dmarievivre.org · +234 806 860 0747
+**Founder:** Mary Okunloye (Ms. Mary), Lead Facilitator
+**Tagline:** Learn. Grow. Thrive.
+**Location:** No. 139, Trademore Avenue, Trademore Estate, off VON Garden Estate, Lugbe, Abuja
+**Phone 1:** 08068600747
+**Phone 2:** 09015566523
+**Email:** info@dmarievivre.org · dmarievivre@gmail.com
+**Instagram:** @dvlearninghub (the ONLY active handle as of 2025)
 **Store:** https://selar.com/m/d-marievivre
 
 ---
@@ -26,13 +31,12 @@ with a fast, mobile-first static site deployed directly to GitHub Pages.
 
 | Layer | Choice | Reason |
 |---|---|---|
-| HTML | HTML5 (semantic) | No framework needed, fast load |
-| CSS | Custom CSS (design system) | Full control, no bloat |
+| HTML | HTML5 semantic | No framework needed |
+| CSS | Custom CSS design system | Full brand control, no bloat |
 | JavaScript | Vanilla JS | Zero dependencies |
-| Fonts | Google Fonts (DM Serif Display + DM Sans) | Loaded via CDN |
-| Hosting | GitHub Pages | Free, instant deploy from repo |
-| Forms | Formspree (planned) | No backend needed |
-| Shop | Selar.com (external) | All purchases route to Selar |
+| Fonts | DM Serif Display + DM Sans (Google Fonts) | CDN, no build step |
+| Hosting | GitHub Pages | Free, 60-second deploy |
+| Shop | Selar.com (external links) | All purchases route to Selar |
 
 **No build step. No npm. No bundler. Push to GitHub → live in 60 seconds.**
 
@@ -43,139 +47,222 @@ with a fast, mobile-first static site deployed directly to GitHub Pages.
 ```
 dmarievivre/
 │
-├── index.html                        ✅ BUILT — Homepage
-├── learning-hub.html                 🔲 TODO — Programs & Learning Hub
-├── kidspray.html                     🔲 TODO — KidsPray faith content
-├── shop.html                         🔲 TODO — Full product/shop page
-├── book.html                         🔲 TODO — The Monkey With One Hand
-├── about.html                        🔲 TODO — About Ms. Mary
-├── resources.html                    🔲 TODO — Free Resources & Tips
-├── contact.html                      🔲 TODO — Contact & Location
+├── index.html                              ✅ BUILT — Homepage (v3, Orange+Navy brand)
+├── learning-hub.html                       🔲 TODO — Programs deep-dive page
+├── kidspray.html                           🔲 TODO — KidsPray faith content
+├── shop.html                               🔲 TODO — Full product/shop page
+├── book.html                               🔲 TODO — The Monkey With One Hand
+├── about.html                              🔲 TODO — About Ms. Mary
+├── resources.html                          🔲 TODO — Free Resources & Tips
+├── contact.html                            🔲 TODO — Contact & Location map
 │
-├── README.md                         ✅ This file
+├── README.md                               ✅ This file
 │
 └── assets/
     │
     ├── css/
-    │   └── style.css                 ✅ BUILT — Full design system
+    │   └── style.css                       ✅ BUILT — Full design system (v3 Orange+Navy)
     │
     ├── js/
-    │   └── main.js                   ✅ BUILT — Nav, scroll, animations
+    │   └── main.js                         ✅ BUILT — Nav, scroll, animations
     │
     └── images/
         │
         ├── logo/
-        │   └── dmarievivre-logo.png  🔲 NEEDED — Brand logo PNG
-        │
-        ├── hero/
-        │   ├── hero-home.jpg         🔲 NEEDED — See image brief below
-        │   ├── hero-learning.jpg     🔲 NEEDED
-        │   ├── hero-kidspray.jpg     🔲 NEEDED
-        │   ├── hero-about.jpg        🔲 NEEDED
-        │   └── hero-shop.jpg         🔲 NEEDED
+        │   └── logo.jpg                    ✅ SAVED — Official logo (lightbulb + pencil)
         │
         ├── programs/
-        │   ├── strictly-read.jpg     🔲 NEEDED — Flagship program photo
-        │   ├── write-well.jpg        🔲 NEEDED
-        │   ├── afterschool.jpg       🔲 NEEDED
-        │   ├── book-club.jpg         🔲 NEEDED
-        │   └── summer-club.jpg       🔲 NEEDED
+        │   ├── afterschool.jpg             ✅ SAVED — From official After-School flyer
+        │   ├── reading-club.jpg            ✅ SAVED — From official Reading Club flyer
+        │   ├── arts-crafts.jpg             ✅ SAVED — From official Arts & Crafts flyer
+        │   ├── tech-club.jpg               ✅ SAVED — From official Saturday Tech Club flyer
+        │   ├── adult-education.jpg         ✅ SAVED — From official Adult Education flyer
+        │   ├── who-we-are.jpg              ✅ SAVED — Services overview flyer
+        │   ├── approach.jpg                ✅ SAVED — Approach/method flyer (navy)
+        │   ├── core-values.jpg             ✅ SAVED — Core Values flyer (orange)
+        │   ├── creative-writing.jpg        🔲 NEEDED — Child writing, real photo
+        │   └── special-needs.jpg           🔲 NEEDED — Inclusive learning moment
+        │
+        ├── hero/
+        │   └── hero-home.jpg               🔲 NEEDED — See brief below
         │
         ├── about/
-        │   ├── mary-portrait.jpg     🔲 NEEDED — Primary founder photo
-        │   ├── mary-teaching.jpg     🔲 NEEDED
-        │   └── mary-praying.jpg      🔲 NEEDED
-        │
-        ├── kidspray/
-        │   ├── children-praying.jpg  ✅ EXISTS (WordPress: Children_praying_Secondary-1.jpg)
-        │   ├── devotional-time.jpg   🔲 NEEDED
-        │   └── birthday-prayer.jpg   🔲 NEEDED
+        │   ├── mary-portrait.jpg           🔲 NEEDED — Warm professional portrait
+        │   └── mary-teaching.jpg           🔲 NEEDED — Ms. Mary with learners
         │
         ├── book/
-        │   ├── book-cover.jpg        ✅ EXISTS (WordPress: The-Monkey-With-One-Hand-Fortune-Okunloye-2.jpg)
-        │   ├── book-spread.jpg       ✅ EXISTS (WordPress: The-Monkey-With-One-Hand-Fortune-Okunloye1-2.jpg)
-        │   ├── book-interior.jpg     ✅ EXISTS (WordPress: The-Monkey-With-One-Hand-Fortune-Okunloye2-2.jpg)
-        │   └── book-lifestyle.jpg    🔲 NEEDED — Child reading the book
+        │   └── book-lifestyle.jpg          🔲 NEEDED — Child reading the book
+        │   (book cover/spreads loaded from WordPress server URLs)
         │
         ├── shop/
-        │   ├── prayer-pack.jpg       🔲 NEEDED
-        │   ├── affirmation-pack.jpg  🔲 NEEDED
-        │   ├── devotional-pack.jpg   🔲 NEEDED
-        │   ├── bible-plan.jpg        🔲 NEEDED
-        │   └── birthday-pack.jpg     🔲 NEEDED
-        │
-        ├── gallery/
-        │   ├── gallery-1.jpg         ✅ EXISTS (WordPress: IMG_6964)
-        │   ├── gallery-2.jpg         ✅ EXISTS (WordPress: IMG_6965)
-        │   └── gallery-3.jpg         ✅ EXISTS (WordPress: IMG_6963)
+        │   ├── affirmation-pack.jpg        🔲 NEEDED
+        │   ├── prayer-pack.jpg             🔲 NEEDED
+        │   ├── devotional-pack.jpg         🔲 NEEDED
+        │   └── birthday-pack.jpg           🔲 NEEDED
         │
         └── og/
-            └── og-image.jpg          🔲 NEEDED — 1200×630px social share image
+            └── og-image.jpg               🔲 NEEDED — 1200×630px social share graphic
 ```
 
-### Build Status
+---
+
+## Build Status
 
 | File | Status | Notes |
 |---|---|---|
-| `index.html` | ✅ Complete | Full homepage, 2025 rebrand |
-| `assets/css/style.css` | ✅ Complete | Full design system |
+| `index.html` | ✅ Complete | Full homepage, correct Orange+Navy brand |
+| `assets/css/style.css` | ✅ Complete | v3 design system, Orange+Navy tokens |
 | `assets/js/main.js` | ✅ Complete | All interactions |
-| `learning-hub.html` | 🔲 Next | Programs deep-dive |
-| `kidspray.html` | 🔲 Planned | Faith content hub |
-| `shop.html` | 🔲 Planned | Product grid + Selar links |
-| `book.html` | 🔲 Planned | Book dedicated page |
-| `about.html` | 🔲 Planned | Ms. Mary full story |
+| `learning-hub.html` | 🔲 **Next to build** | All programs, Adult Ed section |
+| `kidspray.html` | 🔲 Planned | Faith content, prayer resources |
+| `shop.html` | 🔲 Planned | Products + Selar deep links |
+| `book.html` | 🔲 Planned | Dedicated book page |
+| `about.html` | 🔲 Planned | Ms. Mary story + core values |
 | `resources.html` | 🔲 Planned | Tips + free downloads |
-| `contact.html` | 🔲 Planned | Map + form + hours |
+| `contact.html` | 🔲 Planned | Map + hours + both phone numbers |
+
+---
+
+## Brand Identity (Confirmed from Official Flyers)
+
+### Colours
+
+| Token | Hex | Source | Usage |
+|---|---|---|---|
+| `--orange` | `#FF7D1E` | Logo, all flyers | Primary — buttons, badges, accents |
+| `--orange-deep` | `#E56500` | Hover state | Button hover |
+| `--orange-pale` | `#FFF0E6` | Background tints | Tag backgrounds |
+| `--navy` | `#26334A` | Logo text, flyers | Primary text, headers, footer |
+| `--navy-mid` | `#3D5173` | Mid-tone | Borders, secondary elements |
+| `--navy-pale` | `#E8EDF5` | Background | Tags, chips |
+| `--yellow` | `#FFD040` | Arts & Crafts accent | Highlight, energy |
+| `--purple` | `#7B3FE4` | Tech Club accent | Digital/tech content |
+| `--green` | `#2EAD6B` | Special Needs accent | Inclusive/growth |
+
+> ⚠️ **The previous v2 design used forest green (#1b4332) as primary — this was WRONG.**
+> The real brand colours are Orange + Navy as shown across all 8 official flyers.
+
+### Logo
+
+The official logo is a **lightbulb outline (in orange) with a pencil inside (navy)**, with the text
+"D'Marie Vivre Learning Hub" in navy and the tagline "Learn. Grow. Thrive."
+Saved at: `assets/images/logo/logo.jpg`
+Also available at: `https://dmarievivre.org/wp-content/uploads/2023/06/D_MARIE-VIVRE-001.png`
+
+### Tagline
+
+**"Learn. Grow. Thrive."** — appears on the logo itself and all official flyers.
+(Not "Grooming and Nurturing" — that was the 2023 era.)
+
+### Core Values (confirmed from flyer)
+
+**Creativity · Diligence · Nurturing · Growth**
+
+### Approach (confirmed from flyer)
+
+"Creativity and activity-based approach with well-detailed illustrations"
+
+### Typography
+
+| Font | Role | Source |
+|---|---|---|
+| DM Serif Display | All headings, quotes | Google Fonts |
+| DM Sans | Body, labels, buttons | Google Fonts |
+
+---
+
+## Complete Program & Service List (2025–2026)
+
+### For Children
+
+| Program | Type | Schedule | Notes |
+|---|---|---|---|
+| After-School Service | Physical hub | Mon–Sat | Homework, reading, arts, STEM, games |
+| Reading Club | Physical + Members | Ongoing | "Where Young Minds Meet Big Stories" |
+| Creative Writing Club (Write Well) | Online | Sat 10–12pm & 4–6pm, Sun 4–6pm | Remedial + creative |
+| Arts & Crafts Club | Physical hub | Ongoing | Painting, drawing, self-expression |
+| Saturday Tech Club | Physical hub | Saturdays | Computer skills, typing, MS Office, design |
+| Special Needs Education | Physical hub | By arrangement | Personalised, patient, inclusive |
+| Children's Book Club | Physical + Online | Monthly | Book exploration, role-play |
+| World Read Aloud Day | Annual event | February | Literacy campaign |
+
+### For Adults (2025 Expansion)
+
+| Program | Type | Skills |
+|---|---|---|
+| Adult Education (Beginner Classes) | Physical hub | Reading, Writing, Simple Maths, Everyday English |
+
+### Cross-Cutting Services
+
+- Education Consulting (schools, parents, teachers)
+- Online Training
+- School Start-up Consulting
+- Curriculum Development
+- Teacher Training
+- Parent Coaching
+- Child Counseling (via KidsPray arm)
+
+---
+
+## Key Links & Integrations
+
+| Integration | URL / Handle |
+|---|---|
+| Selar Store | https://selar.com/m/d-marievivre |
+| Book on Selar | https://selar.co/t8355l |
+| WhatsApp (primary) | https://wa.me/2348068600747 |
+| Phone 2 | +234 901 556 6523 |
+| Instagram | https://www.instagram.com/dvlearninghub/ |
+| YouTube | https://www.youtube.com/@kidspraywithmsmary2218 |
+| Facebook | https://web.facebook.com/kidspraywithmsmary |
+| TikTok | https://www.tiktok.com/@kidspray |
+| Google Maps | 139 Trademore Avenue, Lugbe, Abuja |
+
+> ⚠️ `@dmarievivrelearninghub` is the OLD inactive Instagram handle. Always use `@dvlearninghub`.
 
 ---
 
 ## Image Brief
 
-All images marked 🔲 NEEDED must be sourced from Google Drive or shot new.
-Every `<!-- 📸 IMAGE NEEDED -->` comment in the HTML files gives the exact spec.
-Quick reference below:
-
 ### Priority 1 — Must have before launch
 
-| File | What to photograph or find |
+| File | What to shoot |
 |---|---|
-| `hero/hero-home.jpg` | Ms. Mary with 4–6 children actively reading/learning at the hub. Warm, bright, joyful. Landscape min 1920×1080px. Faces/action on centre-right. |
-| `about/mary-portrait.jpg` | Professional yet warm portrait of Ms. Mary. Smiling, good light, portrait orientation (3:4). This is the face of the brand. |
-| `programs/strictly-read.jpg` | The actual November Strictly Read event — children ages 5–7, books open, focused and smiling. Real hub setting. |
-| `logo/dmarievivre-logo.png` | Download from WordPress: https://dmarievivre.org/wp-content/uploads/2023/06/D_MARIE-VIVRE-001.png |
+| `hero/hero-home.jpg` | Ms. Mary with children at the hub — wide, joyful, bright. Landscape 1920×1080px minimum. Action centre-right for text overlay on left. |
+| `about/mary-portrait.jpg` | Professional warm portrait of Ms. Mary. Good light, smiling. Portrait 3:4 ratio. |
+| `programs/creative-writing.jpg` | Child writing (pencil or tablet), focused and proud. 16:9. |
+| `og/og-image.jpg` | 1200×630px graphic: logo + "Learn. Grow. Thrive." on orange background. Make in Canva. |
 
-### Priority 2 — Enhances the site significantly
+### Priority 2 — Enhances significantly
 
-| File | What to photograph or find |
+| File | What to shoot |
 |---|---|
-| `programs/write-well.jpg` | Child writing (pencil or tablet), focused and proud. Bright, clean setting. |
-| `programs/afterschool.jpg` | Children in the afterschool session — relaxed but engaged. Real hub setting. |
-| `about/mary-teaching.jpg` | Ms. Mary actively teaching or facilitating — children around her. |
-| `book/book-lifestyle.jpg` | A child actually reading The Monkey With One Hand. Natural, absorbed. |
-| `shop/affirmation-pack.jpg` | Flat lay of the affirmation pack on a clean, warm surface. |
-| `og/og-image.jpg` | Canva or Figma graphic: brand logo + tagline on forest green. 1200×630px. |
+| `programs/special-needs.jpg` | One-on-one or small group learning, patient/inclusive atmosphere |
+| `about/mary-teaching.jpg` | Ms. Mary actively facilitating with learners around her |
+| `book/book-lifestyle.jpg` | Child genuinely absorbed in reading The Monkey With One Hand |
 
-### Priority 3 — Add after launch
-
-| File | What to photograph or find |
-|---|---|
-| `programs/book-club.jpg` | Book club session — children with books in a circle or at tables. |
-| `kidspray/birthday-prayer.jpg` | Birthday celebration moment with prayer/gift. |
-| `shop/birthday-pack.jpg` | Presented birthday gift pack, beautifully arranged. |
-| `programs/summer-club.jpg` | Summer club group photo — outdoor or bright indoor. |
-
-### Images already available (on WordPress server)
-
-These can be downloaded directly — no new photos needed:
+### Assets already saved (from uploaded flyers)
 
 ```
-https://dmarievivre.org/wp-content/uploads/2023/06/D_MARIE-VIVRE-001.png
-https://dmarievivre.org/wp-content/uploads/2023/06/Children_praying_Secondary-1.jpg
-https://dmarievivre.org/wp-content/uploads/2023/06/Welcome-to-DMarieVivre.jpg
-https://dmarievivre.org/wp-content/uploads/2024/01/IMG_6964-1024x1024.jpg
-https://dmarievivre.org/wp-content/uploads/2024/01/IMG_6965-1024x1024.jpg
-https://dmarievivre.org/wp-content/uploads/2024/01/IMG_6963-1024x1024.jpg
+assets/images/logo/logo.jpg              ← Official brand logo
+assets/images/programs/afterschool.jpg   ← After-School Service flyer
+assets/images/programs/reading-club.jpg  ← Reading Club flyer
+assets/images/programs/arts-crafts.jpg   ← Arts & Crafts flyer
+assets/images/programs/tech-club.jpg     ← Saturday Tech Club flyer
+assets/images/programs/adult-education.jpg ← Adult Education flyer
+assets/images/programs/who-we-are.jpg    ← Services overview
+assets/images/programs/approach.jpg      ← Approach statement
+assets/images/programs/core-values.jpg   ← Core Values
+```
+
+### Assets on WordPress server (use directly or download)
+
+```
+https://dmarievivre.org/wp-content/uploads/2023/06/D_MARIE-VIVRE-001.png        (logo)
+https://dmarievivre.org/wp-content/uploads/2023/06/Welcome-to-DMarieVivre.jpg   (Mary's photo)
+https://dmarievivre.org/wp-content/uploads/2024/01/IMG_6964-1024x1024.jpg       (gallery)
+https://dmarievivre.org/wp-content/uploads/2024/01/IMG_6965-1024x1024.jpg       (gallery)
+https://dmarievivre.org/wp-content/uploads/2024/01/IMG_6963-1024x1024.jpg       (gallery)
 https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye-2.jpg
 https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye1-2.jpg
 https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye2-2.jpg
@@ -183,122 +270,67 @@ https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fort
 
 ---
 
-## Design System
-
-### Colours
-
-| Token | Hex | Usage |
-|---|---|---|
-| `--forest` | `#1b4332` | Primary brand green — headers, buttons, nav |
-| `--forest-mid` | `#2d6a4f` | Hover states |
-| `--forest-light` | `#52b788` | Accent lines, tags |
-| `--forest-pale` | `#d8f3dc` | Tag backgrounds, avatar backgrounds |
-| `--sun` | `#f7b731` | Primary accent — CTAs, highlights, stars |
-| `--sun-deep` | `#d4920c` | Sun hover, category labels |
-| `--coral` | `#e05c36` | Write Well accent |
-| `--sky` | `#3b82f6` | After-school accent |
-| `--cream` | `#fffbf5` | Page background |
-| `--ink` | `#0f1923` | Body text |
-
-### Typography
-
-| Font | Role | Source |
-|---|---|---|
-| DM Serif Display | All headings, quotes, display text | Google Fonts |
-| DM Sans | Body text, labels, buttons, nav | Google Fonts |
-
-### Key Components (in style.css)
-
-- `.btn` + variants (`.btn-forest`, `.btn-sun`, `.btn-coral`, `.btn-outline-*`)
-- `.section-tag` + variants (`.tag-forest`, `.tag-sun`, `.tag-coral`, `.tag-sky`)
-- `.program-card` + `.program-card-hero` (featured wide layout)
-- `.pkg-card` + `.pkg-card-popular` (gift package tiers)
-- `.reveal` + `.reveal-d1/d2/d3/d4` (scroll animation system)
-- `.float-wa` (fixed WhatsApp button)
-- `.ann-bar` (announcement banner)
-- `.nav` + `.nav.scrolled` + `.nav.hero-over`
-
----
-
-## Key Links & Integrations
-
-| Integration | URL / Handle | Notes |
-|---|---|---|
-| Selar Store | https://selar.com/m/d-marievivre | All product purchases |
-| Book on Selar | https://selar.co/t8355l | Direct book link |
-| WhatsApp | https://wa.me/2348068600747 | Primary conversion channel |
-| Instagram (main) | https://www.instagram.com/dvlearninghub/ | Active — 2025 handle |
-| YouTube | https://www.youtube.com/@kidspraywithmsmary2218 | KidsPray videos |
-| Facebook | https://web.facebook.com/kidspraywithmsmary | KidsPray community |
-| TikTok | https://www.tiktok.com/@kidspray | Prayer snippets |
-| Twitter/X | https://twitter.com/dmarievivre | Low activity |
-| LinkedIn | https://www.linkedin.com/company/dmarievivre/ | B2B |
-| Google Maps | 139 Trademore Avenue, Lugbe, Abuja | Embed on contact page |
-
-> ⚠️ Note: The old Instagram handle `@dmarievivrelearninghub` linked on the
-> original WordPress site is outdated. The correct active handle is `@dvlearninghub`.
-
----
-
 ## GitHub Pages Deployment
 
 ### First-time setup
+
 1. Push all files to the `main` branch of your GitHub repository
 2. Go to **Settings → Pages**
-3. Under *Source*, select **Deploy from a branch**
-4. Set branch to **`main`** and folder to **`/ (root)`**
-5. Click **Save**
-6. Your site will be live at `https://[yourusername].github.io/dmarievivre/` within ~60 seconds
+3. Under *Source*: **Deploy from a branch** → branch: `main` → folder: `/ (root)`
+4. Click **Save**
+5. Live at `https://[yourusername].github.io/dmarievivre/` within ~60 seconds
 
 ### Updating the site
+
 ```bash
-# Make your changes, then:
 git add .
-git commit -m "Description of what changed"
+git commit -m "Description of change"
 git push origin main
-# GitHub Pages auto-deploys — live in ~30 seconds
+# Auto-deploys in ~30 seconds
 ```
 
-### Custom domain (dmarievivre.org)
-1. In your domain registrar (e.g. Namecheap, GoDaddy), add a CNAME record:
-   - Name: `www` → Value: `[yourusername].github.io`
-   - Or for apex domain: add 4 A records pointing to GitHub's IPs
-2. In GitHub repo: **Settings → Pages → Custom domain** → enter `dmarievivre.org`
-3. Check **Enforce HTTPS**
+### Custom domain setup (dmarievivre.org)
 
-GitHub's IPs for apex domain A records:
+1. In your domain registrar, add these 4 A records pointing to GitHub IPs:
 ```
 185.199.108.153
 185.199.109.153
 185.199.110.153
 185.199.111.153
 ```
+2. In GitHub: **Settings → Pages → Custom domain** → enter `dmarievivre.org`
+3. Check **Enforce HTTPS** ✓
 
 ---
 
-## SEO Keywords to Own
+## SEO Keywords
 
-The new site is structured to rank for:
-- `Abuja reading program`
-- `afterschool Abuja children`
-- `creative writing for kids Abuja`
-- `literacy confidence Nigeria`
-- `faith-based children education Abuja`
-- `children book club Abuja`
-- `KidsPray Nigeria`
-
----
-
-## Important Notes for Editors
-
-1. **All "buy" buttons link to Selar** — do not try to build an in-house checkout
-2. **WhatsApp CTA is the #1 conversion tool** — never remove the floating WhatsApp button
-3. **Do not link to `@dmarievivrelearninghub`** anywhere — this is the old, inactive handle. Use `@dvlearninghub`
-4. **Beauty section has been intentionally removed** — per the 2025 rebrand. Do not add it back without discussion
-5. **KidsPray is supportive, not primary** — it appears in footer, community CTA and testimonials only on the homepage
-6. **The full address is:** No. 139 Trademore Avenue, Phase 2, Trademore Estate, Lugbe, Abuja — use this in full everywhere
+The site structure targets these searches:
+- `learning hub Abuja`
+- `afterschool program Abuja`
+- `reading club children Abuja`
+- `creative writing kids Abuja`
+- `tech club children Nigeria`
+- `adult education Lugbe Abuja`
+- `special needs education Abuja`
+- `arts and crafts club kids Nigeria`
+- `D'Marie Vivre`
+- `dvlearninghub`
 
 ---
 
-*Last updated: March 2026*
-*Built for D'Marie Vivre Learning Hub, Abuja, Nigeria*
+## Important Notes for Anyone Editing the Site
+
+1. **Brand colours are Orange (#FF7D1E) + Navy (#26334A)** — confirmed from the official logo and all 8 flyers. Do not revert to forest green.
+2. **Two phone numbers**: 08068600747 AND 09015566523 — both must appear everywhere.
+3. **Use `@dvlearninghub` ONLY** — `@dmarievivrelearninghub` is outdated and inactive.
+4. **Adult Education is now a core program** — it's on the homepage, it has its own section, do not remove it.
+5. **KidsPray is supportive, not primary** — present in footer and community sections only.
+6. **Tagline is "Learn. Grow. Thrive."** — not "Grooming and Nurturing".
+7. **All purchases go through Selar** — never try to build an in-house checkout.
+8. **Full address**: No. 139, Trademore Avenue, Trademore Estate, off VON Garden Estate, Lugbe, Abuja.
+
+---
+
+*Last updated: March 2026 — v3.0 full rebrand*
+*Built for D'Marie Vivre Learning Hub, Lugbe, Abuja, Nigeria*
