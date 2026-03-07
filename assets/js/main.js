@@ -205,3 +205,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+  /* ── IMAGE FALLBACK SYSTEM ─────────────────────────────────────────────
+   * Listens for any <img> error on the page (delegated, capture phase).
+   * Adds .img-broken to the img and .img-failed to its direct parent.
+   * CSS then hides the broken img and shows a styled placeholder.
+   * ─────────────────────────────────────────────────────────────────── */
+  document.addEventListener('error', function(e) {
+    const img = e.target;
+    if (img.tagName !== 'IMG') return;
+    // Don't re-trigger if already handled
+    if (img.classList.contains('img-broken')) return;
+    img.classList.add('img-broken');
+    const parent = img.closest('[data-fallback]') || img.parentElement;
+    if (parent) parent.classList.add('img-failed');
+  }, true /* capture — fires before bubbling */);
