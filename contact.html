@@ -10,71 +10,116 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="assets/css/style.css"/>
   <style>
-    .page-hero{background:var(--navy);padding:140px 0 80px;position:relative;overflow:hidden}
+    .page-hero{background:var(--navy);padding:148px 0 80px;position:relative;overflow:hidden}
     .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,125,30,.12) 0%,transparent 60%);pointer-events:none}
-    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:20px}
-    .breadcrumb a{color:rgba(255,255,255,.5);transition:color .18s}.breadcrumb a:hover{color:var(--orange)}.breadcrumb span{color:rgba(255,255,255,.3)}
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-    .contact-card{background:#fff;border-radius:var(--r-xl);padding:40px;box-shadow:var(--s-sm)}
-    .contact-item{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--border)}
+    .page-hero::after{content:'';position:absolute;right:-60px;bottom:-60px;width:320px;height:320px;border-radius:50%;border:52px solid rgba(255,255,255,.04);pointer-events:none}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.74rem;font-weight:600;color:rgba(255,255,255,.46);margin-bottom:20px}
+    .breadcrumb a{color:rgba(255,255,255,.46);transition:color .18s}.breadcrumb a:hover{color:var(--orange)}.breadcrumb span{color:rgba(255,255,255,.26)}
+
+    /* Layout */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+
+    /* Map placeholder */
+    .map-placeholder{background:linear-gradient(135deg,var(--orange-pale) 0%,#EEF0F4 100%);border-radius:var(--r-xl);aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:32px;box-shadow:var(--s-lg);position:relative;overflow:hidden}
+    .map-placeholder::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(0,0,0,.03) 28px,rgba(0,0,0,.03) 29px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(0,0,0,.03) 28px,rgba(0,0,0,.03) 29px)}
+    .map-pin-wrap{width:52px;height:52px;background:var(--orange);border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(255,125,30,.4);flex-shrink:0}
+    .map-pin-inner{width:18px;height:18px;background:#fff;border-radius:50%;transform:rotate(45deg)}
+
+    /* Contact card */
+    .contact-card{background:#fff;border-radius:var(--r-xl);padding:36px;box-shadow:var(--s-sm)}
+    .contact-item{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--border)}
     .contact-item:last-child{border:none;padding-bottom:0}
-    .contact-item-icon{width:44px;height:44px;background:var(--orange-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
-    .contact-item-label{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-deep);margin-bottom:4px}
-    .contact-item-value{font-size:.95rem;color:var(--ink);line-height:1.6}
-    .contact-item-value a{color:var(--ink);transition:color .18s}.contact-item-value a:hover{color:var(--orange)}
-    .map-placeholder{background:linear-gradient(135deg,var(--orange-pale),var(--light-grey));border-radius:var(--r-xl);aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:32px;box-shadow:var(--s-lg)}
+    .contact-icon{width:42px;height:42px;background:var(--orange-pale);border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--orange-deep)}
+    .contact-icon svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .contact-label{font-size:.63rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--orange-deep);margin-bottom:4px}
+    .contact-value{font-size:.93rem;color:var(--ink);line-height:1.6}
+    .contact-value a{color:var(--ink);transition:color .18s}.contact-value a:hover{color:var(--orange)}
+
+    /* Hours table */
     .hours-table{width:100%;border-collapse:collapse;margin-top:8px}
-    .hours-table tr td{padding:10px 0;font-size:.88rem;border-bottom:1px solid var(--border)}
+    .hours-table tr td{padding:10px 0;font-size:.87rem;border-bottom:1px solid var(--border)}
     .hours-table tr:last-child td{border:none}
     .hours-table td:first-child{font-weight:600;color:var(--ink)}
     .hours-table td:last-child{color:var(--ink-soft);text-align:right}
-    .hours-table .closed{color:var(--red);font-weight:600}
-    .contact-form{background:#fff;border-radius:var(--r-xl);padding:40px;box-shadow:var(--s-sm);margin-top:48px}
-    .form-group{margin-bottom:20px}
-    .form-label{display:block;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:8px}
-    .form-input,.form-textarea{width:100%;padding:13px 16px;border:2px solid var(--border);border-radius:var(--r-md);font-family:var(--font-body);font-size:.9rem;color:var(--ink);background:#fff;transition:border-color .2s,box-shadow .2s;outline:none}
-    .form-input:focus,.form-textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,125,30,.12)}
-    .form-textarea{resize:vertical;min-height:120px}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    @media(max-width:900px){.contact-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
+    .closed{color:var(--red)!important;font-weight:600}
+
+    /* Quick action buttons */
+    .quick-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+    .qa-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:var(--r-md);font-size:.78rem;font-weight:700;letter-spacing:.03em;transition:all var(--t-base) var(--ease);border:2px solid transparent;text-align:center}
+    .qa-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+    .qa-orange{background:var(--orange);color:#fff;border-color:var(--orange)}.qa-orange:hover{background:var(--orange-deep);transform:translateY(-1px)}
+    .qa-outline{background:transparent;color:var(--navy);border-color:var(--border)}.qa-outline:hover{border-color:var(--navy);background:var(--light-grey)}
+    .qa-full{grid-column:span 2}
+
+    /* How to find us */
+    .directions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .dir-card{background:#fff;border-radius:var(--r-lg);padding:28px 24px;text-align:center;box-shadow:var(--s-xs);transition:transform var(--t-base) var(--ease),box-shadow var(--t-base) var(--ease)}
+    .dir-card:hover{transform:translateY(-3px);box-shadow:var(--s-md)}
+    .dir-icon{width:48px;height:48px;border-radius:14px;background:var(--orange-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;color:var(--orange-deep)}
+    .dir-icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .dir-title{font-family:var(--font-display);font-size:1.18rem;color:var(--navy);margin-bottom:8px}
+    .dir-text{font-size:.84rem;color:var(--ink-soft);line-height:1.7}
+
+    @media(max-width:900px){
+      .contact-grid{grid-template-columns:1fr}
+      .directions-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:560px){
+      .directions-grid{grid-template-columns:1fr}
+      .quick-actions{grid-template-columns:1fr}
+      .qa-full{grid-column:span 1}
+    }
   </style>
 </head>
 <body>
-<div class="ann-bar" id="annBar">🎉 &nbsp;<strong>20% OFF</strong> all products — <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener">Shop on Selar →</a><button class="ann-close" id="annClose">✕</button></div>
-<nav class="nav" id="nav">
+
+<div class="ann-bar" id="annBar"><strong>20% OFF</strong> all products — <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener">Shop on Selar →</a><button class="ann-close" id="annClose" aria-label="Dismiss">✕</button></div>
+
+<nav class="nav" id="nav" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="assets/images/logo/logo.jpg" alt="Logo" class="nav-logo-img"/><div><span class="nav-wordmark">D'Marie Vivre</span><span class="nav-tagline-mini">Learning Hub</span></div></a>
-    <div class="nav-links"><a href="learning-hub.html">Programs</a><a href="learning-hub.html#adult">Adult Ed</a><a href="kidspray.html">KidsPray</a><a href="shop.html">Shop</a><a href="about.html">About</a><a href="contact.html" style="color:var(--orange)">Contact</a></div>
-    <div class="nav-right"><a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-orange btn-sm">Enrol Today</a><button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button></div>
+    <a href="index.html" class="nav-logo"><img src="assets/images/logo/logo.jpg" alt="D'Marie Vivre logo" class="nav-logo-img"/><div><span class="nav-wordmark">D'Marie Vivre</span><span class="nav-tagline-mini">Learning Hub</span></div></a>
+    <div class="nav-links"><a href="learning-hub.html">Programs</a><a href="kidspray.html">KidsPray</a><a href="shop.html">Shop</a><a href="about.html">About</a><a href="contact.html" style="color:var(--orange)">Contact</a></div>
+    <div class="nav-right"><a href="https://wa.me/2348068600747?text=Hello%20D%27Marie%20Vivre%2C%20I%27d%20like%20to%20enrol" target="_blank" rel="noopener" class="btn btn-orange btn-sm">Enrol Today</a><button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button></div>
   </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu"><button class="mobile-close" id="mobileClose">✕</button><a href="index.html">Home</a><a href="learning-hub.html">Programs</a><a href="kidspray.html">KidsPray</a><a href="shop.html">Shop</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <a href="index.html">Home</a>
+  <a href="learning-hub.html">Programs</a>
+  <a href="kidspray.html">KidsPray</a>
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="mobile-wa-link">WhatsApp Us</a>
+</div>
 
+<!-- HERO -->
 <section class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:rgba(255,255,255,.8)">Contact</span></div>
-    <span class="tag tag-orange reveal">Get In Touch</span>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:rgba(255,255,255,.8)">Contact</span></nav>
+    <span class="tag reveal" style="background:rgba(255,125,30,.2);color:var(--orange-light)">Get In Touch</span>
     <h1 class="d-xl text-white reveal reveal-d1" style="margin-bottom:16px">Visit us in <em style="color:var(--orange);font-style:italic">Lugbe, Abuja</em></h1>
-    <p class="body-lg reveal reveal-d2" style="color:rgba(255,255,255,.68);max-width:560px">We're open Monday to Saturday. Walk in, call, or WhatsApp — we're always happy to meet you and answer any questions.</p>
+    <p class="body-lg reveal reveal-d2" style="color:rgba(255,255,255,.68);max-width:560px">Open Monday to Saturday. Walk in, call, or WhatsApp — we're always happy to meet you and answer any questions.</p>
   </div>
 </section>
 
+<!-- MAIN CONTACT SECTION -->
 <section class="section" style="background:var(--cream)">
   <div class="container">
     <div class="contact-grid">
 
-      <!-- Left: Map + Info -->
+      <!-- Left: Map + Hours -->
       <div>
         <div class="map-placeholder reveal">
-          <span style="font-size:3.5rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.12))">📍</span>
-          <strong style="color:var(--navy);font-family:var(--font-display);font-size:1.4rem">D'Marie Vivre Learning Hub</strong>
-          <p style="font-size:.9rem;color:var(--ink-soft);max-width:280px">No. 139, Trademore Avenue, Trademore Estate, off VON Garden Estate, Lugbe, Abuja, Nigeria</p>
+          <div class="map-pin-wrap"><div class="map-pin-inner"></div></div>
+          <strong style="color:var(--navy);font-family:var(--font-display);font-size:1.35rem;margin-top:4px">D'Marie Vivre Learning Hub</strong>
+          <p style="font-size:.87rem;color:var(--ink-soft);max-width:260px;line-height:1.6">No. 139, Trademore Avenue, Trademore Estate, off VON Garden Estate, Lugbe, Abuja</p>
           <a href="https://maps.google.com/?q=139+Trademore+Avenue+Trademore+Estate+Lugbe+Abuja+Nigeria" target="_blank" rel="noopener" class="btn btn-orange btn-sm">Open in Google Maps →</a>
         </div>
 
-        <div class="contact-card reveal" style="margin-top:28px">
-          <h3 style="font-family:var(--font-display);font-size:1.4rem;color:var(--navy);margin-bottom:4px">Opening Hours</h3>
-          <p style="font-size:.8rem;color:var(--ink-soft);margin-bottom:16px">Programs run Monday to Saturday</p>
+        <div class="contact-card reveal" style="margin-top:22px">
+          <h3 style="font-family:var(--font-display);font-size:1.38rem;color:var(--navy);margin-bottom:4px">Opening Hours</h3>
+          <p style="font-size:.78rem;color:var(--ink-soft);margin-bottom:14px">Programs run Monday to Saturday</p>
           <table class="hours-table">
             <tr><td>Monday – Friday</td><td>8:00 am – 6:00 pm</td></tr>
             <tr><td>Saturday</td><td>9:00 am – 4:00 pm</td></tr>
@@ -83,66 +128,66 @@
         </div>
       </div>
 
-      <!-- Right: Contact details + form -->
+      <!-- Right: Contact details + quick actions -->
       <div>
         <div class="contact-card reveal">
-          <h3 style="font-family:var(--font-display);font-size:1.5rem;color:var(--navy);margin-bottom:4px">Contact Details</h3>
-          <p style="font-size:.82rem;color:var(--ink-soft);margin-bottom:8px">Fastest response via WhatsApp</p>
+          <h3 style="font-family:var(--font-display);font-size:1.45rem;color:var(--navy);margin-bottom:3px">Contact Details</h3>
+          <p style="font-size:.8rem;color:var(--ink-soft);margin-bottom:6px">Fastest response via WhatsApp</p>
 
           <div class="contact-item">
-            <div class="contact-item-icon">📍</div>
+            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
             <div>
-              <p class="contact-item-label">Address</p>
-              <p class="contact-item-value">No. 139, Trademore Avenue, Trademore Estate,<br>off VON Garden Estate, Lugbe, Abuja, Nigeria</p>
+              <p class="contact-label">Address</p>
+              <p class="contact-value">No. 139, Trademore Avenue, Trademore Estate,<br/>off VON Garden Estate, Lugbe, Abuja, Nigeria</p>
             </div>
           </div>
 
           <div class="contact-item">
-            <div class="contact-item-icon">📱</div>
+            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.95 15a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.88 4.26h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 11.91a16 16 0 0 0 6 6z"/></svg></div>
             <div>
-              <p class="contact-item-label">Phone Numbers</p>
-              <p class="contact-item-value"><a href="tel:+2348068600747">08068600747</a><br><a href="tel:+2349015566523">09015566523</a></p>
+              <p class="contact-label">Phone Numbers</p>
+              <p class="contact-value"><a href="tel:+2348068600747">08068600747</a><br/><a href="tel:+2349015566523">09015566523</a></p>
             </div>
           </div>
 
           <div class="contact-item">
-            <div class="contact-item-icon">💬</div>
+            <div class="contact-icon" style="background:#E8F9EE;color:#1A7A4C"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
             <div>
-              <p class="contact-item-label">WhatsApp (Fastest Response)</p>
-              <p class="contact-item-value"><a href="https://wa.me/2348068600747" target="_blank" rel="noopener" style="color:var(--orange);font-weight:700">+234 806 860 0747 — Chat Now →</a></p>
+              <p class="contact-label">WhatsApp (Fastest)</p>
+              <p class="contact-value"><a href="https://wa.me/2348068600747" target="_blank" rel="noopener" style="color:#1A7A4C;font-weight:700">+234 806 860 0747 — Chat Now →</a></p>
             </div>
           </div>
 
           <div class="contact-item">
-            <div class="contact-item-icon">✉️</div>
+            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
             <div>
-              <p class="contact-item-label">Email</p>
-              <p class="contact-item-value"><a href="mailto:info@dmarievivre.org">info@dmarievivre.org</a><br><a href="mailto:dmarievivre@gmail.com">dmarievivre@gmail.com</a></p>
+              <p class="contact-label">Email</p>
+              <p class="contact-value"><a href="mailto:info@dmarievivre.org">info@dmarievivre.org</a><br/><a href="mailto:dmarievivre@gmail.com">dmarievivre@gmail.com</a></p>
             </div>
           </div>
 
           <div class="contact-item">
-            <div class="contact-item-icon">📸</div>
+            <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
             <div>
-              <p class="contact-item-label">Follow Us</p>
-              <p class="contact-item-value"><a href="https://www.instagram.com/dvlearninghub/" target="_blank" rel="noopener">@dvlearninghub</a> on Instagram</p>
+              <p class="contact-label">Instagram</p>
+              <p class="contact-value"><a href="https://www.instagram.com/dvlearninghub/" target="_blank" rel="noopener">@dvlearninghub</a></p>
             </div>
           </div>
         </div>
 
-        <!-- Quick WhatsApp buttons -->
-        <div class="reveal" style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20enrol%20a%20child%20in%20a%20program" target="_blank" rel="noopener" class="btn btn-orange" style="justify-content:center">
-            💬 Enrol a Child
+        <!-- Quick WhatsApp actions -->
+        <div class="quick-actions reveal">
+          <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20enrol%20a%20child%20in%20a%20program" target="_blank" rel="noopener" class="qa-btn qa-orange">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+            Enrol a Child
           </a>
-          <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27m%20interested%20in%20Adult%20Education%20classes" target="_blank" rel="noopener" class="btn btn-outline-navy" style="justify-content:center">
-            🎓 Adult Education
+          <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20consulting%20services" target="_blank" rel="noopener" class="qa-btn qa-outline">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            School Consulting
           </a>
-          <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20your%20consulting%20services" target="_blank" rel="noopener" class="btn btn-outline-navy" style="justify-content:center">
-            🏫 School Consulting
-          </a>
-          <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20order%20a%20gift%20package" target="_blank" rel="noopener" class="btn btn-outline-navy" style="justify-content:center">
-            🎁 Gift Packages
+          <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20order%20a%20gift%20package" target="_blank" rel="noopener" class="qa-btn qa-outline qa-full">
+            <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            Birthday Gift Packages
           </a>
         </div>
       </div>
@@ -153,31 +198,42 @@
 <!-- HOW TO FIND US -->
 <section style="background:#fff;padding:80px 0">
   <div class="container">
-    <div style="text-align:center;margin-bottom:48px">
+    <div style="text-align:center;margin-bottom:44px">
       <span class="tag tag-orange reveal">How to Find Us</span>
-      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">Getting to the Hub</h2>
+      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy);margin-top:4px">Getting to the Hub</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px" class="reveal">
-      <div style="background:var(--cream);border-radius:var(--r-lg);padding:28px;text-align:center">
-        <span style="font-size:2.5rem;display:block;margin-bottom:12px">🚗</span>
-        <h3 style="font-family:var(--font-display);font-size:1.2rem;color:var(--navy);margin-bottom:8px">By Car</h3>
-        <p style="font-size:.85rem;color:var(--ink-soft);line-height:1.65">From Lugbe-Airport Road, enter Trademore Estate via VON Garden Estate. We're at No. 139, Trademore Avenue, Phase 2.</p>
+    <div class="directions-grid reveal">
+
+      <div class="dir-card">
+        <div class="dir-icon">
+          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3 class="dir-title">By Car</h3>
+        <p class="dir-text">From Lugbe–Airport Road, enter Trademore Estate via VON Garden Estate. We're at No. 139, Trademore Avenue, Phase 2.</p>
       </div>
-      <div style="background:var(--cream);border-radius:var(--r-lg);padding:28px;text-align:center">
-        <span style="font-size:2.5rem;display:block;margin-bottom:12px">📱</span>
-        <h3 style="font-family:var(--font-display);font-size:1.2rem;color:var(--navy);margin-bottom:8px">WhatsApp First</h3>
-        <p style="font-size:.85rem;color:var(--ink-soft);line-height:1.65">Not sure how to find us? WhatsApp us at 08068600747 and we'll send you directions or a location pin directly.</p>
+
+      <div class="dir-card">
+        <div class="dir-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <h3 class="dir-title">WhatsApp First</h3>
+        <p class="dir-text">Not sure how to find us? WhatsApp 08068600747 and we'll send you directions or a location pin directly.</p>
       </div>
-      <div style="background:var(--cream);border-radius:var(--r-lg);padding:28px;text-align:center">
-        <span style="font-size:2.5rem;display:block;margin-bottom:12px">📍</span>
-        <h3 style="font-family:var(--font-display);font-size:1.2rem;color:var(--navy);margin-bottom:8px">Google Maps</h3>
-        <p style="font-size:.85rem;color:var(--ink-soft);line-height:1.65">Search "D'Marie Vivre Learning Hub Lugbe" on Google Maps, or click the button below for direct directions.</p>
-        <a href="https://maps.google.com/?q=139+Trademore+Avenue+Lugbe+Abuja" target="_blank" rel="noopener" class="btn btn-orange btn-sm" style="margin-top:14px">Open Maps</a>
+
+      <div class="dir-card">
+        <div class="dir-icon">
+          <svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+        </div>
+        <h3 class="dir-title">Google Maps</h3>
+        <p class="dir-text">Search "D'Marie Vivre Learning Hub Lugbe" on Google Maps, or use the button below for direct directions.</p>
+        <a href="https://maps.google.com/?q=139+Trademore+Avenue+Lugbe+Abuja" target="_blank" rel="noopener" class="btn btn-orange btn-sm" style="margin-top:14px">Open Maps →</a>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner">
     <h2 class="cta-headline reveal">Ready to visit?</h2>
@@ -192,8 +248,13 @@
   </div>
 </section>
 
-<footer class="footer"><div class="container"><div class="footer-grid"><div class="f-brand"><img src="assets/images/logo/logo.jpg" alt="Logo" style="height:48px;width:auto;border-radius:10px;margin-bottom:12px"/><div class="f-brand-name">D'Marie Vivre</div><span class="f-brand-tag">Learning Hub · Learn. Grow. Thrive.</span><p>Holistic education for children and adults. Lugbe, Abuja.</p></div><div class="f-col"><h4>Programs</h4><ul><li><a href="learning-hub.html#afterschool">After-School</a></li><li><a href="learning-hub.html#reading-club">Reading Club</a></li><li><a href="learning-hub.html#write-well">Creative Writing</a></li><li><a href="learning-hub.html#arts-crafts">Arts & Crafts</a></li><li><a href="learning-hub.html#tech-club">Tech Club</a></li><li><a href="learning-hub.html#adult">Adult Education</a></li></ul></div><div class="f-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="shop.html">Shop</a></li><li><a href="kidspray.html">KidsPray</a></li><li><a href="resources.html">Free Resources</a></li></ul></div><div class="f-col"><h4>Contact</h4><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 15a19.79 19.79 0 01-3.07-8.67A2 2 0 013.88 4.26h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6z"/></svg><div><a href="tel:+2348068600747">08068600747</a><br/><a href="tel:+2349015566523">09015566523</a></div></div><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>139 Trademore Ave, Lugbe, Abuja</span></div></div></div><div class="footer-bottom"><p>© 2025 D'Marie Vivre Learning Hub. All rights reserved.</p><p><a href="index.html">Home</a> · <a href="learning-hub.html">Programs</a> · <a href="shop.html">Shop</a></p></div></div></footer>
-<a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="float-wa"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<footer class="footer"><div class="container"><div class="footer-grid">
+  <div class="f-brand"><img src="assets/images/logo/logo.jpg" alt="Logo" style="height:46px;width:auto;border-radius:9px;margin-bottom:12px"/><div class="f-brand-name">D'Marie Vivre</div><span class="f-brand-tag">Learning Hub · Learn. Grow. Thrive.</span><p>Children's education hub in Lugbe, Abuja, Nigeria.</p></div>
+  <div class="f-col"><h4>Programs</h4><ul><li><a href="learning-hub.html#afterschool">After-School</a></li><li><a href="learning-hub.html#reading-club">Reading Club</a></li><li><a href="learning-hub.html#write-well">Creative Writing</a></li><li><a href="learning-hub.html#arts-crafts">Arts & Crafts</a></li><li><a href="learning-hub.html#tech-club">Tech Club</a></li></ul></div>
+  <div class="f-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="shop.html">Shop</a></li><li><a href="kidspray.html">KidsPray</a></li><li><a href="resources.html">Free Resources</a></li></ul></div>
+  <div class="f-col"><h4>Contact</h4><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 15a19.79 19.79 0 01-3.07-8.67A2 2 0 013.88 4.26h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6z"/></svg><div><a href="tel:+2348068600747">08068600747</a><br/><a href="tel:+2349015566523">09015566523</a></div></div><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>139 Trademore Ave, Lugbe, Abuja</span></div></div>
+</div><div class="footer-bottom"><p>© 2025 D'Marie Vivre Learning Hub. All rights reserved.</p><p><a href="index.html">Home</a> · <a href="learning-hub.html">Programs</a> · <a href="shop.html">Shop</a></p></div></div></footer>
+
+<a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="float-wa" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 <script src="assets/js/main.js"></script>
 </body></html>
-
