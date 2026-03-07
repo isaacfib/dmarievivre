@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Meet Ms. Mary Okunloye — Founder of D'Marie Vivre Learning Hub. Educator, curriculum developer, author, and the warm heart behind everything we do in Lugbe, Abuja."/>
+  <meta name="description" content="Meet Ms. Mary Okunloye — Founder of D'Marie Vivre Learning Hub. Educator, curriculum developer, published author, and the warm heart behind everything we do in Lugbe, Abuja."/>
   <title>About Ms. Mary | D'Marie Vivre Learning Hub — Abuja</title>
   <link rel="icon" type="image/jpeg" href="assets/images/logo/logo.jpg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -10,67 +10,117 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="assets/css/style.css"/>
   <style>
-    .page-hero{background:var(--navy);padding:140px 0 80px;position:relative;overflow:hidden}
+    /* Page hero */
+    .page-hero{background:var(--navy);padding:148px 0 80px;position:relative;overflow:hidden}
     .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,125,30,.12) 0%,transparent 60%);pointer-events:none}
-    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:20px}
-    .breadcrumb a{color:rgba(255,255,255,.5);transition:color .18s}.breadcrumb a:hover{color:var(--orange)}.breadcrumb span{color:rgba(255,255,255,.3)}
-    .about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start}
-    .about-img-wrap{position:sticky;top:90px}
+    /* CSS circle decoration — no emoji */
+    .page-hero::after{content:'';position:absolute;right:-80px;bottom:-80px;width:380px;height:380px;border-radius:50%;border:60px solid rgba(255,255,255,.04);pointer-events:none}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.74rem;font-weight:600;color:rgba(255,255,255,.46);margin-bottom:20px}
+    .breadcrumb a{color:rgba(255,255,255,.46);transition:color .18s}.breadcrumb a:hover{color:var(--orange)}.breadcrumb span{color:rgba(255,255,255,.26)}
+
+    /* Layout */
+    .about-grid{display:grid;grid-template-columns:1fr 1.45fr;gap:64px;align-items:start}
+    .about-img-wrap{position:sticky;top:88px}
     .about-img-wrap img{width:100%;border-radius:var(--r-xl);box-shadow:var(--s-xl);display:block}
-    .about-img-caption{margin-top:16px;background:#fff;border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--s-sm)}
-    .about-bio-section{margin-bottom:36px}
-    .about-bio-section h3{font-family:var(--font-display);font-size:1.4rem;color:var(--navy);margin-bottom:12px}
-    .about-bio-section p{font-size:.95rem;color:var(--ink-soft);line-height:1.85;margin-bottom:14px}
-    .credential-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:8px}
-    .credential-item{background:var(--orange-pale);border-radius:var(--r-md);padding:14px 16px;display:flex;align-items:center;gap:10px;font-size:.84rem;font-weight:600;color:var(--navy)}
-    .credential-icon{font-size:1.3rem;flex-shrink:0}
+    .about-img-caption{margin-top:14px;background:#fff;border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--s-sm)}
+
+    /* Bio sections */
+    .about-bio-section{margin-bottom:38px}
+    .about-bio-section h3{font-family:var(--font-display);font-size:1.45rem;color:var(--navy);margin-bottom:12px;line-height:1.15}
+    .about-bio-section p{font-size:.95rem;color:var(--ink-soft);line-height:1.88;margin-bottom:14px}
+
+    /* Credentials — SVG icon grid */
+    .credential-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px}
+    .credential-item{background:var(--orange-pale);border-radius:var(--r-md);padding:13px 15px;display:flex;align-items:center;gap:10px;font-size:.83rem;font-weight:600;color:var(--navy);transition:background var(--t-fast)}
+    .credential-item:hover{background:#FFE4CC}
+    .cred-icon{width:30px;height:30px;background:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--orange-deep)}
+    .cred-icon svg{width:14px;height:14px;stroke-width:2;stroke:currentColor;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+    /* Timeline */
     .timeline{display:flex;flex-direction:column;gap:0;margin-top:8px}
     .timeline-item{display:flex;gap:20px;padding-bottom:28px;position:relative}
-    .timeline-item::before{content:'';position:absolute;left:19px;top:36px;bottom:0;width:2px;background:var(--border)}
+    .timeline-item::before{content:'';position:absolute;left:19px;top:40px;bottom:0;width:2px;background:var(--border)}
     .timeline-item:last-child::before{display:none}
-    .timeline-dot{width:40px;height:40px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.9rem;color:#fff;font-weight:700;z-index:1}
-    .timeline-year{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-deep);margin-bottom:4px}
-    .timeline-text{font-size:.88rem;color:var(--ink-soft);line-height:1.65}
-    .value-band{background:var(--navy);padding:80px 0}
-    @media(max-width:900px){.about-grid{grid-template-columns:1fr}.about-img-wrap{position:static}.credential-grid{grid-template-columns:1fr}}
+    .timeline-dot{width:40px;height:40px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-display);font-size:1rem;color:#fff;font-weight:400;z-index:1}
+    .timeline-year{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-deep);margin-bottom:5px}
+    .timeline-text{font-size:.88rem;color:var(--ink-soft);line-height:1.68}
+
+    /* Values band — navy bg, SVG icons */
+    .value-band{background:var(--navy);padding:88px 0;position:relative;overflow:hidden}
+    .value-band::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;border:80px solid rgba(255,125,30,.06);pointer-events:none}
+    .val-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:40px}
+    .val-card{background:rgba(255,255,255,.06);border-radius:var(--r-xl);padding:28px 22px;text-align:center;border:1px solid rgba(255,255,255,.08);transition:background var(--t-base),border-color var(--t-base)}
+    .val-card:hover{background:rgba(255,255,255,.1);border-color:rgba(255,125,30,.3)}
+    .val-icon{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;color:var(--orange)}
+    .val-icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .val-name{font-family:var(--font-display);font-size:1.28rem;color:#fff;margin-bottom:8px}
+    .val-desc{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.68}
+    .approach-quote{background:rgba(255,125,30,.12);border:1px solid rgba(255,125,30,.25);border-radius:var(--r-xl);padding:36px 40px;text-align:center}
+    .approach-label{font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+    .approach-text{font-family:var(--font-display);font-size:clamp(1.15rem,2.3vw,1.85rem);color:#fff;line-height:1.38}
+
+    /* Responsive */
+    @media(max-width:900px){
+      .about-grid{grid-template-columns:1fr}
+      .about-img-wrap{position:static}
+      .credential-grid{grid-template-columns:1fr 1fr}
+      .val-cards{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:540px){
+      .credential-grid{grid-template-columns:1fr}
+      .val-cards{grid-template-columns:1fr}
+      .approach-quote{padding:24px 20px}
+    }
   </style>
 </head>
 <body>
-<div class="ann-bar" id="annBar">🎉 &nbsp;<strong>20% OFF</strong> — <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener">Shop on Selar →</a><button class="ann-close" id="annClose">✕</button></div>
-<nav class="nav" id="nav">
+
+<div class="ann-bar" id="annBar"><strong>20% OFF</strong> all products — <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener">Shop on Selar →</a><button class="ann-close" id="annClose" aria-label="Dismiss">✕</button></div>
+
+<nav class="nav" id="nav" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="assets/images/logo/logo.jpg" alt="Logo" class="nav-logo-img"/><div><span class="nav-wordmark">D'Marie Vivre</span><span class="nav-tagline-mini">Learning Hub</span></div></a>
-    <div class="nav-links"><a href="learning-hub.html">Programs</a><a href="learning-hub.html#adult">Adult Ed</a><a href="kidspray.html">KidsPray</a><a href="shop.html">Shop</a><a href="about.html" style="color:var(--orange)">About</a><a href="contact.html">Contact</a></div>
-    <div class="nav-right"><a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-orange btn-sm">Enrol Today</a><button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button></div>
+    <a href="index.html" class="nav-logo"><img src="assets/images/logo/logo.jpg" alt="D'Marie Vivre logo" class="nav-logo-img"/><div><span class="nav-wordmark">D'Marie Vivre</span><span class="nav-tagline-mini">Learning Hub</span></div></a>
+    <div class="nav-links"><a href="learning-hub.html">Programs</a><a href="kidspray.html">KidsPray</a><a href="shop.html">Shop</a><a href="about.html" style="color:var(--orange)">About</a><a href="contact.html">Contact</a></div>
+    <div class="nav-right"><a href="https://wa.me/2348068600747?text=Hello%20D%27Marie%20Vivre%2C%20I%27d%20like%20to%20enrol" target="_blank" rel="noopener" class="btn btn-orange btn-sm">Enrol Today</a><button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button></div>
   </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu"><button class="mobile-close" id="mobileClose">✕</button><a href="index.html">Home</a><a href="learning-hub.html">Programs</a><a href="kidspray.html">KidsPray</a><a href="shop.html">Shop</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <a href="index.html">Home</a>
+  <a href="learning-hub.html">Programs</a>
+  <a href="kidspray.html">KidsPray</a>
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="mobile-wa-link">WhatsApp Us</a>
+</div>
 
+<!-- PAGE HERO -->
 <section class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:rgba(255,255,255,.8)">About</span></div>
-    <span class="tag tag-orange reveal">Meet Ms. Mary</span>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:rgba(255,255,255,.8)">About</span></nav>
+    <span class="tag reveal" style="background:rgba(255,125,30,.2);color:var(--orange-light)">Meet Ms. Mary</span>
     <h1 class="d-xl text-white reveal reveal-d1" style="margin-bottom:16px">The heart behind<br><em style="color:var(--orange);font-style:italic">D'Marie Vivre</em></h1>
-    <p class="body-lg reveal reveal-d2" style="color:rgba(255,255,255,.68);max-width:560px">Educator. Author. Curriculum developer. Parent coach. And above all — someone who genuinely believes every learner is a star waiting to shine.</p>
+    <p class="body-lg reveal reveal-d2" style="color:rgba(255,255,255,.68);max-width:560px">Educator. Author. Curriculum developer. Parent coach. And above all — someone who genuinely believes every child is a star waiting to shine.</p>
   </div>
 </section>
 
+<!-- MAIN BIO -->
 <section class="section" style="background:var(--cream)">
   <div class="container">
     <div class="about-grid">
 
-      <!-- Left: Photo -->
-      <div class="about-img-wrap reveal reveal-left">
-        <!--📸 IMAGE NEEDED: assets/images/about/mary-portrait.jpg — warm professional portrait-->
+      <!-- Left: Photo + contact -->
+      <div class="about-img-wrap reveal reveal-left" data-fallback="Ms. Mary">
         <img src="https://dmarievivre.org/wp-content/uploads/2023/06/Welcome-to-DMarieVivre.jpg" alt="Ms. Mary Okunloye — Founder, D'Marie Vivre Learning Hub"/>
         <div class="about-img-caption">
-          <p style="font-family:var(--font-display);font-size:1.1rem;color:var(--navy)">Mary Okunloye</p>
-          <p style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-deep);margin-top:2px">Founder & Lead Facilitator</p>
-          <p style="font-size:.82rem;color:var(--ink-soft);margin-top:8px;line-height:1.6">D'Marie Vivre Learning Hub<br>Lugbe, Abuja, Nigeria</p>
+          <p style="font-family:var(--font-display);font-size:1.12rem;color:var(--navy);margin-bottom:2px">Mary Okunloye</p>
+          <p style="font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-deep);margin-bottom:8px">Founder & Lead Facilitator</p>
+          <p style="font-size:.82rem;color:var(--ink-soft);line-height:1.65">D'Marie Vivre Learning Hub<br/>139 Trademore Avenue, Lugbe, Abuja</p>
         </div>
-        <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px">
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
           <a href="https://wa.me/2348068600747?text=Hello%20Ms.%20Mary%2C%20I%27d%20like%20to%20connect" target="_blank" rel="noopener" class="btn btn-orange" style="justify-content:center">
-            <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:15px;height:15px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Chat With Ms. Mary
           </a>
           <a href="https://www.instagram.com/dvlearninghub/" target="_blank" rel="noopener" class="btn btn-outline-navy" style="justify-content:center">@dvlearninghub on Instagram</a>
@@ -83,20 +133,46 @@
         <div class="about-bio-section">
           <h3>Who is Ms. Mary?</h3>
           <p>Mary Okunloye — known warmly to learners and families as Ms. Mary — is the founder and lead facilitator of D'Marie Vivre Learning Hub. She is an experienced educator, curriculum developer, published children's book author, and a deeply passionate advocate for holistic education.</p>
-          <p>Her journey into education was shaped by a single conviction: that every child — and every adult — carries within them a unique light. The right environment, the right approach, and a caring educator can help that light shine brightly. That conviction became D'Marie Vivre.</p>
+          <p>Her journey into education was shaped by a single conviction: that every child carries within them a unique light. The right environment, the right approach, and a caring educator can help that light shine brightly. That conviction became D'Marie Vivre.</p>
         </div>
 
         <div class="about-bio-section">
           <h3>Credentials & Expertise</h3>
           <div class="credential-grid">
-            <div class="credential-item"><span class="credential-icon">📚</span>Experienced Educator</div>
-            <div class="credential-item"><span class="credential-icon">📋</span>Curriculum Developer</div>
-            <div class="credential-item"><span class="credential-icon">👪</span>Parent & Teacher Coach</div>
-            <div class="credential-item"><span class="credential-icon">✍️</span>Published Author</div>
-            <div class="credential-item"><span class="credential-icon">🤝</span>Special Needs Support</div>
-            <div class="credential-item"><span class="credential-icon">🙏</span>Spiritual Facilitator</div>
-            <div class="credential-item"><span class="credential-icon">🏫</span>School Consultant</div>
-            <div class="credential-item"><span class="credential-icon">🌱</span>Adult Education Champion</div>
+
+            <div class="credential-item">
+              <div class="cred-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+              Experienced Educator
+            </div>
+            <div class="credential-item">
+              <div class="cred-icon"><svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
+              Curriculum Developer
+            </div>
+            <div class="credential-item">
+              <div class="cred-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              Parent & Teacher Coach
+            </div>
+            <div class="credential-item">
+              <div class="cred-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+              Published Author
+            </div>
+            <div class="credential-item">
+              <div class="cred-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+              Special Needs Support
+            </div>
+            <div class="credential-item">
+              <div class="cred-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+              Spiritual Facilitator
+            </div>
+            <div class="credential-item">
+              <div class="cred-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+              School Consultant
+            </div>
+            <div class="credential-item">
+              <div class="cred-icon"><svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+              Special Needs Advocate
+            </div>
+
           </div>
         </div>
 
@@ -105,7 +181,7 @@
           <div class="timeline">
             <div class="timeline-item">
               <div class="timeline-dot">1</div>
-              <div><p class="timeline-year">The Vision</p><p class="timeline-text">Ms. Mary saw a gap — children who needed more than just a classroom, and adults who had been told learning had an age limit. She disagreed with both.</p></div>
+              <div><p class="timeline-year">The Vision</p><p class="timeline-text">Ms. Mary saw a gap — children who needed more than a classroom, and families who lacked the resources to bridge it. She set out to change that.</p></div>
             </div>
             <div class="timeline-item">
               <div class="timeline-dot">2</div>
@@ -113,11 +189,11 @@
             </div>
             <div class="timeline-item">
               <div class="timeline-dot">3</div>
-              <div><p class="timeline-year">The Book</p><p class="timeline-text">"The Monkey With One Hand" was published — a children's book written by Fortune Okunloye, emerging from the hub's storytelling culture and moral-centred approach.</p></div>
+              <div><p class="timeline-year">The Book</p><p class="timeline-text">"The Monkey With One Hand" was published — a children's book by Fortune Okunloye, emerging from the hub's storytelling culture and moral-centred approach.</p></div>
             </div>
             <div class="timeline-item">
               <div class="timeline-dot">4</div>
-              <div><p class="timeline-year">2025 — Expanded</p><p class="timeline-text">Adult Education launched. Saturday Tech Club began. The hub expanded to serve everyone from 2-year-olds in story circles to adults learning to read for the first time.</p></div>
+              <div><p class="timeline-year">2025 — Expanded</p><p class="timeline-text">Saturday Tech Club launched. Special Needs Education deepened. The hub grew to serve children from 2-year-olds in story circles through to secondary school learners.</p></div>
             </div>
           </div>
         </div>
@@ -125,8 +201,8 @@
         <div class="about-bio-section">
           <h3>Ms. Mary's Philosophy</h3>
           <blockquote style="border-left:4px solid var(--orange);padding:20px 24px;background:var(--orange-pale);border-radius:0 var(--r-md) var(--r-md) 0;margin:0">
-            <p style="font-family:var(--font-display);font-size:1.3rem;font-style:italic;color:var(--navy);line-height:1.5;margin-bottom:12px">"Every child is a star waiting to shine. Every adult is a learner who deserves a second chance. We just help them find their light."</p>
-            <p style="font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-deep)">— Mary Okunloye, Founder</p>
+            <p style="font-family:var(--font-display);font-size:1.32rem;font-style:italic;color:var(--navy);line-height:1.5;margin-bottom:12px">"Every child is a star waiting to shine. We just help them find their light."</p>
+            <p style="font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-deep)">— Mary Okunloye, Founder</p>
           </blockquote>
         </div>
 
@@ -140,37 +216,51 @@
   <div class="container">
     <div style="text-align:center;margin-bottom:52px">
       <span class="tag reveal" style="background:rgba(255,125,30,.2);color:var(--orange-light)">What Drives Us</span>
-      <h2 class="d-lg text-white reveal reveal-d1">Our Core Values &<br><em style="font-style:italic;color:var(--orange)">Our Approach</em></h2>
+      <h2 class="d-lg text-white reveal reveal-d1" style="margin-top:4px">Our Core Values &<br><em style="font-style:italic;color:var(--orange)">Our Approach</em></h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:40px" class="reveal">
-      <div style="background:rgba(255,255,255,.06);border-radius:var(--r-xl);padding:28px;text-align:center;border:1px solid rgba(255,255,255,.08)">
-        <span style="font-size:2.5rem;display:block;margin-bottom:12px">🎨</span>
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:#fff;margin-bottom:8px">Creativity</h3>
-        <p style="font-size:.83rem;color:rgba(255,255,255,.58);line-height:1.65">We believe every learner has creative potential. Our activity-based approach sparks imagination at every level.</p>
+    <div class="val-cards reveal">
+
+      <div class="val-card">
+        <div class="val-icon" style="background:rgba(255,125,30,.15)">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h3 class="val-name">Creativity</h3>
+        <p class="val-desc">We believe every learner has creative potential. Our activity-based approach sparks imagination at every level.</p>
       </div>
-      <div style="background:rgba(255,255,255,.06);border-radius:var(--r-xl);padding:28px;text-align:center;border:1px solid rgba(255,255,255,.08)">
-        <span style="font-size:2.5rem;display:block;margin-bottom:12px">💪</span>
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:#fff;margin-bottom:8px">Diligence</h3>
-        <p style="font-size:.83rem;color:rgba(255,255,255,.58);line-height:1.65">Consistent effort over time builds mastery. We model this in our teaching and expect it of ourselves first.</p>
+
+      <div class="val-card">
+        <div class="val-icon" style="background:rgba(61,81,115,.25)">
+          <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <h3 class="val-name">Diligence</h3>
+        <p class="val-desc">Consistent effort over time builds mastery. We model this in our teaching and expect it of ourselves first.</p>
       </div>
-      <div style="background:rgba(255,255,255,.06);border-radius:var(--r-xl);padding:28px;text-align:center;border:1px solid rgba(255,255,255,.08)">
-        <span style="font-size:2.5rem;display:block;margin-bottom:12px">🤲</span>
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:#fff;margin-bottom:8px">Nurturing</h3>
-        <p style="font-size:.83rem;color:rgba(255,255,255,.58);line-height:1.65">We see the whole person — safety, belonging, and emotional wellbeing matter as much as academic progress.</p>
+
+      <div class="val-card">
+        <div class="val-icon" style="background:rgba(46,173,107,.18)">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3 class="val-name">Nurturing</h3>
+        <p class="val-desc">We see the whole person — safety, belonging, and emotional wellbeing matter as much as academic progress.</p>
       </div>
-      <div style="background:rgba(255,255,255,.06);border-radius:var(--r-xl);padding:28px;text-align:center;border:1px solid rgba(255,255,255,.08)">
-        <span style="font-size:2.5rem;display:block;margin-bottom:12px">🌱</span>
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:#fff;margin-bottom:8px">Growth</h3>
-        <p style="font-size:.83rem;color:rgba(255,255,255,.58);line-height:1.65">Progress over perfection. Every step forward is celebrated. Growth never has an age limit.</p>
+
+      <div class="val-card">
+        <div class="val-icon" style="background:rgba(255,208,64,.18)">
+          <svg viewBox="0 0 24 24"><path d="M12 22V12"/><path d="M5 12C5 6.5 8.5 4 12 4c3.5 0 7 2.5 7 8"/><path d="M5 12c0-2 1.5-4 4-5"/></svg>
+        </div>
+        <h3 class="val-name">Growth</h3>
+        <p class="val-desc">Progress over perfection. Every step forward is celebrated. Growth never has an age limit.</p>
       </div>
+
     </div>
-    <div style="background:rgba(255,125,30,.12);border:1px solid rgba(255,125,30,.25);border-radius:var(--r-xl);padding:36px 40px;text-align:center" class="reveal reveal-d2">
-      <p style="font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:10px">Our Teaching Approach</p>
-      <p style="font-family:var(--font-display);font-size:clamp(1.2rem,2.5vw,1.9rem);color:#fff;line-height:1.35">"Creativity and activity-based approach with well-detailed illustrations — experienced educators with a personalised approach for schools, children, and adults."</p>
+    <div class="approach-quote reveal reveal-d2">
+      <p class="approach-label">Our Teaching Approach</p>
+      <p class="approach-text">"Creativity and activity-based approach with well-detailed illustrations — experienced educators with a personalised approach for schools and children."</p>
     </div>
   </div>
 </section>
 
+<!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner">
     <h2 class="cta-headline reveal">Come meet us</h2>
@@ -185,7 +275,13 @@
   </div>
 </section>
 
-<footer class="footer"><div class="container"><div class="footer-grid"><div class="f-brand"><img src="assets/images/logo/logo.jpg" alt="Logo" style="height:48px;width:auto;border-radius:10px;margin-bottom:12px"/><div class="f-brand-name">D'Marie Vivre</div><span class="f-brand-tag">Learning Hub · Learn. Grow. Thrive.</span><p>Holistic education for children and adults. Lugbe, Abuja.</p></div><div class="f-col"><h4>Programs</h4><ul><li><a href="learning-hub.html#afterschool">After-School</a></li><li><a href="learning-hub.html#reading-club">Reading Club</a></li><li><a href="learning-hub.html#write-well">Creative Writing</a></li><li><a href="learning-hub.html#arts-crafts">Arts & Crafts</a></li><li><a href="learning-hub.html#tech-club">Tech Club</a></li><li><a href="learning-hub.html#adult">Adult Education</a></li></ul></div><div class="f-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="book.html">The Book</a></li><li><a href="kidspray.html">KidsPray</a></li><li><a href="resources.html">Free Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="f-col"><h4>Contact</h4><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 15a19.79 19.79 0 01-3.07-8.67A2 2 0 013.88 4.26h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6z"/></svg><div><a href="tel:+2348068600747">08068600747</a><br/><a href="tel:+2349015566523">09015566523</a></div></div><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>139 Trademore Ave, Lugbe, Abuja</span></div></div></div><div class="footer-bottom"><p>© 2025 D'Marie Vivre Learning Hub. All rights reserved.</p><p><a href="index.html">Home</a> · <a href="contact.html">Contact</a> · <a href="learning-hub.html">Programs</a></p></div></div></footer>
-<a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="float-wa"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<footer class="footer"><div class="container"><div class="footer-grid">
+  <div class="f-brand"><img src="assets/images/logo/logo.jpg" alt="D'Marie Vivre logo" style="height:46px;width:auto;border-radius:9px;margin-bottom:12px"/><div class="f-brand-name">D'Marie Vivre</div><span class="f-brand-tag">Learning Hub · Learn. Grow. Thrive.</span><p>Children's education hub in Lugbe, Abuja, Nigeria.</p><div class="f-socials"><a href="https://www.instagram.com/dvlearninghub/" target="_blank" rel="noopener" class="f-soc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="https://web.facebook.com/kidspraywithmsmary" target="_blank" rel="noopener" class="f-soc" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="https://www.youtube.com/@kidspraywithmsmary2218" target="_blank" rel="noopener" class="f-soc" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a><a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="f-soc" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></div></div>
+  <div class="f-col"><h4>Programs</h4><ul><li><a href="learning-hub.html#afterschool">After-School</a></li><li><a href="learning-hub.html#reading-club">Reading Club</a></li><li><a href="learning-hub.html#write-well">Creative Writing</a></li><li><a href="learning-hub.html#arts-crafts">Arts & Crafts</a></li><li><a href="learning-hub.html#tech-club">Tech Club</a></li><li><a href="learning-hub.html#special-needs">Special Needs</a></li></ul></div>
+  <div class="f-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="book.html">The Book</a></li><li><a href="kidspray.html">KidsPray</a></li><li><a href="resources.html">Free Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  <div class="f-col"><h4>Contact</h4><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 15a19.79 19.79 0 01-3.07-8.67A2 2 0 013.88 4.26h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6z"/></svg><div><a href="tel:+2348068600747">08068600747</a><br/><a href="tel:+2349015566523">09015566523</a></div></div><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>139 Trademore Ave, Lugbe, Abuja</span></div><div class="f-contact" style="margin-top:4px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:info@dmarievivre.org">info@dmarievivre.org</a></div></div>
+</div><div class="footer-bottom"><p>© 2025 D'Marie Vivre Learning Hub. All rights reserved.</p><p><a href="index.html">Home</a> · <a href="contact.html">Contact</a> · <a href="learning-hub.html">Programs</a></p></div></div></footer>
+
+<a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="float-wa" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 <script src="assets/js/main.js"></script>
 </body></html>
