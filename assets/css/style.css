@@ -545,3 +545,148 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 .mt-2{margin-top:8px}.mt-4{margin-top:16px}.mt-6{margin-top:24px}.mt-8{margin-top:32px}.mt-12{margin-top:48px}
 .mb-2{margin-bottom:8px}.mb-4{margin-bottom:16px}.mb-6{margin-bottom:24px}.mb-8{margin-bottom:32px}.mb-12{margin-bottom:48px}
 .hidden{display:none!important}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   IMAGE FALLBACK SYSTEM
+   When an <img> fails to load, JS adds .img-broken to the img and
+   .img-failed to the nearest [data-fallback] ancestor (or direct parent).
+   The fallback shows a gradient background + icon + label.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Hide broken img tags */
+img.img-broken {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Base fallback container — shown when parent gets .img-failed */
+[data-fallback].img-failed {
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 160px;
+}
+
+/* Fallback label rendered from data-fallback attribute */
+[data-fallback].img-failed::after {
+  content: attr(data-fallback);
+  font-family: var(--font-body);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .55;
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
+}
+
+/* Fallback icon (SVG encoded as bg-image) — shown via ::before */
+[data-fallback].img-failed::before {
+  content: '';
+  position: relative;
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  opacity: .35;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* ── Per-context gradient backgrounds ─────────────────── */
+
+/* Programs / after-school / reading / arts / tech */
+[data-fallback="After-School Program"].img-failed,
+[data-fallback="Reading Club"].img-failed,
+[data-fallback="Arts & Crafts"].img-failed,
+[data-fallback="Tech Club"].img-failed,
+[data-fallback="Creative Writing"].img-failed,
+[data-fallback="Special Needs"].img-failed,
+[data-fallback="Book Club"].img-failed,
+[data-fallback="Program"].img-failed {
+  background: linear-gradient(135deg, var(--orange-pale) 0%, #F2F5FA 100%);
+  color: var(--navy);
+}
+
+[data-fallback="After-School Program"].img-failed::before,
+[data-fallback="Program"].img-failed::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2326334A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpolyline points='9 22 9 12 15 12 15 22'/%3E%3C/svg%3E");
+}
+
+[data-fallback="Reading Club"].img-failed::before,
+[data-fallback="Book Club"].img-failed::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2326334A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z'/%3E%3Cpath d='M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z'/%3E%3C/svg%3E");
+}
+
+[data-fallback="Arts & Crafts"].img-failed::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2326334A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E");
+}
+
+[data-fallback="Tech Club"].img-failed::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2326334A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='3' width='20' height='14' rx='2'/%3E%3Cline x1='8' y1='21' x2='16' y2='21'/%3E%3Cline x1='12' y1='17' x2='12' y2='21'/%3E%3C/svg%3E");
+}
+
+[data-fallback="Creative Writing"].img-failed::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2326334A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 20h9'/%3E%3Cpath d='M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z'/%3E%3C/svg%3E");
+}
+
+[data-fallback="Special Needs"].img-failed::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2326334A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/%3E%3C/svg%3E");
+}
+
+/* Ms. Mary portrait */
+[data-fallback="Ms. Mary"].img-failed {
+  background: linear-gradient(135deg, var(--navy-pale) 0%, #D6DDEB 100%);
+  color: var(--navy);
+  border-radius: var(--r-xl);
+  min-height: 300px;
+}
+[data-fallback="Ms. Mary"].img-failed::before {
+  width: 64px;
+  height: 64px;
+  opacity: .3;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2326334A' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
+}
+
+/* Book cover / book images */
+[data-fallback="Book Cover"].img-failed,
+[data-fallback="Book Image"].img-failed {
+  background: linear-gradient(135deg, #1E2A3A 0%, #2D4060 100%);
+  color: rgba(255,255,255,.6);
+  border-radius: var(--r-lg);
+  min-height: 200px;
+}
+[data-fallback="Book Cover"].img-failed::after,
+[data-fallback="Book Image"].img-failed::after {
+  color: rgba(255,255,255,.45);
+}
+[data-fallback="Book Cover"].img-failed::before,
+[data-fallback="Book Image"].img-failed::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z'/%3E%3Cpath d='M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z'/%3E%3C/svg%3E");
+}
+
+/* Gallery / hub photos */
+[data-fallback="Hub Photo"].img-failed,
+[data-fallback="Gallery"].img-failed {
+  background: linear-gradient(135deg, var(--orange-pale) 0%, #EEF1F7 100%);
+  color: var(--navy);
+  aspect-ratio: 1/1;
+}
+[data-fallback="Hub Photo"].img-failed::before,
+[data-fallback="Gallery"].img-failed::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2326334A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2'/%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'/%3E%3Cpolyline points='21 15 16 10 5 21'/%3E%3C/svg%3E");
+}
+
+/* Product image (shop) */
+[data-fallback="Product"].img-failed {
+  background: linear-gradient(135deg, var(--orange-pale) 0%, #EEF1F7 100%);
+  color: var(--navy);
+}
+[data-fallback="Product"].img-failed::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2326334A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z'/%3E%3Cline x1='3' y1='6' x2='21' y2='6'/%3E%3Cpath d='M16 10a4 4 0 01-8 0'/%3E%3C/svg%3E");
+}
