@@ -3,55 +3,116 @@
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="KidsPray with Ms. Mary — Teaching children to pray with confidence, faith, and joy. Birthday prayer packages, devotionals, YouTube content, and WhatsApp community."/>
-  <title>KidsPray | D'Marie Vivre Learning Hub</title>
+  <title>KidsPray with Ms. Mary | D'Marie Vivre Learning Hub</title>
   <link rel="icon" type="image/jpeg" href="assets/images/logo/logo.jpg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="assets/css/style.css"/>
   <style>
-    .kp-hero{background:var(--navy);padding:140px 0 96px;position:relative;overflow:hidden}
-    .kp-hero::before{content:'🙏';position:absolute;right:-40px;bottom:-40px;font-size:340px;opacity:.06;pointer-events:none}
-    .kp-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,125,30,.1) 0%,transparent 60%);pointer-events:none}
-    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:20px}
-    .breadcrumb a{color:rgba(255,255,255,.5)}.breadcrumb a:hover{color:var(--orange)}.breadcrumb span{color:rgba(255,255,255,.3)}
+    /* Hero — geometric decoration, no emoji */
+    .kp-hero{background:var(--navy);padding:148px 0 96px;position:relative;overflow:hidden}
+    .kp-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,125,30,.1) 0%,transparent 60%);pointer-events:none}
+    .kp-hero::after{content:'';position:absolute;right:-60px;bottom:-80px;width:440px;height:440px;border-radius:50%;border:72px solid rgba(255,255,255,.05);pointer-events:none}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.74rem;font-weight:600;color:rgba(255,255,255,.46);margin-bottom:20px}
+    .breadcrumb a{color:rgba(255,255,255,.46)}.breadcrumb a:hover{color:var(--orange)}.breadcrumb span{color:rgba(255,255,255,.26)}
+
+    /* What-is cards */
     .kp-what-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .kp-what-card{background:#fff;border-radius:var(--r-xl);padding:32px 26px;box-shadow:var(--s-sm);border-top:4px solid var(--orange);transition:transform .3s,box-shadow .3s}
+    .kp-what-card{background:#fff;border-radius:var(--r-xl);padding:32px 26px;box-shadow:var(--s-sm);border-top:4px solid var(--orange);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
     .kp-what-card:hover{transform:translateY(-4px);box-shadow:var(--s-lg)}
+    .kp-card-icon{width:52px;height:52px;border-radius:14px;background:var(--orange-pale);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--orange-deep)}
+    .kp-card-icon svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .kp-card-title{font-family:var(--font-display);font-size:1.38rem;color:var(--navy);margin-bottom:10px}
+    .kp-card-text{font-size:.88rem;color:var(--ink-soft);line-height:1.75}
+
+    /* Birthday prayer packages (navy section) */
     .kp-prayer-section{background:var(--navy);padding:96px 0;position:relative;overflow:hidden}
-    .kp-prayer-section::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,125,30,.1) 0%,transparent 60%)}
+    .kp-prayer-section::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,125,30,.1) 0%,transparent 60%);pointer-events:none}
+    .kp-prayer-section::after{content:'';position:absolute;left:-80px;bottom:-80px;width:380px;height:380px;border-radius:50%;border:60px solid rgba(255,255,255,.04);pointer-events:none}
     .pkg-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}
+    .pkg-k{background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--s-md);display:flex;flex-direction:column;position:relative;transition:transform .3s,box-shadow .3s}
+    .pkg-k:hover{transform:translateY(-4px);box-shadow:var(--s-xl)}
+    .pkg-k-featured{border:3px solid var(--orange);transform:scale(1.04)}
+    .pkg-k-featured:hover{transform:scale(1.04) translateY(-4px)}
+    .pkg-k-pop{position:absolute;top:0;left:50%;transform:translateX(-50%) translateY(-1px);background:var(--orange);color:#fff;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:0 0 8px 8px}
+    .pkg-k-top{padding:26px 20px 16px;text-align:center;border-bottom:1px solid var(--border)}
+    .pkg-k-ico{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+    .pkg-k-ico svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .pkg-k-name{font-family:var(--font-display);font-size:1.5rem;color:var(--navy);margin-bottom:3px}
+    .pkg-k-sub{font-size:.72rem;color:var(--ink-soft)}
+    .pkg-k-body{padding:16px 20px 22px;flex:1;display:flex;flex-direction:column;gap:8px}
+    .pkg-k-feat{display:flex;align-items:flex-start;gap:8px;font-size:.81rem;color:var(--ink-soft);line-height:1.45}
+    .pkg-k-check{width:16px;height:16px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+    .pkg-k-check svg{width:8px;height:8px;stroke:var(--orange-deep);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+    /* Community section */
     .kp-community{background:var(--orange);padding:96px 0;position:relative;overflow:hidden}
-    .kp-community::before{content:'💬';position:absolute;right:-30px;top:-30px;font-size:260px;opacity:.08;pointer-events:none}
-    .social-link-card{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:var(--r-lg);padding:18px 22px;transition:all .25s;text-decoration:none}
-    .social-link-card:hover{background:rgba(255,255,255,.22);transform:translateY(-2px)}
-    .social-icon{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
-    .social-info-name{font-size:.82rem;font-weight:700;color:#fff;margin-bottom:2px}
-    .social-info-handle{font-size:.73rem;color:rgba(255,255,255,.65)}
-    @media(max-width:900px){.kp-what-grid{grid-template-columns:1fr 1fr}.pkg-row{grid-template-columns:1fr 1fr}}
-    @media(max-width:600px){.kp-what-grid{grid-template-columns:1fr}.pkg-row{grid-template-columns:1fr}}
+    .kp-community::before{content:'';position:absolute;right:-80px;top:-80px;width:420px;height:420px;border-radius:50%;border:68px solid rgba(255,255,255,.08);pointer-events:none}
+    .kp-community::after{content:'';position:absolute;left:-60px;bottom:-60px;width:280px;height:280px;border-radius:50%;border:44px solid rgba(255,255,255,.06);pointer-events:none}
+    .kp-comm-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+
+    /* Social cards — SVG icons */
+    .social-card{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:var(--r-lg);padding:16px 20px;transition:all .25s;text-decoration:none}
+    .social-card:hover{background:rgba(255,255,255,.22);transform:translateY(-2px)}
+    .social-ico{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .social-ico svg{width:20px;height:20px}
+    .social-name{font-size:.82rem;font-weight:700;color:#fff;margin-bottom:2px}
+    .social-handle{font-size:.72rem;color:rgba(255,255,255,.65)}
+
+    /* Free resources */
+    .free-res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .free-res-card{background:#fff;border-radius:var(--r-lg);padding:28px;box-shadow:var(--s-xs);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
+    .free-res-card:hover{transform:translateY(-3px);box-shadow:var(--s-md)}
+    .free-res-icon{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;flex-shrink:0}
+    .free-res-icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .free-res-title{font-family:var(--font-display);font-size:1.18rem;color:var(--navy);margin-bottom:8px}
+    .free-res-text{font-size:.85rem;color:var(--ink-soft);line-height:1.68;flex:1;margin-bottom:16px}
+
+    @media(max-width:960px){
+      .kp-what-grid{grid-template-columns:1fr 1fr}
+      .pkg-row{grid-template-columns:1fr 1fr}
+      .pkg-k-featured{transform:none}
+      .kp-comm-grid{grid-template-columns:1fr;gap:40px}
+    }
+    @media(max-width:600px){
+      .kp-what-grid{grid-template-columns:1fr}
+      .pkg-row{grid-template-columns:1fr}
+      .free-res-grid{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
-<div class="ann-bar" id="annBar">🎉 &nbsp;<strong>20% OFF</strong> — <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener">Shop on Selar →</a><button class="ann-close" id="annClose">✕</button></div>
-<nav class="nav" id="nav">
+
+<div class="ann-bar" id="annBar"><strong>20% OFF</strong> all products — <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener">Shop on Selar →</a><button class="ann-close" id="annClose" aria-label="Dismiss">✕</button></div>
+
+<nav class="nav" id="nav" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="assets/images/logo/logo.jpg" alt="Logo" class="nav-logo-img"/><div><span class="nav-wordmark">D'Marie Vivre</span><span class="nav-tagline-mini">Learning Hub</span></div></a>
-    <div class="nav-links"><a href="learning-hub.html">Programs</a><a href="learning-hub.html#adult">Adult Ed</a><a href="kidspray.html" style="color:var(--orange)">KidsPray</a><a href="shop.html">Shop</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
-    <div class="nav-right"><a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-orange btn-sm">Enrol Today</a><button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button></div>
+    <a href="index.html" class="nav-logo"><img src="assets/images/logo/logo.jpg" alt="D'Marie Vivre logo" class="nav-logo-img"/><div><span class="nav-wordmark">D'Marie Vivre</span><span class="nav-tagline-mini">Learning Hub</span></div></a>
+    <div class="nav-links"><a href="learning-hub.html">Programs</a><a href="kidspray.html" style="color:var(--orange)">KidsPray</a><a href="shop.html">Shop</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+    <div class="nav-right"><a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-orange btn-sm">Get Resources</a><button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button></div>
   </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu"><button class="mobile-close" id="mobileClose">✕</button><a href="index.html">Home</a><a href="learning-hub.html">Programs</a><a href="kidspray.html">KidsPray</a><a href="shop.html">Shop</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <a href="index.html">Home</a>
+  <a href="learning-hub.html">Programs</a>
+  <a href="kidspray.html">KidsPray</a>
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="mobile-wa-link">WhatsApp Us</a>
+</div>
 
 <!-- HERO -->
 <section class="kp-hero">
   <div class="container" style="position:relative;z-index:1">
-    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:rgba(255,255,255,.8)">KidsPray</span></div>
-    <span class="tag reveal" style="background:rgba(255,125,30,.2);color:var(--orange-light)">🙏 KidsPray with Ms. Mary</span>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:rgba(255,255,255,.8)">KidsPray</span></nav>
+    <span class="tag reveal" style="background:rgba(255,125,30,.2);color:var(--orange-light)">KidsPray with Ms. Mary</span>
     <h1 class="d-xl text-white reveal reveal-d1" style="margin-bottom:16px;max-width:680px">
       Teaching children to pray with<br><em style="color:var(--orange);font-style:italic">confidence & joy</em>
     </h1>
-    <p class="body-lg reveal reveal-d2" style="color:rgba(255,255,255,.68);max-width:580px;margin-bottom:32px">KidsPray is the faith arm of D'Marie Vivre Learning Hub. We equip children — and the adults who love them — with prayer habits, devotional tools, and a deep sense of spiritual identity.</p>
+    <p class="body-lg reveal reveal-d2" style="color:rgba(255,255,255,.68);max-width:580px;margin-bottom:32px">KidsPray is the faith arm of D'Marie Vivre Learning Hub. We equip children — and the families who love them — with prayer habits, devotional tools, and a deep sense of spiritual identity.</p>
     <div style="display:flex;gap:10px;flex-wrap:wrap" class="reveal reveal-d3">
       <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-orange btn-lg">Get Prayer Resources</a>
       <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20join%20the%20KidsPray%20community" target="_blank" rel="noopener" class="btn btn-outline-white btn-lg">Join the Community</a>
@@ -64,25 +125,35 @@
   <div class="container">
     <div style="text-align:center;margin-bottom:52px">
       <span class="tag tag-orange reveal">What is KidsPray?</span>
-      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">Faith woven into every<br><em style="color:var(--orange);font-style:italic">part of who we are</em></h2>
+      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy);margin-top:4px">Faith woven into every<br><em style="color:var(--orange);font-style:italic">part of who we are</em></h2>
       <p class="body-md text-soft reveal reveal-d2" style="max-width:540px;margin:12px auto 0">KidsPray is not a separate brand — it's the heartbeat of D'Marie Vivre. Prayer, scripture, and faith are woven throughout every program, resource, and celebration we offer.</p>
     </div>
     <div class="kp-what-grid">
+
       <div class="kp-what-card reveal">
-        <span style="font-size:2.5rem;display:block;margin-bottom:14px">📖</span>
-        <h3 style="font-family:var(--font-display);font-size:1.4rem;color:var(--navy);margin-bottom:10px">Daily Prayer Habits</h3>
-        <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.72">We help children build consistent, meaningful prayer routines through structured prayer packs, morning devotionals, and scripture affirmations. Faith is a daily practice — not just Sundays.</p>
+        <div class="kp-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3 class="kp-card-title">Daily Prayer Habits</h3>
+        <p class="kp-card-text">We help children build consistent, meaningful prayer routines through structured prayer packs, morning devotionals, and scripture affirmations. Faith is a daily practice — not just Sundays.</p>
       </div>
+
       <div class="kp-what-card reveal reveal-d1">
-        <span style="font-size:2.5rem;display:block;margin-bottom:14px">🎂</span>
-        <h3 style="font-family:var(--font-display);font-size:1.4rem;color:var(--navy);margin-bottom:10px">Birthday Blessings</h3>
-        <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.72">Our KidsPray birthday surprise packages are a way to celebrate your child with prayer, purpose, and the Word of God. Because birthdays are more than cake — they are covenant moments.</p>
+        <div class="kp-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3 class="kp-card-title">Birthday Blessings</h3>
+        <p class="kp-card-text">Our KidsPray birthday surprise packages celebrate your child with prayer, purpose, and the Word of God. Because birthdays are more than cake — they are covenant moments.</p>
       </div>
+
       <div class="kp-what-card reveal reveal-d2">
-        <span style="font-size:2.5rem;display:block;margin-bottom:14px">🤝</span>
-        <h3 style="font-family:var(--font-display);font-size:1.4rem;color:var(--navy);margin-bottom:10px">Parent & Teacher Tools</h3>
-        <p style="font-size:.88rem;color:var(--ink-soft);line-height:1.72">Prayer doesn't only happen with the child — it flows through the parents and teachers who lead them. We equip adults with tools to model and pray over the children they love.</p>
+        <div class="kp-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="kp-card-title">Parent & Teacher Tools</h3>
+        <p class="kp-card-text">Prayer flows through the parents and teachers who lead children. We equip families with tools to model prayer and speak life over the children they love every single day.</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -91,124 +162,192 @@
 <section class="kp-prayer-section" id="birthday">
   <div class="container" style="position:relative;z-index:1">
     <div style="text-align:center;margin-bottom:52px">
-      <span class="tag reveal" style="background:rgba(255,125,30,.2);color:var(--orange-light)">🎂 Birthday Surprise</span>
-      <h2 class="d-xl text-white reveal reveal-d1">Faith-filled birthday packages</h2>
+      <span class="tag reveal" style="background:rgba(255,125,30,.2);color:var(--orange-light)">Birthday Surprise</span>
+      <h2 class="d-xl text-white reveal reveal-d1" style="margin-top:4px">Faith-filled birthday packages</h2>
       <p class="body-lg reveal reveal-d2" style="color:rgba(255,255,255,.65);max-width:520px;margin:12px auto 0">Every package is prepared and delivered personally by Ms. Mary. Choose the level of blessing that fits your celebration.</p>
     </div>
 
     <div class="pkg-row">
-      <div class="pkg-card reveal" style="background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--s-md);display:flex;flex-direction:column">
-        <div style="padding:26px 22px 18px;text-align:center;border-bottom:1px solid var(--border)"><span style="font-size:2.4rem;display:block;margin-bottom:10px">🥈</span><h3 style="font-family:var(--font-display);font-size:1.5rem;color:var(--navy)">Silver</h3><p style="font-size:.73rem;color:var(--ink-soft)">Starter Blessing</p></div>
-        <div style="padding:18px 22px 24px;flex:1;display:flex;flex-direction:column;gap:8px">
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)"><div style="width:18px;height:18px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--orange-deep);font-weight:700;flex-shrink:0">✓</div>Personalised birthday prayer</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)"><div style="width:18px;height:18px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--orange-deep);font-weight:700;flex-shrink:0">✓</div>Digital affirmation card</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)"><div style="width:18px;height:18px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--orange-deep);font-weight:700;flex-shrink:0">✓</div>Scripture for the day</div>
+
+      <article class="pkg-k reveal">
+        <div class="pkg-k-top">
+          <div class="pkg-k-ico" style="background:var(--navy-mid)">
+            <svg viewBox="0 0 24 24" style="stroke:#fff"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div class="pkg-k-name">Silver</div>
+          <div class="pkg-k-sub">Starter Blessing</div>
+        </div>
+        <div class="pkg-k-body">
+          <div class="pkg-k-feat"><div class="pkg-k-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Personalised birthday prayer</div>
+          <div class="pkg-k-feat"><div class="pkg-k-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Digital affirmation card</div>
+          <div class="pkg-k-feat"><div class="pkg-k-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Scripture for the day</div>
           <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-outline-navy btn-sm" style="width:100%;justify-content:center;margin-top:auto">Get Silver ↗</a>
         </div>
-      </div>
+      </article>
 
-      <div class="pkg-card reveal reveal-d1" style="background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--s-xl);display:flex;flex-direction:column;border:3px solid var(--orange);transform:scale(1.03);position:relative">
-        <div style="position:absolute;top:0;left:50%;transform:translateX(-50%) translateY(-1px);background:var(--orange);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:0 0 9px 9px">⭐ Most Popular</div>
-        <div style="padding:26px 22px 18px;text-align:center;border-bottom:1px solid var(--border)"><span style="font-size:2.4rem;display:block;margin-bottom:10px">🥇</span><h3 style="font-family:var(--font-display);font-size:1.5rem;color:var(--navy)">Gold</h3><p style="font-size:.73rem;color:var(--ink-soft)">Full Blessing Bundle</p></div>
-        <div style="padding:18px 22px 24px;flex:1;display:flex;flex-direction:column;gap:8px">
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)"><div style="width:18px;height:18px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--orange-deep);font-weight:700;flex-shrink:0">✓</div>Everything in Silver</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)"><div style="width:18px;height:18px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--orange-deep);font-weight:700;flex-shrink:0">✓</div>Physical gift pack delivered</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)"><div style="width:18px;height:18px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--orange-deep);font-weight:700;flex-shrink:0">✓</div>Printed affirmation pack</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)"><div style="width:18px;height:18px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--orange-deep);font-weight:700;flex-shrink:0">✓</div>Prayer video message</div>
+      <article class="pkg-k pkg-k-featured reveal reveal-d1">
+        <div class="pkg-k-pop">Most Popular</div>
+        <div class="pkg-k-top">
+          <div class="pkg-k-ico" style="background:var(--orange)">
+            <svg viewBox="0 0 24 24" style="stroke:#fff"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="pkg-k-name">Gold</div>
+          <div class="pkg-k-sub">Full Blessing Bundle</div>
+        </div>
+        <div class="pkg-k-body">
+          <div class="pkg-k-feat"><div class="pkg-k-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Everything in Silver</div>
+          <div class="pkg-k-feat"><div class="pkg-k-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Physical gift pack delivered</div>
+          <div class="pkg-k-feat"><div class="pkg-k-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Printed affirmation pack</div>
+          <div class="pkg-k-feat"><div class="pkg-k-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Prayer video message</div>
           <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-orange btn-sm" style="width:100%;justify-content:center;margin-top:auto">Get Gold ↗</a>
         </div>
-      </div>
+      </article>
 
-      <div class="pkg-card reveal reveal-d2" style="background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--s-md);display:flex;flex-direction:column">
-        <div style="padding:26px 22px 18px;text-align:center;border-bottom:1px solid var(--border)"><span style="font-size:2.4rem;display:block;margin-bottom:10px">💎</span><h3 style="font-family:var(--font-display);font-size:1.5rem;color:var(--navy)">Diamond</h3><p style="font-size:.73rem;color:var(--ink-soft)">Premium Experience</p></div>
-        <div style="padding:18px 22px 24px;flex:1;display:flex;flex-direction:column;gap:8px">
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)"><div style="width:18px;height:18px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--orange-deep);font-weight:700;flex-shrink:0">✓</div>Everything in Gold</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)"><div style="width:18px;height:18px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--orange-deep);font-weight:700;flex-shrink:0">✓</div>Storybook gift</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)"><div style="width:18px;height:18px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--orange-deep);font-weight:700;flex-shrink:0">✓</div>Custom devotional booklet</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)"><div style="width:18px;height:18px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--orange-deep);font-weight:700;flex-shrink:0">✓</div>Ms. Mary personal note</div>
+      <article class="pkg-k reveal reveal-d2">
+        <div class="pkg-k-top">
+          <div class="pkg-k-ico" style="background:var(--purple)">
+            <svg viewBox="0 0 24 24" style="stroke:#fff"><polygon points="6 3 18 3 22 9 12 22 2 9"/><line x1="2" y1="9" x2="22" y2="9"/></svg>
+          </div>
+          <div class="pkg-k-name">Diamond</div>
+          <div class="pkg-k-sub">Premium Experience</div>
+        </div>
+        <div class="pkg-k-body">
+          <div class="pkg-k-feat"><div class="pkg-k-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Everything in Gold</div>
+          <div class="pkg-k-feat"><div class="pkg-k-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Storybook gift</div>
+          <div class="pkg-k-feat"><div class="pkg-k-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Custom devotional booklet</div>
+          <div class="pkg-k-feat"><div class="pkg-k-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Ms. Mary personal note</div>
           <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-outline-navy btn-sm" style="width:100%;justify-content:center;margin-top:auto">Get Diamond ↗</a>
         </div>
-      </div>
+      </article>
 
-      <div class="pkg-card reveal reveal-d3" style="background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--s-md);display:flex;flex-direction:column">
-        <div style="padding:26px 22px 18px;text-align:center;border-bottom:1px solid var(--border)"><span style="font-size:2.4rem;display:block;margin-bottom:10px">💚</span><h3 style="font-family:var(--font-display);font-size:1.5rem;color:var(--navy)">Emerald</h3><p style="font-size:.73rem;color:var(--ink-soft)">Ultimate Celebration</p></div>
-        <div style="padding:18px 22px 24px;flex:1;display:flex;flex-direction:column;gap:8px">
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)"><div style="width:18px;height:18px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--orange-deep);font-weight:700;flex-shrink:0">✓</div>Everything in Diamond</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)"><div style="width:18px;height:18px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--orange-deep);font-weight:700;flex-shrink:0">✓</div>Live birthday prayer session</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)"><div style="width:18px;height:18px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--orange-deep);font-weight:700;flex-shrink:0">✓</div>Celebration retreat spot</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)"><div style="width:18px;height:18px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;color:var(--orange-deep);font-weight:700;flex-shrink:0">✓</div>Full-year Bible reading plan</div>
+      <article class="pkg-k reveal reveal-d3">
+        <div class="pkg-k-top">
+          <div class="pkg-k-ico" style="background:var(--green)">
+            <svg viewBox="0 0 24 24" style="stroke:#fff"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="pkg-k-name">Emerald</div>
+          <div class="pkg-k-sub">Ultimate Celebration</div>
+        </div>
+        <div class="pkg-k-body">
+          <div class="pkg-k-feat"><div class="pkg-k-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Everything in Diamond</div>
+          <div class="pkg-k-feat"><div class="pkg-k-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Live birthday prayer session</div>
+          <div class="pkg-k-feat"><div class="pkg-k-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Celebration retreat spot</div>
+          <div class="pkg-k-feat"><div class="pkg-k-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Full-year Bible reading plan</div>
           <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-navy btn-sm" style="width:100%;justify-content:center;margin-top:auto">Get Emerald ↗</a>
         </div>
-      </div>
+      </article>
+
     </div>
+    <p class="text-center reveal" style="margin-top:22px;font-size:.83rem;color:rgba(255,255,255,.52)">
+      Not sure which to choose? <a href="https://wa.me/2348068600747?text=I%20need%20help%20choosing%20a%20KidsPray%20package" target="_blank" rel="noopener" style="color:var(--orange);font-weight:700">Ask us on WhatsApp →</a>
+    </p>
   </div>
 </section>
 
 <!-- COMMUNITY + SOCIAL -->
 <section class="kp-community">
   <div class="container" style="position:relative;z-index:1">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+    <div class="kp-comm-grid">
+
       <div class="reveal">
         <span class="tag" style="background:rgba(38,51,74,.25);color:#fff">Community</span>
         <h2 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);color:#fff;line-height:1.05;margin:14px 0">Join the KidsPray<br>community</h2>
-        <p style="font-size:.97rem;color:rgba(255,255,255,.82);line-height:1.8;margin-bottom:28px">Connect with Ms. Mary, access prayer content, receive birthday blessings for your children, and be part of a community that prays for every child to grow in faith and purpose.</p>
+        <p style="font-size:.96rem;color:rgba(255,255,255,.82);line-height:1.8;margin-bottom:28px">Connect with Ms. Mary, access prayer content, receive birthday blessings for your children, and be part of a community that believes every child can grow in faith and purpose.</p>
         <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20join%20the%20KidsPray%20WhatsApp%20community" target="_blank" rel="noopener" class="wa-btn" style="background:var(--navy)">
           <svg viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Join the WhatsApp Community
         </a>
       </div>
-      <div class="reveal reveal-d2" style="display:flex;flex-direction:column;gap:12px">
-        <p style="font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:4px">Follow KidsPray on</p>
-        <a href="https://www.youtube.com/@kidspraywithmsmary2218" target="_blank" rel="noopener" class="social-link-card">
-          <div class="social-icon" style="background:rgba(255,0,0,.2)">▶️</div>
-          <div><p class="social-info-name">YouTube</p><p class="social-info-handle">@kidspraywithmsmary2218 — Prayer videos, devotionals</p></div>
+
+      <div class="reveal reveal-d2" style="display:flex;flex-direction:column;gap:11px">
+        <p style="font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:2px">Follow KidsPray on</p>
+
+        <a href="https://www.youtube.com/@kidspraywithmsmary2218" target="_blank" rel="noopener" class="social-card">
+          <div class="social-ico" style="background:rgba(255,0,0,.25)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </div>
+          <div>
+            <p class="social-name">YouTube</p>
+            <p class="social-handle">@kidspraywithmsmary2218 — Prayer videos & devotionals</p>
+          </div>
         </a>
-        <a href="https://www.instagram.com/kidspraywithms.mary/" target="_blank" rel="noopener" class="social-link-card">
-          <div class="social-icon">📸</div>
-          <div><p class="social-info-name">Instagram</p><p class="social-info-handle">@kidspraywithms.mary — Prayer reels & tips</p></div>
+
+        <a href="https://www.instagram.com/kidspraywithms.mary/" target="_blank" rel="noopener" class="social-card">
+          <div class="social-ico" style="background:rgba(225,48,108,.25)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div>
+            <p class="social-name">Instagram</p>
+            <p class="social-handle">@kidspraywithms.mary — Prayer reels & tips</p>
+          </div>
         </a>
-        <a href="https://web.facebook.com/kidspraywithmsmary" target="_blank" rel="noopener" class="social-link-card">
-          <div class="social-icon" style="background:rgba(24,119,242,.2)">👍</div>
-          <div><p class="social-info-name">Facebook</p><p class="social-info-handle">kidspraywithmsmary — Community & prayer posts</p></div>
+
+        <a href="https://web.facebook.com/kidspraywithmsmary" target="_blank" rel="noopener" class="social-card">
+          <div class="social-ico" style="background:rgba(24,119,242,.25)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </div>
+          <div>
+            <p class="social-name">Facebook</p>
+            <p class="social-handle">kidspraywithmsmary — Community & prayer posts</p>
+          </div>
         </a>
-        <a href="https://www.tiktok.com/@kidspray" target="_blank" rel="noopener" class="social-link-card">
-          <div class="social-icon">🎵</div>
-          <div><p class="social-info-name">TikTok</p><p class="social-info-handle">@kidspray — Short prayer videos</p></div>
+
+        <a href="https://www.tiktok.com/@kidspray" target="_blank" rel="noopener" class="social-card">
+          <div class="social-ico" style="background:rgba(255,255,255,.15)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          </div>
+          <div>
+            <p class="social-name">TikTok</p>
+            <p class="social-handle">@kidspray — Short prayer videos</p>
+          </div>
         </a>
+
       </div>
     </div>
   </div>
 </section>
 
-<section style="background:var(--cream);padding:80px 0">
+<!-- FREE RESOURCES -->
+<section style="background:var(--cream);padding:88px 0">
   <div class="container">
     <div style="text-align:center;margin-bottom:48px">
       <span class="tag tag-orange reveal">Free Resources</span>
-      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">Start praying with your child<br><em style="color:var(--orange);font-style:italic"> today — for free</em></h2>
+      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy);margin-top:4px">Start praying with your child<br><em style="color:var(--orange);font-style:italic">today — for free</em></h2>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px" class="reveal">
-      <div style="background:#fff;border-radius:var(--r-lg);padding:28px;box-shadow:var(--s-xs);border-top:3px solid var(--orange);text-align:center">
-        <span style="font-size:2.5rem;display:block;margin-bottom:14px">🆓</span>
-        <h3 style="font-family:var(--font-display);font-size:1.2rem;color:var(--navy);margin-bottom:10px">Free Prayer Pack</h3>
-        <p style="font-size:.85rem;color:var(--ink-soft);line-height:1.65;margin-bottom:16px">Download our free starter prayer pack — a gift for every family beginning the journey of praying with their children.</p>
+    <div class="free-res-grid reveal">
+
+      <div class="free-res-card" style="border-top:3px solid var(--orange)">
+        <div class="free-res-icon" style="background:var(--orange-pale);color:var(--orange-deep)">
+          <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+        </div>
+        <h3 class="free-res-title">Free Prayer Pack</h3>
+        <p class="free-res-text">Download our free starter prayer pack — a gift for every family beginning the journey of praying with their children.</p>
         <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-orange btn-sm" style="width:100%;justify-content:center">Download Free ↗</a>
       </div>
-      <div style="background:#fff;border-radius:var(--r-lg);padding:28px;box-shadow:var(--s-xs);border-top:3px solid var(--navy);text-align:center">
-        <span style="font-size:2.5rem;display:block;margin-bottom:14px">▶️</span>
-        <h3 style="font-family:var(--font-display);font-size:1.2rem;color:var(--navy);margin-bottom:10px">Prayer Videos</h3>
-        <p style="font-size:.85rem;color:var(--ink-soft);line-height:1.65;margin-bottom:16px">Watch free prayer videos on YouTube — Ms. Mary prays with and for children, covering school, faith, identity, and purpose.</p>
+
+      <div class="free-res-card" style="border-top:3px solid var(--navy)">
+        <div class="free-res-icon" style="background:var(--navy-pale);color:var(--navy)">
+          <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+        </div>
+        <h3 class="free-res-title">Prayer Videos</h3>
+        <p class="free-res-text">Watch free prayer videos on YouTube — Ms. Mary prays with and for children, covering school, faith, identity, and purpose.</p>
         <a href="https://www.youtube.com/@kidspraywithmsmary2218" target="_blank" rel="noopener" class="btn btn-navy btn-sm" style="width:100%;justify-content:center">Watch on YouTube ↗</a>
       </div>
-      <div style="background:#fff;border-radius:var(--r-lg);padding:28px;box-shadow:var(--s-xs);border-top:3px solid var(--yellow);text-align:center">
-        <span style="font-size:2.5rem;display:block;margin-bottom:14px">📅</span>
-        <h3 style="font-family:var(--font-display);font-size:1.2rem;color:var(--navy);margin-bottom:10px">Bible Reading Plan</h3>
-        <p style="font-size:.85rem;color:var(--ink-soft);line-height:1.65;margin-bottom:16px">Our structured full-year Bible reading plan for children is available on Selar. Start any time of year — build the habit that lasts.</p>
+
+      <div class="free-res-card" style="border-top:3px solid var(--yellow)">
+        <div class="free-res-icon" style="background:var(--yellow-pale);color:#B87800">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3 class="free-res-title">Bible Reading Plan</h3>
+        <p class="free-res-text">Our structured full-year Bible reading plan for children is available on Selar. Start any time of year and build the habit that lasts.</p>
         <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-yellow btn-sm" style="width:100%;justify-content:center">Get the Plan ↗</a>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner">
     <h2 class="cta-headline reveal">A praying child is a<br>powerful child</h2>
@@ -223,7 +362,13 @@
   </div>
 </section>
 
-<footer class="footer"><div class="container"><div class="footer-grid"><div class="f-brand"><img src="assets/images/logo/logo.jpg" alt="Logo" style="height:48px;width:auto;border-radius:10px;margin-bottom:12px"/><div class="f-brand-name">D'Marie Vivre</div><span class="f-brand-tag">Learning Hub · Learn. Grow. Thrive.</span><p>Holistic education for children and adults. Lugbe, Abuja.</p></div><div class="f-col"><h4>KidsPray</h4><ul><li><a href="#birthday">Birthday Packages</a></li><li><a href="shop.html#digital">Prayer Packs</a></li><li><a href="shop.html#digital">Devotionals</a></li><li><a href="shop.html#digital">Affirmations</a></li><li><a href="shop.html#digital">Bible Reading Plan</a></li></ul></div><div class="f-col"><h4>Programs</h4><ul><li><a href="learning-hub.html#afterschool">After-School</a></li><li><a href="learning-hub.html#reading-club">Reading Club</a></li><li><a href="learning-hub.html#arts-crafts">Arts & Crafts</a></li><li><a href="learning-hub.html#tech-club">Tech Club</a></li><li><a href="learning-hub.html#adult">Adult Education</a></li></ul></div><div class="f-col"><h4>Contact</h4><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 15a19.79 19.79 0 01-3.07-8.67A2 2 0 013.88 4.26h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6z"/></svg><div><a href="tel:+2348068600747">08068600747</a><br/><a href="tel:+2349015566523">09015566523</a></div></div><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>139 Trademore Ave, Lugbe, Abuja</span></div></div></div><div class="footer-bottom"><p>© 2025 D'Marie Vivre Learning Hub. All rights reserved.</p><p><a href="index.html">Home</a> · <a href="shop.html">Shop</a> · <a href="contact.html">Contact</a></p></div></div></footer>
-<a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="float-wa"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<footer class="footer"><div class="container"><div class="footer-grid">
+  <div class="f-brand"><img src="assets/images/logo/logo.jpg" alt="Logo" style="height:46px;width:auto;border-radius:9px;margin-bottom:12px"/><div class="f-brand-name">D'Marie Vivre</div><span class="f-brand-tag">Learning Hub · Learn. Grow. Thrive.</span><p>Children's education hub in Lugbe, Abuja, Nigeria.</p></div>
+  <div class="f-col"><h4>KidsPray</h4><ul><li><a href="#birthday">Birthday Packages</a></li><li><a href="shop.html#digital">Prayer Packs</a></li><li><a href="shop.html#digital">Devotionals</a></li><li><a href="shop.html#digital">Affirmations</a></li><li><a href="shop.html#digital">Bible Reading Plan</a></li></ul></div>
+  <div class="f-col"><h4>Programs</h4><ul><li><a href="learning-hub.html#afterschool">After-School</a></li><li><a href="learning-hub.html#reading-club">Reading Club</a></li><li><a href="learning-hub.html#arts-crafts">Arts & Crafts</a></li><li><a href="learning-hub.html#tech-club">Tech Club</a></li></ul></div>
+  <div class="f-col"><h4>Contact</h4><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 15a19.79 19.79 0 01-3.07-8.67A2 2 0 013.88 4.26h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6z"/></svg><div><a href="tel:+2348068600747">08068600747</a><br/><a href="tel:+2349015566523">09015566523</a></div></div><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>139 Trademore Ave, Lugbe, Abuja</span></div></div>
+</div><div class="footer-bottom"><p>© 2025 D'Marie Vivre Learning Hub. All rights reserved.</p><p><a href="index.html">Home</a> · <a href="shop.html">Shop</a> · <a href="contact.html">Contact</a></p></div></div></footer>
+
+<a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="float-wa" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 <script src="assets/js/main.js"></script>
 </body></html>
