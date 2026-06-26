@@ -1,6 +1,7 @@
 /* ============================================================
-   D'MARIE VIVRE LEARNING HUB — main.js v3
-   Nav scroll, mobile menu, scroll reveal, count-up, banner
+   D'MARIE VIVRE LEARNING HUB — main.js v5 "Glasslight"
+   Nav scroll, mobile menu, scroll reveal, count-up, banner,
+   gentle aurora parallax
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── ANNOUNCEMENT BANNER ── */
   const annBar   = document.getElementById('annBar');
   const annClose = document.getElementById('annClose');
+  const navWrap  = document.getElementById('navWrap');
 
   if (annBar && sessionStorage.getItem('annDismissed')) {
     annBar.style.display = 'none';
@@ -15,19 +17,19 @@ document.addEventListener('DOMContentLoaded', () => {
   annClose?.addEventListener('click', () => {
     annBar.style.display = 'none';
     sessionStorage.setItem('annDismissed', 'true');
-    // Adjust nav offset since banner is gone
-    document.querySelectorAll('.nav').forEach(n => n.style.top = '0');
+    setNavTop();
   });
 
-  /* ── NAV: offset for announcement bar ── */
+  /* ── NAV: offset for announcement bar (floating pill sits below it) ── */
   const nav = document.getElementById('nav');
   if (!nav) return;
 
   const setNavTop = () => {
+    if (!navWrap) return;
     if (annBar && annBar.style.display !== 'none') {
-      nav.style.top = annBar.offsetHeight + 'px';
+      navWrap.style.top = (annBar.offsetHeight + 12) + 'px';
     } else {
-      nav.style.top = '0';
+      navWrap.style.top = '18px';
     }
   };
   setNavTop();
@@ -37,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const updateNav = () => {
     const scrolled = window.scrollY > 64;
     nav.classList.toggle('scrolled', scrolled);
-    // hero-over only on pages with a hero
-    if (document.querySelector('.hero')) {
+    // hero-over while within a dark hero/page-hero band at the top
+    if (document.querySelector('.hero, .page-hero')) {
       nav.classList.toggle('hero-over', !scrolled);
     } else {
       nav.classList.remove('hero-over');
@@ -204,6 +206,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ── CONSULTATION REQUEST FORM ─────────────────────────────────────────
+   * No backend — builds a pre-filled WhatsApp or email message from the
+   * form fields client-side. Works on any static host, no server needed.
+   * ─────────────────────────────────────────────────────────────────── */
+  const consultForm = document.getElementById('consultForm');
+  if (consultForm) {
+    const buildMessage = () => {
+      const name    = consultForm.querySelector('#cName')?.value.trim()    || '';
+      const contact = consultForm.querySelector('#cContact')?.value.trim() || '';
+      const reasonEl= consultForm.querySelector('#cReason');
+      const reason  = reasonEl ? reasonEl.options[reasonEl.selectedIndex].text : '';
+      const message = consultForm.querySelector('#cMessage')?.value.trim() || '';
+      return [
+        `Hello D'Marie Vivre, I'd like to request a consultation.`,
+        ``,
+        `Name: ${name}`,
+        `Reason: ${reason}`,
+        `Contact: ${contact}`,
+        ``,
+        `Message: ${message}`
+      ].join('\n');
+    };
+
+    consultForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!consultForm.checkValidity()) { consultForm.reportValidity(); return; }
+
+      const action = e.submitter?.dataset.action || 'whatsapp';
+      const text = buildMessage();
+
+      if (action === 'email') {
+        const reasonEl = consultForm.querySelector('#cReason');
+        const reason = reasonEl ? reasonEl.options[reasonEl.selectedIndex].text : 'Consultation';
+        const subject = encodeURIComponent(`Consultation Request — ${reason}`);
+        const body = encodeURIComponent(text);
+        window.location.href = `mailto:info@dmarievivre.org?subject=${subject}&body=${body}`;
+      } else {
+        window.open(`https://wa.me/2348068600747?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+      }
+    });
+  }
+
 });
 
   /* ── IMAGE FALLBACK SYSTEM ─────────────────────────────────────────────
@@ -220,3 +264,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const parent = img.closest('[data-fallback]') || img.parentElement;
     if (parent) parent.classList.add('img-failed');
   }, true /* capture — fires before bubbling */);
+
+  /* ── GENTLE AURORA PARALLAX ──────────────────────────────────────────
+   * Subtle, slow drift of background blobs in response to pointer
+   * position. Disabled entirely if the user prefers reduced motion or
+   * on touch-only devices (no meaningful pointer position).
+   * ─────────────────────────────────────────────────────────────────── */
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const blobs = document.querySelectorAll('.aurora-blob');
+  if (blobs.length && !prefersReducedMotion && window.matchMedia('(hover: hover)').matches) {
+    let targetX = 0, targetY = 0, curX = 0, curY = 0;
+    window.addEventListener('mousemove', (e) => {
+      targetX = (e.clientX / window.innerWidth - 0.5) * 2;
+      targetY = (e.clientY / window.innerHeight - 0.5) * 2;
+    }, { passive: true });
+
+    const tick = () => {
+      curX += (targetX - curX) * 0.02;
+      curY += (targetY - curY) * 0.02;
+      blobs.forEach((b, i) => {
+        const depth = (i % 2 === 0) ? 14 : 22;
+        b.style.transform = `translate(${curX * depth}px, ${curY * depth}px)`;
+      });
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }

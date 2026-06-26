@@ -1,95 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Free parent and teacher tips from D'Marie Vivre Learning Hub — reading intervention, handwriting, routines, World Read Aloud Day, and more. Lugbe, Abuja."/>
-  <title>Free Resources | D'Marie Vivre Learning Hub</title>
-  <link rel="icon" type="image/jpeg" href="assets/images/logo/logo.jpg"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="assets/css/style.css"/>
-  <style>
-    .page-hero{background:var(--navy);padding:140px 0 80px;position:relative;overflow:hidden}
-    .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,125,30,.12) 0%,transparent 60%);pointer-events:none}
-    .page-hero::after{content:'';position:absolute;right:-60px;bottom:-60px;width:340px;height:340px;border-radius:50%;border:56px solid rgba(255,255,255,.04);pointer-events:none}
-    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:20px}
-    .breadcrumb a{color:rgba(255,255,255,.5)}.breadcrumb a:hover{color:var(--orange)}.breadcrumb span{color:rgba(255,255,255,.3)}
-
-    /* Tip cards */
-    .tip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-    .tip-card{background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--s-sm);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
-    .tip-card:hover{transform:translateY(-5px);box-shadow:var(--s-lg)}
-    .tip-card-top{padding:28px 26px 0}
-    .tip-number{font-family:var(--font-display);font-size:3rem;color:var(--orange-pale);line-height:1;margin-bottom:8px;font-weight:400}
-    .tip-cat{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
-    .tip-title{font-family:var(--font-display);font-size:1.2rem;color:var(--navy);line-height:1.2;margin-bottom:10px}
-    .tip-body{padding:0 26px 26px;flex:1;display:flex;flex-direction:column}
-    .tip-text{font-size:.87rem;color:var(--ink-soft);line-height:1.78;flex:1}
-    .tip-steps{margin:12px 0;display:flex;flex-direction:column;gap:7px}
-    .tip-step{display:flex;align-items:flex-start;gap:9px;font-size:.82rem;color:var(--ink-soft)}
-    .tip-step-num{width:20px;height:20px;border-radius:50%;background:var(--orange);color:#fff;font-size:.62rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-
-    /* FAQ */
-    .faq-list{display:flex;flex-direction:column;gap:4px}
-    .faq-item{background:#fff;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--s-xs)}
-    .faq-question{width:100%;text-align:left;padding:18px 22px;font-size:.92rem;font-weight:600;color:var(--navy);cursor:pointer;background:none;border:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--font-body)}
-    .faq-question:hover{color:var(--orange)}
-    .faq-icon{font-size:1.1rem;transition:transform .3s;flex-shrink:0;color:var(--orange)}
-    .faq-item.open .faq-icon{transform:rotate(45deg)}
-    .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
-    .faq-answer-inner{padding:0 22px 18px;font-size:.88rem;color:var(--ink-soft);line-height:1.8}
-
-    /* World Read Aloud */
-    .wrad-band{background:var(--orange);padding:80px 0;position:relative;overflow:hidden}
-    .wrad-band::before{content:'';position:absolute;right:-60px;bottom:-60px;width:380px;height:380px;border-radius:50%;border:60px solid rgba(255,255,255,.08);pointer-events:none}
-
-    /* Gallery grid */
-    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .gallery-img{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--s-sm);cursor:zoom-in}
-    .gallery-img img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover;transition:transform .5s}
-    .gallery-img:hover img{transform:scale(1.05)}
-
-    @media(max-width:900px){.tip-grid{grid-template-columns:1fr 1fr}.gallery-grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:600px){.tip-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr}}
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Free parent and teacher tips from D'Marie Vivre Learning Hub — reading intervention, handwriting, daily routines, World Read Aloud Day, and FAQs. Lugbe, Abuja."/>
+<title>Free Resources | D'Marie Vivre Learning Hub</title>
+<link rel="icon" type="image/jpeg" href="assets/images/logo/logo.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
-<div class="ann-bar" id="annBar"><strong>20% OFF</strong> all products — <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener">Shop on Selar →</a><button class="ann-close" id="annClose" aria-label="Dismiss">✕</button></div>
-<nav class="nav" id="nav" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="assets/images/logo/logo.jpg" alt="D'Marie Vivre logo" class="nav-logo-img"/><div><span class="nav-wordmark">D'Marie Vivre</span><span class="nav-tagline-mini">Learning Hub</span></div></a>
-    <div class="nav-links"><a href="learning-hub.html">Programs</a><a href="kidspray.html">KidsPray</a><a href="shop.html">Shop</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
-    <div class="nav-right"><a href="https://wa.me/2348068600747?text=Hello%20D%27Marie%20Vivre%2C%20I%27d%20like%20to%20enrol" target="_blank" rel="noopener" class="btn btn-orange btn-sm">Enrol Today</a><button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button></div>
-  </div>
-</nav>
-<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
+
+<div class="aurora" aria-hidden="true">
+  <div class="aurora-blob b1"></div>
+  <div class="aurora-blob b2"></div>
+  <div class="aurora-blob b3"></div>
+  <div class="aurora-blob b4"></div>
+</div>
+
+<div class="ann-bar" id="annBar">
+  <strong>20% OFF</strong> all products — <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener">Shop on Selar now →</a>
+  <button class="ann-close" id="annClose" aria-label="Dismiss">✕</button>
+</div>
+
+<div class="nav-wrap" id="navWrap">
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="D'Marie Vivre Learning Hub — Home">
+      <img src="assets/images/logo/logo.jpg" alt="D'Marie Vivre Learning Hub logo" class="nav-logo-img"/>
+      <div>
+        <span class="nav-wordmark">D'Marie Vivre</span>
+        <span class="nav-tagline-mini">Learning Hub</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="learning-hub.html">Programs</a>
+      <a href="kidspray.html">KidsPray</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://wa.me/2348068600747?text=Hello%20D%27Marie%20Vivre%2C%20I%27d%20like%20to%20enrol" target="_blank" rel="noopener" class="btn btn-orange btn-sm">
+        Enrol Today
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</div>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
   <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
   <a href="index.html">Home</a>
   <a href="learning-hub.html">Programs</a>
   <a href="kidspray.html">KidsPray</a>
   <a href="shop.html">Shop</a>
-  <a href="about.html">About</a>
+  <a href="book.html">The Book</a>
+  <a href="about.html">About Us</a>
+  <a href="media.html">Media &amp; Press</a>
   <a href="contact.html">Contact</a>
   <a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="mobile-wa-link">WhatsApp Us</a>
 </div>
 
-<!-- HERO -->
-<section class="page-hero">
-  <div class="container" style="position:relative;z-index:1">
-    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:rgba(255,255,255,.8)">Free Resources</span></div>
-    <span class="tag tag-orange reveal">Free for Parents & Teachers</span>
-    <h1 class="d-xl text-white reveal reveal-d1" style="margin-bottom:16px;max-width:660px">Tips that make a real<br><em style="color:var(--orange);font-style:italic">difference at home</em></h1>
-    <p class="body-lg reveal reveal-d2" style="color:rgba(255,255,255,.68);max-width:560px">Practical, proven tips from Ms. Mary on reading, writing, routines, and raising confident learners. No jargon — just what actually works.</p>
+<main>
+
+<!-- ═══════════════ PAGE HERO ═══════════════ -->
+<section class="page-hero aurora-dark">
+  <div class="aurora-local aurora-dark" aria-hidden="true">
+    <div class="aurora-blob b1"></div>
+    <div class="aurora-blob b2"></div>
+    <div class="aurora-blob b3"></div>
+  </div>
+  <div class="halo-ring r1" style="top:-140px;right:-100px" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="page-hero-inner" style="max-width:660px">
+      <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:rgba(255,255,255,.7)">Free Resources</span></div>
+      <span class="tag tag-white">Free for Parents &amp; Teachers</span>
+      <h1 class="d-xl reveal reveal-d1" style="color:#fff;margin:14px 0 18px">Tips that make a real<br><em class="hero-accent" style="font-style:italic">difference at home</em></h1>
+      <p class="body-lg reveal reveal-d2" style="color:rgba(255,255,255,.7);max-width:560px">Practical, proven tips from Ms. Mary on reading, writing, routines, and raising confident learners. No jargon — just what actually works.</p>
+    </div>
   </div>
 </section>
 
-<!-- READING TIPS -->
-<section id="reading-tips" class="section" style="background:var(--cream)">
+<!-- ═══════════════ READING TIPS ═══════════════ -->
+<section id="reading-tips" class="section">
   <div class="container">
-    <div style="text-align:center;margin-bottom:52px">
+    <div class="text-center" style="margin-bottom:52px">
       <span class="tag tag-orange reveal">Reading Intervention</span>
-      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">Help your child fall in love<br><em style="color:var(--orange);font-style:italic"> with reading</em></h2>
+      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">Help your child fall in love<br><em class="accent">with reading</em></h2>
       <p class="body-md text-soft reveal reveal-d2" style="max-width:520px;margin:12px auto 0">These are the exact strategies Ms. Mary uses at the hub and recommends to every parent.</p>
     </div>
     <div class="tip-grid">
@@ -151,18 +154,18 @@
   </div>
 </section>
 
-<!-- HANDWRITING TIPS -->
-<section id="handwriting-tips" style="background:#fff;padding:80px 0">
+<!-- ═══════════════ HANDWRITING TIPS ═══════════════ -->
+<section id="handwriting-tips" class="section">
   <div class="container">
-    <div style="text-align:center;margin-bottom:48px">
+    <div class="text-center" style="margin-bottom:48px">
       <span class="tag tag-navy reveal">Handwriting Intervention</span>
-      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">Handwriting tips that<br><em style="color:var(--orange);font-style:italic"> actually work</em></h2>
+      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">Handwriting tips that<br><em class="accent">actually work</em></h2>
     </div>
     <div class="tip-grid reveal">
       <article class="tip-card">
         <div class="tip-card-top">
           <p class="tip-number" style="color:var(--navy-pale)">01</p>
-          <p class="tip-cat" style="color:var(--navy)">Grip & Posture</p>
+          <p class="tip-cat" style="color:var(--navy)">Grip &amp; Posture</p>
           <h3 class="tip-title">Fix the Grip First</h3>
         </div>
         <div class="tip-body">
@@ -183,7 +186,7 @@
         <div class="tip-card-top">
           <p class="tip-number" style="color:var(--navy-pale)">03</p>
           <p class="tip-cat" style="color:var(--navy)">Practice Strategy</p>
-          <h3 class="tip-title">Little & Often Beats Long Sessions</h3>
+          <h3 class="tip-title">Little &amp; Often Beats Long Sessions</h3>
         </div>
         <div class="tip-body">
           <p class="tip-text">5–10 minutes of focused handwriting practice daily is far more effective than one 45-minute session a week. Use wide-ruled paper for young writers, and never force a child to fill a whole page — quality over quantity every time.</p>
@@ -193,144 +196,144 @@
   </div>
 </section>
 
-<!-- ROUTINES & TIPS -->
-<section id="routine-tips" style="background:var(--cream);padding:80px 0">
+<!-- ═══════════════ ROUTINES ═══════════════ -->
+<section id="routine-tips" class="section">
   <div class="container">
-    <div style="text-align:center;margin-bottom:48px">
+    <div class="text-center" style="margin-bottom:48px">
       <span class="tag tag-orange reveal">Daily Routines</span>
-      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">Routines that raise<br><em style="color:var(--orange);font-style:italic"> confident learners</em></h2>
+      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">Routines that raise<br><em class="accent">confident learners</em></h2>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px" class="reveal">
-      <div style="background:#fff;border-radius:var(--r-xl);padding:32px;box-shadow:var(--s-sm);border-left:5px solid var(--orange)">
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--navy);margin-bottom:14px">Morning Routine (20 min)</h3>
+    <div class="routine-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px" class="reveal">
+      <div class="routine-card">
+        <h3>Morning Routine (20 min)</h3>
         <div style="display:flex;flex-direction:column;gap:9px">
-          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--ink-soft)"><span style="font-weight:700;color:var(--orange);font-size:.78rem;width:44px;flex-shrink:0">5 min</span>Prayer or short devotional</div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--ink-soft)"><span style="font-weight:700;color:var(--orange);font-size:.78rem;width:44px;flex-shrink:0">5 min</span>Speak 3 affirmations over your child</div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--ink-soft)"><span style="font-weight:700;color:var(--orange);font-size:.78rem;width:44px;flex-shrink:0">5 min</span>Review what they'll learn today</div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--ink-soft)"><span style="font-weight:700;color:var(--orange);font-size:.78rem;width:44px;flex-shrink:0">5 min</span>Send them off with enthusiasm</div>
+          <div class="routine-row"><span class="routine-time" style="color:var(--orange-deep)">5 min</span>Prayer or short devotional</div>
+          <div class="routine-row"><span class="routine-time" style="color:var(--orange-deep)">5 min</span>Speak 3 affirmations over your child</div>
+          <div class="routine-row"><span class="routine-time" style="color:var(--orange-deep)">5 min</span>Review what they'll learn today</div>
+          <div class="routine-row"><span class="routine-time" style="color:var(--orange-deep)">5 min</span>Send them off with enthusiasm</div>
         </div>
       </div>
-      <div style="background:#fff;border-radius:var(--r-xl);padding:32px;box-shadow:var(--s-sm);border-left:5px solid var(--navy)">
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--navy);margin-bottom:14px">After-School Routine (45 min)</h3>
+      <div class="routine-card">
+        <h3>After-School Routine (45 min)</h3>
         <div style="display:flex;flex-direction:column;gap:9px">
-          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--ink-soft)"><span style="font-weight:700;color:var(--navy);font-size:.78rem;width:44px;flex-shrink:0">10 min</span>Snack + free time to decompress</div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--ink-soft)"><span style="font-weight:700;color:var(--navy);font-size:.78rem;width:44px;flex-shrink:0">20 min</span>Homework (while you're nearby)</div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--ink-soft)"><span style="font-weight:700;color:var(--navy);font-size:.78rem;width:44px;flex-shrink:0">10 min</span>Read aloud together</div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--ink-soft)"><span style="font-weight:700;color:var(--navy);font-size:.78rem;width:44px;flex-shrink:0">5 min</span>Talk about their day — no screens</div>
+          <div class="routine-row"><span class="routine-time" style="color:var(--navy)">10 min</span>Snack + free time to decompress</div>
+          <div class="routine-row"><span class="routine-time" style="color:var(--navy)">20 min</span>Homework (while you're nearby)</div>
+          <div class="routine-row"><span class="routine-time" style="color:var(--navy)">10 min</span>Read aloud together</div>
+          <div class="routine-row"><span class="routine-time" style="color:var(--navy)">5 min</span>Talk about their day — no screens</div>
         </div>
       </div>
-      <div style="background:#fff;border-radius:var(--r-xl);padding:32px;box-shadow:var(--s-sm);border-left:5px solid var(--yellow)">
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--navy);margin-bottom:14px">Weekend Reading Habit</h3>
+      <div class="routine-card">
+        <h3>Weekend Reading Habit</h3>
         <div style="display:flex;flex-direction:column;gap:9px">
-          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--ink-soft)"><span style="font-weight:700;color:#B87800;font-size:.78rem;width:44px;flex-shrink:0">30 min</span>Independent reading (no interruptions)</div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--ink-soft)"><span style="font-weight:700;color:#B87800;font-size:.78rem;width:44px;flex-shrink:0">10 min</span>Tell me 3 things about your book</div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--ink-soft)"><span style="font-weight:700;color:#B87800;font-size:.78rem;width:44px;flex-shrink:0">5 min</span>Draw a character or favourite scene</div>
+          <div class="routine-row"><span class="routine-time" style="color:#A36A00">30 min</span>Independent reading (no interruptions)</div>
+          <div class="routine-row"><span class="routine-time" style="color:#A36A00">10 min</span>Tell me 3 things about your book</div>
+          <div class="routine-row"><span class="routine-time" style="color:#A36A00">5 min</span>Draw a character or favourite scene</div>
         </div>
       </div>
-      <div style="background:#fff;border-radius:var(--r-xl);padding:32px;box-shadow:var(--s-sm);border-left:5px solid var(--green)">
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--navy);margin-bottom:14px">For Teachers: Classroom Tips</h3>
+      <div class="routine-card">
+        <h3>For Teachers: Classroom Tips</h3>
         <div style="display:flex;flex-direction:column;gap:9px">
-          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--ink-soft)"><span style="width:6px;height:6px;background:var(--orange);border-radius:50%;flex-shrink:0;display:inline-block"></span>Start every lesson with 2–3 praise affirmations</div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--ink-soft)"><span style="width:6px;height:6px;background:var(--orange);border-radius:50%;flex-shrink:0;display:inline-block"></span>Use activity-based teaching — not just talking</div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--ink-soft)"><span style="width:6px;height:6px;background:var(--orange);border-radius:50%;flex-shrink:0;display:inline-block"></span>Call every child by name at least once each lesson</div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--ink-soft)"><span style="width:6px;height:6px;background:var(--orange);border-radius:50%;flex-shrink:0;display:inline-block"></span>End class with "what did I learn today?"</div>
+          <div class="routine-row"><span style="width:6px;height:6px;background:var(--orange);border-radius:50%;flex-shrink:0;display:inline-block"></span>Start every lesson with 2–3 praise affirmations</div>
+          <div class="routine-row"><span style="width:6px;height:6px;background:var(--orange);border-radius:50%;flex-shrink:0;display:inline-block"></span>Use activity-based teaching — not just talking</div>
+          <div class="routine-row"><span style="width:6px;height:6px;background:var(--orange);border-radius:50%;flex-shrink:0;display:inline-block"></span>Call every child by name at least once each lesson</div>
+          <div class="routine-row"><span style="width:6px;height:6px;background:var(--orange);border-radius:50%;flex-shrink:0;display:inline-block"></span>End class with "what did I learn today?"</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WORLD READ ALOUD DAY -->
-<section class="wrad-band" id="world-read-aloud">
+<!-- ═══════════════ WORLD READ ALOUD DAY ═══════════════ -->
+<section class="orange-band" id="world-read-aloud">
   <div class="container" style="position:relative;z-index:1">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center" class="comm-grid">
       <div class="reveal">
-        <span class="tag" style="background:rgba(38,51,74,.25);color:#fff">Annual Event</span>
-        <h2 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);color:#fff;line-height:1.05;margin:14px 0">World Read Aloud Day</h2>
-        <p style="font-size:.97rem;color:rgba(255,255,255,.85);line-height:1.8;margin-bottom:22px">Every February, D'Marie Vivre Learning Hub joins the global celebration of reading aloud as one of the most powerful literacy tools available to parents, teachers, and children everywhere.</p>
-        <p style="font-size:.9rem;color:rgba(255,255,255,.75);line-height:1.75;margin-bottom:28px">Reading aloud is not just for young children. It builds comprehension, expands vocabulary, develops a sense of story, and — most importantly — it creates joyful, connected moments between children and the adults who love them.</p>
+        <span class="tag" style="background:rgba(0,0,0,.18);color:#fff;margin:0">Annual Event</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);color:#fff;line-height:1.05;margin:14px 0;font-weight:400">World Read Aloud Day</h2>
+        <p style="font-size:.97rem;color:rgba(255,255,255,.88);line-height:1.8;margin-bottom:22px">Every February, D'Marie Vivre Learning Hub joins the global celebration of reading aloud as one of the most powerful literacy tools available to parents, teachers, and children everywhere.</p>
+        <p style="font-size:.9rem;color:rgba(255,255,255,.78);line-height:1.75;margin-bottom:28px">Reading aloud is not just for young children. It builds comprehension, expands vocabulary, develops a sense of story, and — most importantly — it creates joyful, connected moments between children and the adults who love them.</p>
         <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20know%20more%20about%20the%20World%20Read%20Aloud%20Day%20event" target="_blank" rel="noopener" class="btn btn-navy btn-lg">
           Join the Campaign
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
       <div class="reveal reveal-d2" style="display:flex;flex-direction:column;gap:16px">
-        <div style="background:rgba(255,255,255,.15);border-radius:var(--r-lg);padding:24px 26px;border:1px solid rgba(255,255,255,.2)">
-          <h3 style="font-family:var(--font-display);font-size:1.2rem;color:#fff;margin-bottom:8px">Why it matters</h3>
-          <p style="font-size:.86rem;color:rgba(255,255,255,.82);line-height:1.7">Children who are read to regularly arrive at school with a vocabulary up to 3 years ahead of peers who are not. The impact is measurable — and it starts at home.</p>
+        <div class="wrad-card">
+          <h3>Why it matters</h3>
+          <p>Children who are read to regularly arrive at school with a vocabulary up to 3 years ahead of peers who are not. The impact is measurable — and it starts at home.</p>
         </div>
-        <div style="background:rgba(255,255,255,.15);border-radius:var(--r-lg);padding:24px 26px;border:1px solid rgba(255,255,255,.2)">
-          <h3 style="font-family:var(--font-display);font-size:1.2rem;color:#fff;margin-bottom:8px">How to participate</h3>
-          <p style="font-size:.86rem;color:rgba(255,255,255,.82);line-height:1.7">Read aloud to a child on World Read Aloud Day (February). Share a photo with #WorldReadAloudDay or tag us @dvlearninghub. It's that simple.</p>
+        <div class="wrad-card">
+          <h3>How to participate</h3>
+          <p>Read aloud to a child on World Read Aloud Day (February). Share a photo with #WorldReadAloudDay or tag us @dvlearninghub. It's that simple.</p>
         </div>
-        <div style="background:rgba(255,255,255,.15);border-radius:var(--r-lg);padding:24px 26px;border:1px solid rgba(255,255,255,.2)">
-          <h3 style="font-family:var(--font-display);font-size:1.2rem;color:#fff;margin-bottom:8px">At the hub</h3>
-          <p style="font-size:.86rem;color:rgba(255,255,255,.82);line-height:1.7">Every year, Ms. Mary leads a special World Read Aloud Day event at the hub. Watch our Instagram @dvlearninghub for dates and registration.</p>
+        <div class="wrad-card">
+          <h3>At the hub</h3>
+          <p>Every year, Ms. Mary leads a special World Read Aloud Day event at the hub. Watch our Instagram @dvlearninghub for dates and registration.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq" style="background:var(--cream);padding:80px 0">
-  <div class="container container-sm">
-    <div style="text-align:center;margin-bottom:48px">
+<!-- ═══════════════ FAQ ═══════════════ -->
+<section id="faq" class="section">
+  <div class="container-sm">
+    <div class="text-center" style="margin-bottom:48px">
       <span class="tag tag-orange reveal">Common Questions</span>
-      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">Frequently Asked<br><em style="color:var(--orange);font-style:italic"> Questions</em></h2>
+      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">Frequently Asked<br><em class="accent">Questions</em></h2>
     </div>
     <div class="faq-list reveal">
 
       <div class="faq-item">
-        <button class="faq-question">What age groups do you cater for?<span class="faq-icon">+</span></button>
+        <button class="faq-question">What age groups do you cater for?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></button>
         <div class="faq-answer"><div class="faq-answer-inner">We cater for children from 2 years old through primary and secondary school age. Our programs (reading club, arts &amp; crafts, tech club, after-school, creative writing) are designed to support children at every stage.</div></div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-question">Where is the hub located?<span class="faq-icon">+</span></button>
+        <button class="faq-question">Where is the hub located?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></button>
         <div class="faq-answer"><div class="faq-answer-inner">We are at No. 139, Trademore Avenue, Trademore Estate, off VON Garden Estate, Lugbe, Abuja, Nigeria. We are open Monday to Saturday. Call or WhatsApp 08068600747 or 09015566523 for directions — we're happy to send a location pin.</div></div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-question">Are there online programs available?<span class="faq-icon">+</span></button>
+        <button class="faq-question">Are there online programs available?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></button>
         <div class="faq-answer"><div class="faq-answer-inner">Yes! The Creative Writing Club (Write Well) runs fully online via Zoom every Saturday and Sunday. Other programs can have online components depending on your child's needs — contact us to discuss what works for your family.</div></div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-question">How do I enrol my child?<span class="faq-icon">+</span></button>
+        <button class="faq-question">How do I enrol my child?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></button>
         <div class="faq-answer"><div class="faq-answer-inner">The fastest way is to WhatsApp us at 08068600747 with your child's name, age, and the program you're interested in. You can also purchase directly via our Selar store at selar.com/m/d-marievivre. We'll confirm your spot and give you all the details within 24 hours.</div></div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-question">Do you cater for children with special needs?<span class="faq-icon">+</span></button>
+        <button class="faq-question">Do you cater for children with special needs?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></button>
         <div class="faq-answer"><div class="faq-answer-inner">Absolutely. Special Needs Education is one of our core offerings. We conduct an individual assessment first, then build a personalised learning plan tailored to your child. Please WhatsApp us to begin the conversation — we treat every enquiry with complete care and confidentiality.</div></div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-question">What is KidsPray and is it only for Christians?<span class="faq-icon">+</span></button>
+        <button class="faq-question">What is KidsPray and is it only for Christians?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></button>
         <div class="faq-answer"><div class="faq-answer-inner">KidsPray is the faith arm of D'Marie Vivre, rooted in the Christian faith. Our prayer packs, devotionals, and birthday packages are built on Christian principles and scripture. Our educational programs (reading, writing, arts, tech) are open to all families regardless of faith background.</div></div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-question">Where can I buy your products?<span class="faq-icon">+</span></button>
+        <button class="faq-question">Where can I buy your products?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></button>
         <div class="faq-answer"><div class="faq-answer-inner">All our products — gift packages, prayer packs, devotionals, affirmation packs, the children's book, and Bible reading plans — are available on Selar at selar.com/m/d-marievivre. Selar accepts card, bank transfer, and USSD payments. You can also WhatsApp us for a direct order.</div></div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-question">Can you come to our school?<span class="faq-icon">+</span></button>
-        <div class="faq-answer"><div class="faq-answer-inner">Yes — we offer school consulting, teacher training, and curriculum development services. WhatsApp or email us with your school's details and we'll arrange a conversation to understand your needs.</div></div>
+        <button class="faq-question">Can you come to our school?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes — we offer school consulting, teacher training, and curriculum development services. WhatsApp or email us with your school's details and we'll arrange a conversation to understand your needs. We can also help you set up your own consultation request through our <a href="media.html#consultation" style="color:var(--orange-deep);font-weight:700">Media &amp; Press page</a>.</div></div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section style="background:#fff;padding:80px 0">
+<!-- ═══════════════ GALLERY ═══════════════ -->
+<section class="section">
   <div class="container">
-    <div style="text-align:center;margin-bottom:48px">
+    <div class="text-center" style="margin-bottom:48px">
       <span class="tag tag-orange reveal">From the Hub</span>
-      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">Life at D'Marie Vivre<br><em style="color:var(--orange);font-style:italic"> Learning Hub</em></h2>
+      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">Life at D'Marie Vivre<br><em class="accent">Learning Hub</em></h2>
     </div>
     <div class="gallery-grid reveal">
       <div class="gallery-img" data-fallback="Hub Photo" data-lightbox="https://dmarievivre.org/wp-content/uploads/2024/01/IMG_6964-1024x1024.jpg">
@@ -343,10 +346,11 @@
         <img src="https://dmarievivre.org/wp-content/uploads/2024/01/IMG_6963-1024x1024.jpg" alt="D'Marie Vivre Learning Hub — reading session" loading="lazy"/>
       </div>
     </div>
-    <p class="text-center" style="margin-top:20px;font-size:.84rem;color:var(--ink-muted)">Follow <a href="https://www.instagram.com/dvlearninghub/" target="_blank" rel="noopener" style="color:var(--orange);font-weight:700">@dvlearninghub</a> on Instagram for more photos and reels from the hub.</p>
+    <p class="text-center" style="margin-top:20px;font-size:.84rem;color:var(--ink-muted)">Follow <a href="https://www.instagram.com/dvlearninghub/" target="_blank" rel="noopener" style="color:var(--orange-deep);font-weight:700">@dvlearninghub</a> on Instagram for more photos and reels from the hub.</p>
   </div>
 </section>
 
+<!-- ═══════════════ CTA ═══════════════ -->
 <section class="cta-section">
   <div class="cta-inner">
     <h2 class="cta-headline reveal">Have a specific question?</h2>
@@ -361,7 +365,62 @@
   </div>
 </section>
 
-<footer class="footer"><div class="container"><div class="footer-grid"><div class="f-brand"><img src="assets/images/logo/logo.jpg" alt="Logo" style="height:48px;width:auto;border-radius:10px;margin-bottom:12px"/><div class="f-brand-name">D'Marie Vivre</div><span class="f-brand-tag">Learning Hub · Learn. Grow. Thrive.</span><p>Children's education hub. Lugbe, Abuja.</p></div><div class="f-col"><h4>Resources</h4><ul><li><a href="#reading-tips">Reading Tips</a></li><li><a href="#handwriting-tips">Handwriting Tips</a></li><li><a href="#routine-tips">Routines</a></li><li><a href="#world-read-aloud">World Read Aloud Day</a></li><li><a href="#faq">FAQ</a></li></ul></div><div class="f-col"><h4>Programs</h4><ul><li><a href="learning-hub.html#afterschool">After-School</a></li><li><a href="learning-hub.html#reading-club">Reading Club</a></li><li><a href="learning-hub.html#write-well">Creative Writing</a></li><li><a href="learning-hub.html#arts-crafts">Arts & Crafts</a></li><li><a href="learning-hub.html#tech-club">Tech Club</a></li></ul></div><div class="f-col"><h4>Contact</h4><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 15a19.79 19.79 0 01-3.07-8.67A2 2 0 013.88 4.26h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6z"/></svg><div><a href="tel:+2348068600747">08068600747</a><br/><a href="tel:+2349015566523">09015566523</a></div></div><div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>139 Trademore Ave, Lugbe, Abuja</span></div></div></div><div class="footer-bottom"><p>© 2025 D'Marie Vivre Learning Hub. All rights reserved.</p><p><a href="index.html">Home</a> · <a href="contact.html">Contact</a> · <a href="shop.html">Shop</a></p></div></div></footer>
-<a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="float-wa"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+</main>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="aurora-local aurora-dark" aria-hidden="true">
+    <div class="aurora-blob b1"></div>
+    <div class="aurora-blob b2"></div>
+    <div class="aurora-blob b3"></div>
+  </div>
+  <div class="container">
+    <div class="footer-panel">
+      <div class="footer-grid">
+        <div class="f-brand">
+          <img src="assets/images/logo/logo.jpg" alt="D'Marie Vivre Learning Hub logo" style="height:52px;width:auto;border-radius:11px;margin-bottom:14px"/>
+          <div class="f-brand-name">D'Marie Vivre</div>
+          <span class="f-brand-tag">Learning Hub · Learn. Grow. Thrive.</span>
+          <p>A holistic educational environment that nurtures children beyond academics. Based in Lugbe, Abuja, Nigeria.</p>
+        </div>
+        <div class="f-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#reading-tips">Reading Tips</a></li>
+            <li><a href="#handwriting-tips">Handwriting Tips</a></li>
+            <li><a href="#routine-tips">Routines</a></li>
+            <li><a href="#world-read-aloud">World Read Aloud Day</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="learning-hub.html#afterschool">After-School</a></li>
+            <li><a href="learning-hub.html#reading-club">Reading Club</a></li>
+            <li><a href="learning-hub.html#write-well">Creative Writing</a></li>
+            <li><a href="learning-hub.html#arts-crafts">Arts &amp; Crafts</a></li>
+            <li><a href="learning-hub.html#tech-club">Tech Club</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h4>Contact</h4>
+          <div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 15a19.79 19.79 0 01-3.07-8.67A2 2 0 013.88 4.26h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6z"/></svg><div><a href="tel:+2348068600747">08068600747</a><br><a href="tel:+2349015566523">09015566523</a></div></div>
+          <div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>139 Trademore Ave, Lugbe, Abuja</span></div>
+          <div style="margin-top:16px"><a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="btn btn-orange btn-sm">WhatsApp Us</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 D'Marie Vivre Learning Hub. All rights reserved.</p>
+        <p><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a> &nbsp;·&nbsp; <a href="shop.html">Shop</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="float-wa" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 <script src="assets/js/main.js"></script>
-</body></html>
+</body>
+</html>

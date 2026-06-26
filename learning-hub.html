@@ -1,151 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="D'Marie Vivre Learning Hub programs — After-school, Reading Club, Creative Writing, Arts & Crafts, Saturday Tech Club, Special Needs Education. Lugbe, Abuja."/>
-  <title>Our Programs | D'Marie Vivre Learning Hub — Abuja</title>
-  <link rel="icon" type="image/jpeg" href="assets/images/logo/logo.jpg"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="assets/css/style.css"/>
-  <style>
-    /* Page-specific styles */
-    .page-hero{background:var(--navy);padding:140px 0 80px;position:relative;overflow:hidden}
-    .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,125,30,.12) 0%,transparent 60%);pointer-events:none}
-    .page-hero::after{content:'📚';position:absolute;right:-20px;bottom:-40px;font-size:280px;opacity:.05;pointer-events:none;user-select:none}
-    .page-hero-content{position:relative;z-index:1}
-    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:20px;letter-spacing:.04em}
-    .breadcrumb a{color:rgba(255,255,255,.5);transition:color var(--t-fast)}
-    .breadcrumb a:hover{color:var(--orange)}
-    .breadcrumb span{color:rgba(255,255,255,.3)}
-
-    /* Program anchors padding for fixed nav */
-    .prog-anchor{scroll-margin-top:100px}
-
-    /* Full program detail cards */
-    .prog-detail{background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--s-sm);margin-bottom:32px}
-    .prog-detail-inner{display:grid;grid-template-columns:1fr 1.1fr;min-height:420px}
-    .prog-detail-inner.flip{grid-template-columns:1.1fr 1fr}
-    .prog-detail-inner.flip .prog-detail-img{order:2}
-    .prog-detail-inner.flip .prog-detail-body{order:1}
-    .prog-detail-img{position:relative;overflow:hidden}
-    .prog-detail-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
-    .prog-detail:hover .prog-detail-img img{transform:scale(1.04)}
-    .prog-detail-body{padding:44px 48px;display:flex;flex-direction:column;justify-content:center}
-    .prog-icon-badge{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;flex-shrink:0}
-    .prog-icon-badge svg{stroke:currentColor}
-    .prog-detail-cat{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
-    .prog-detail-name{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400;color:var(--navy);line-height:1.1;margin-bottom:14px}
-    .prog-detail-desc{font-size:.95rem;color:var(--ink-soft);line-height:1.8;margin-bottom:20px}
-    .prog-includes{margin-bottom:24px}
-    .prog-includes-title{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:12px}
-    .prog-include-list{display:flex;flex-direction:column;gap:8px}
-    .prog-include-item{display:flex;align-items:flex-start;gap:10px;font-size:.88rem;color:var(--ink-soft);line-height:1.5}
-    .prog-check-dot{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:700;flex-shrink:0;margin-top:1px}
-    .prog-meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-    .prog-meta-chip{display:flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;padding:6px 13px;border-radius:100px;background:var(--light-grey);color:var(--ink-soft)}
-    .prog-ctas{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-
-    /* Accent colours per program */
-    .acc-o .prog-detail-cat{color:var(--orange-deep)} .acc-o .prog-icon-badge{background:var(--orange-pale)} .acc-o .prog-check-dot{background:var(--orange-pale);color:var(--orange-deep)} .acc-o .prog-detail{border-top:4px solid var(--orange)}
-    .acc-n .prog-detail-cat{color:var(--navy)} .acc-n .prog-icon-badge{background:var(--navy-pale)} .acc-n .prog-check-dot{background:var(--navy-pale);color:var(--navy)} .acc-n .prog-detail{border-top:4px solid var(--navy)}
-    .acc-y .prog-detail-cat{color:#B87800} .acc-y .prog-icon-badge{background:var(--yellow-pale)} .acc-y .prog-check-dot{background:var(--yellow-pale);color:#B87800} .acc-y .prog-detail{border-top:4px solid var(--yellow)}
-    .acc-p .prog-detail-cat{color:#5B1FBF} .acc-p .prog-icon-badge{background:var(--purple-pale)} .acc-p .prog-check-dot{background:var(--purple-pale);color:#5B1FBF} .acc-p .prog-detail{border-top:4px solid var(--purple)}
-    .acc-g .prog-detail-cat{color:#1A7A4C} .acc-g .prog-icon-badge{background:var(--green-pale)} .acc-g .prog-check-dot{background:var(--green-pale);color:#1A7A4C} .acc-g .prog-detail{border-top:4px solid var(--green)}
-    .acc-r .prog-detail-cat{color:var(--red)} .acc-r .prog-icon-badge{background:#FDE8E0} .acc-r .prog-check-dot{background:#FDE8E0;color:var(--red)} .acc-r .prog-detail{border-top:4px solid var(--red)}
-
-    /* Quick-nav pills */
-    .prog-quicknav{position:sticky;top:70px;z-index:100;background:rgba(255,248,242,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 0}
-    .prog-quicknav-inner{max-width:1240px;margin:0 auto;padding:0 28px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-    .prog-quicknav-btn{font-size:.72rem;font-weight:700;letter-spacing:.04em;padding:7px 16px;border-radius:100px;background:var(--light-grey);color:var(--ink-mid);transition:all var(--t-fast) var(--ease);cursor:pointer;border:none;white-space:nowrap}
-    .prog-quicknav-btn:hover,.prog-quicknav-btn.active{background:var(--orange);color:#fff}
-
-    @media(max-width:900px){
-      .prog-detail-inner,.prog-detail-inner.flip{grid-template-columns:1fr}
-      .prog-detail-inner.flip .prog-detail-img,.prog-detail-inner.flip .prog-detail-body{order:unset}
-      .prog-detail-img{min-height:240px}
-      .prog-detail-body{padding:30px 28px}
-    }
-    @media(max-width:600px){.prog-detail-body{padding:24px 20px}}
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="D'Marie Vivre Learning Hub programs — After-school, Reading Club, Creative Writing, Arts & Crafts, Saturday Tech Club, Special Needs Education, and Adult Education. Lugbe, Abuja."/>
+<title>Our Programs | D'Marie Vivre Learning Hub — Abuja</title>
+<link rel="icon" type="image/jpeg" href="assets/images/logo/logo.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body>
 
+<div class="aurora" aria-hidden="true">
+  <div class="aurora-blob b1"></div>
+  <div class="aurora-blob b2"></div>
+  <div class="aurora-blob b3"></div>
+  <div class="aurora-blob b4"></div>
+</div>
+
 <div class="ann-bar" id="annBar">
-  <strong>20% OFF</strong> all products — <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener">Shop on Selar →</a>
+  <strong>20% OFF</strong> all products — <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener">Shop on Selar now →</a>
   <button class="ann-close" id="annClose" aria-label="Dismiss">✕</button>
 </div>
 
-<nav class="nav" id="nav" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <img src="assets/images/logo/logo.jpg" alt="D'Marie Vivre Learning Hub" class="nav-logo-img"/>
-      <div><span class="nav-wordmark">D'Marie Vivre</span><span class="nav-tagline-mini">Learning Hub</span></div>
+<div class="nav-wrap" id="navWrap">
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="D'Marie Vivre Learning Hub — Home">
+      <img src="assets/images/logo/logo.jpg" alt="D'Marie Vivre Learning Hub logo" class="nav-logo-img"/>
+      <div>
+        <span class="nav-wordmark">D'Marie Vivre</span>
+        <span class="nav-tagline-mini">Learning Hub</span>
+      </div>
     </a>
     <div class="nav-links">
-      <a href="learning-hub.html" style="color:var(--orange)">Programs</a>
-            <a href="kidspray.html">KidsPray</a>
+      <a href="learning-hub.html" style="color:var(--orange-deep)">Programs</a>
+      <a href="kidspray.html">KidsPray</a>
       <a href="shop.html">Shop</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
     <div class="nav-right">
-      <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-orange btn-sm">Enrol Today</a>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-orange btn-sm">
+        Enrol Today
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>
 
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" id="mobileClose">✕</button>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
   <a href="index.html">Home</a>
   <a href="learning-hub.html">Programs</a>
   <a href="kidspray.html">KidsPray</a>
   <a href="shop.html">Shop</a>
-  <a href="about.html">About</a>
+  <a href="book.html">The Book</a>
+  <a href="about.html">About Us</a>
+  <a href="media.html">Media &amp; Press</a>
   <a href="contact.html">Contact</a>
   <a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="mobile-wa-link">WhatsApp Us</a>
 </div>
 
-<!-- PAGE HERO -->
-<section class="page-hero">
-  <div class="container page-hero-content">
-    <div class="breadcrumb">
-      <a href="index.html">Home</a><span>/</span><span style="color:rgba(255,255,255,.8)">Programs</span>
-    </div>
-    <span class="tag tag-orange reveal">All Programs</span>
-    <h1 class="d-xl text-white reveal reveal-d1" style="max-width:700px;margin-bottom:18px">
-      Programs built for
-      <em style="font-style:italic;color:var(--orange)">real results</em>
-    </h1>
-    <p class="body-lg reveal reveal-d2" style="color:rgba(255,255,255,.68);max-width:580px;margin-bottom:32px">
-      From after-school care to special needs support — a program for every child.
-      Physical hub in Lugbe, Abuja. Mon–Sat. Online options available.
-    </p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap" class="reveal reveal-d3">
-      <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20enrol%20in%20a%20program" target="_blank" rel="noopener" class="btn btn-orange btn-lg">Enrol via WhatsApp</a>
-      <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-outline-white btn-lg">Shop Programs</a>
+<main>
+
+<!-- ═══════════════ PAGE HERO ═══════════════ -->
+<section class="page-hero aurora-dark">
+  <div class="aurora-local aurora-dark" aria-hidden="true">
+    <div class="aurora-blob b1"></div>
+    <div class="aurora-blob b2"></div>
+    <div class="aurora-blob b3"></div>
+  </div>
+  <div class="halo-ring r1" style="top:-140px;right:-100px" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="page-hero-inner" style="max-width:760px">
+      <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:rgba(255,255,255,.7)">Programs</span></div>
+      <span class="tag tag-white">All Programs</span>
+      <h1 class="d-xl reveal reveal-d1" style="color:#fff;margin:14px 0 18px">
+        Programs built for<br><em class="hero-accent" style="font-style:italic">real results</em>
+      </h1>
+      <p class="body-lg reveal reveal-d2" style="color:rgba(255,255,255,.7);max-width:560px;margin-bottom:30px">
+        From after-school care to special needs support, and adult learning too —
+        a program for every member of the family. Physical hub in Lugbe, Abuja. Mon–Sat.
+        Online options available.
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap" class="reveal reveal-d3">
+        <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20enrol%20in%20a%20program" target="_blank" rel="noopener" class="btn btn-orange btn-lg">Enrol via WhatsApp</a>
+        <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-outline-white btn-lg">Shop Programs</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- STICKY QUICK NAV -->
+<!-- ═══════════════ STICKY QUICK NAV ═══════════════ -->
 <div class="prog-quicknav" role="navigation" aria-label="Jump to program">
   <div class="prog-quicknav-inner">
-    <span style="font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-right:4px">Jump to:</span>
+    <span class="prog-quicknav-label">Jump to:</span>
     <button class="prog-quicknav-btn" onclick="document.getElementById('afterschool').scrollIntoView({behavior:'smooth',block:'start'})">After-School</button>
     <button class="prog-quicknav-btn" onclick="document.getElementById('reading-club').scrollIntoView({behavior:'smooth',block:'start'})">Reading Club</button>
     <button class="prog-quicknav-btn" onclick="document.getElementById('write-well').scrollIntoView({behavior:'smooth',block:'start'})">Creative Writing</button>
-    <button class="prog-quicknav-btn" onclick="document.getElementById('arts-crafts').scrollIntoView({behavior:'smooth',block:'start'})">Arts & Crafts</button>
+    <button class="prog-quicknav-btn" onclick="document.getElementById('arts-crafts').scrollIntoView({behavior:'smooth',block:'start'})">Arts &amp; Crafts</button>
     <button class="prog-quicknav-btn" onclick="document.getElementById('tech-club').scrollIntoView({behavior:'smooth',block:'start'})">Tech Club</button>
     <button class="prog-quicknav-btn" onclick="document.getElementById('special-needs').scrollIntoView({behavior:'smooth',block:'start'})">Special Needs</button>
+    <button class="prog-quicknav-btn" onclick="document.getElementById('adult-education').scrollIntoView({behavior:'smooth',block:'start'})">Adult Education</button>
   </div>
 </div>
 
-<!-- PROGRAMS -->
-<section class="section" style="background:var(--cream)">
+<!-- ═══════════════ PROGRAMS ═══════════════ -->
+<section class="section-sm">
   <div class="container">
 
     <!-- 1. AFTER-SCHOOL -->
@@ -170,9 +137,9 @@
               <p class="prog-includes-title">What's included</p>
               <div class="prog-include-list">
                 <div class="prog-include-item"><div class="prog-check-dot">✓</div><span><strong>Homework Help</strong> — Supervised homework time with qualified educators</span></div>
-                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span><strong>Reading & Literacy</strong> — Daily reading practice to build confidence</span></div>
-                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span><strong>Arts & Crafts</strong> — Creative activities that develop fine motor skills</span></div>
-                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span><strong>Games & Sports</strong> — Healthy physical activity and social development</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span><strong>Reading &amp; Literacy</strong> — Daily reading practice to build confidence</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span><strong>Arts &amp; Crafts</strong> — Creative activities that develop fine motor skills</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span><strong>Games &amp; Sports</strong> — Healthy physical activity and social development</span></div>
                 <div class="prog-include-item"><div class="prog-check-dot">✓</div><span><strong>Creative/STEM Projects</strong> — Age-appropriate STEM exploration</span></div>
               </div>
             </div>
@@ -224,11 +191,10 @@
     <div id="write-well" class="prog-anchor acc-o reveal">
       <div class="prog-detail">
         <div class="prog-detail-inner">
-          <div class="prog-detail-img" data-fallback="Creative Writing" style="background:var(--orange-pale);display:flex;align-items:center;justify-content:center;min-height:380px">
-            <!--📸 IMAGE NEEDED: assets/images/programs/creative-writing.jpg — child writing, 16:9-->
-            <div style="text-align:center;padding:40px">
-              <span style="font-size:5rem">✍️</span>
-              <p style="font-family:var(--font-display);font-size:2rem;color:var(--navy);margin-top:16px">Write Well</p>
+          <div class="prog-detail-img prog-art-detail" data-fallback="Creative Writing" style="background:linear-gradient(135deg,var(--orange-pale),var(--peri-soft))">
+            <div>
+              <span class="icon">✍️</span>
+              <p style="font-family:var(--font-display);font-size:2rem;color:var(--navy)">Write Well</p>
               <p style="font-size:.9rem;color:var(--ink-soft);margin-top:8px">Creative Writing Club</p>
             </div>
           </div>
@@ -266,12 +232,12 @@
       <div class="prog-detail">
         <div class="prog-detail-inner flip">
           <div class="prog-detail-img" data-fallback="Arts &amp; Crafts">
-            <img src="assets/images/programs/arts-crafts.jpg" alt="D'Marie Vivre Arts & Crafts Club" loading="lazy"/>
+            <img src="assets/images/programs/arts-crafts.jpg" alt="D'Marie Vivre Arts &amp; Crafts Club" loading="lazy"/>
           </div>
           <div class="prog-detail-body">
             <div class="prog-icon-badge"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="19" cy="13" r="2.5"/><circle cx="6.5" cy="13.5" r="2.5"/><circle cx="12" cy="20" r="2.5"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg></div>
-            <p class="prog-detail-cat">Arts & Crafts · Physical Hub · Ongoing</p>
-            <h2 class="prog-detail-name">Arts & Crafts Club</h2>
+            <p class="prog-detail-cat">Arts &amp; Crafts · Physical Hub · Ongoing</p>
+            <h2 class="prog-detail-name">Arts &amp; Crafts Club</h2>
             <p class="prog-detail-desc">Unleash your child's creativity! A joyful space where children paint, draw, sculpt, and express themselves freely. Builds imagination, confidence, and important social skills through every brushstroke.</p>
             <div class="prog-meta-row">
               <span class="prog-meta-chip">📍 Physical hub, Lugbe</span>
@@ -324,7 +290,7 @@
               </div>
             </div>
             <div class="prog-ctas">
-              <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-sm" style="background:var(--purple);color:#fff;border:2px solid var(--purple);border-radius:100px;padding:13px 28px;font-size:.82rem;font-weight:700;display:inline-flex;gap:7px;transition:all .3s">Sign Up on Selar</a>
+              <a href="https://selar.com/m/d-marievivre" target="_blank" rel="noopener" class="btn btn-purple">Sign Up on Selar</a>
               <a href="https://wa.me/2348068600747?text=I%27d%20like%20to%20sign%20up%20for%20the%20Saturday%20Tech%20Club" target="_blank" rel="noopener" class="btn btn-outline-navy">WhatsApp to Enrol</a>
             </div>
           </div>
@@ -336,11 +302,10 @@
     <div id="special-needs" class="prog-anchor acc-g reveal">
       <div class="prog-detail">
         <div class="prog-detail-inner flip">
-          <div class="prog-detail-img" data-fallback="Special Needs" style="background:var(--green-pale);display:flex;align-items:center;justify-content:center;min-height:380px">
-            <!--📸 IMAGE NEEDED: assets/images/programs/special-needs.jpg-->
-            <div style="text-align:center;padding:40px">
-              <span style="font-size:5rem">🤝</span>
-              <p style="font-family:var(--font-display);font-size:1.8rem;color:var(--navy);margin-top:16px">Every Learner Counts</p>
+          <div class="prog-detail-img prog-art-detail" data-fallback="Special Needs" style="background:linear-gradient(135deg,var(--green-pale),var(--peri-soft))">
+            <div>
+              <span class="icon">🤝</span>
+              <p style="font-family:var(--font-display);font-size:1.8rem;color:var(--navy)">Every Learner Counts</p>
               <p style="font-size:.9rem;color:var(--ink-soft);margin-top:8px">Patient · Personalised · Inclusive</p>
             </div>
           </div>
@@ -365,8 +330,46 @@
               </div>
             </div>
             <div class="prog-ctas">
-              <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Special%20Needs%20Education" target="_blank" rel="noopener" class="btn btn-sm" style="background:var(--green);color:#fff;border:2px solid var(--green);border-radius:100px;padding:13px 28px;font-weight:700;display:inline-flex;gap:7px;transition:all .3s">Enquire Now</a>
+              <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Special%20Needs%20Education" target="_blank" rel="noopener" class="btn btn-green">Enquire Now</a>
               <a href="contact.html" class="btn btn-outline-navy">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. ADULT EDUCATION -->
+    <div id="adult-education" class="prog-anchor acc-n reveal">
+      <div class="prog-detail">
+        <div class="prog-detail-inner">
+          <div class="prog-detail-img prog-art-detail" data-fallback="Adult Education" style="background:linear-gradient(135deg,var(--navy-pale),var(--peri-soft))">
+            <div>
+              <span class="icon">🎓</span>
+              <p style="font-family:var(--font-display);font-size:1.8rem;color:var(--navy)">It's Never Too Late</p>
+              <p style="font-size:.9rem;color:var(--ink-soft);margin-top:8px">Beginner Classes for Adults</p>
+            </div>
+          </div>
+          <div class="prog-detail-body">
+            <div class="prog-icon-badge"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+            <p class="prog-detail-cat">Adult Education · Physical Hub · By Arrangement</p>
+            <h2 class="prog-detail-name">Adult Education</h2>
+            <p class="prog-detail-desc">Beginner classes for adults who want to build or rebuild their reading, writing, and everyday maths skills — in a warm, judgment-free environment. It's never too late to learn.</p>
+            <div class="prog-meta-row">
+              <span class="prog-meta-chip">📍 Physical hub, Lugbe</span>
+              <span class="prog-meta-chip">👩‍🎓 Adults &amp; beginners</span>
+              <span class="prog-meta-chip">🤝 Patient, judgment-free</span>
+            </div>
+            <div class="prog-includes">
+              <p class="prog-includes-title">What's covered</p>
+              <div class="prog-include-list">
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Reading and writing fundamentals</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Simple, practical everyday maths</span></div>
+                <div class="prog-include-item"><div class="prog-check-dot">✓</div><span>Everyday spoken and written English</span></div>
+              </div>
+            </div>
+            <div class="prog-ctas">
+              <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20Adult%20Education%20classes" target="_blank" rel="noopener" class="btn btn-navy">Enquire Now</a>
+              <a href="contact.html" class="btn btn-outline-navy">Visit the Hub</a>
             </div>
           </div>
         </div>
@@ -376,42 +379,38 @@
   </div>
 </section>
 
-
-
-<!-- EDUCATION CONSULTING -->
-<section style="background:var(--off-white);padding:80px 0">
+<!-- ═══════════════ EDUCATION CONSULTING ═══════════════ -->
+<section class="section">
   <div class="container">
-    <div style="text-align:center;margin-bottom:48px">
+    <div class="text-center" style="margin-bottom:48px">
       <span class="tag tag-navy reveal">Additional Services</span>
-      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">
-        We also work with
-        <em style="font-style:italic;color:var(--orange)"> schools & teachers</em>
-      </h2>
+      <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">We also work with<br><em class="accent">schools &amp; teachers</em></h2>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px" class="reveal">
-      <div style="background:#fff;border-radius:var(--r-lg);padding:28px;box-shadow:var(--s-xs);border-top:3px solid var(--orange)">
-        <span style="font-size:2rem;display:block;margin-bottom:14px">🏫</span>
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--navy);margin-bottom:10px">School Start-up Consulting</h3>
-        <p style="font-size:.85rem;color:var(--ink-soft);line-height:1.7">Planning to start a school? We guide you through curriculum design, staffing structure, and operational setup.</p>
+      <div class="service-card">
+        <span class="service-icon-emoji">🏫</span>
+        <h3>School Start-up Consulting</h3>
+        <p>Planning to start a school? We guide you through curriculum design, staffing structure, and operational setup.</p>
       </div>
-      <div style="background:#fff;border-radius:var(--r-lg);padding:28px;box-shadow:var(--s-xs);border-top:3px solid var(--navy)">
-        <span style="font-size:2rem;display:block;margin-bottom:14px">📋</span>
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--navy);margin-bottom:10px">Curriculum Development</h3>
-        <p style="font-size:.85rem;color:var(--ink-soft);line-height:1.7">We create tailored, activity-based curricula with detailed illustrations for schools and individual programs.</p>
+      <div class="service-card">
+        <span class="service-icon-emoji">📋</span>
+        <h3>Curriculum Development</h3>
+        <p>We create tailored, activity-based curricula with detailed illustrations for schools and individual programs.</p>
       </div>
-      <div style="background:#fff;border-radius:var(--r-lg);padding:28px;box-shadow:var(--s-xs);border-top:3px solid var(--yellow)">
-        <span style="font-size:2rem;display:block;margin-bottom:14px">👩‍🏫</span>
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--navy);margin-bottom:10px">Teacher Training</h3>
-        <p style="font-size:.85rem;color:var(--ink-soft);line-height:1.7">Practical, proven training for teachers on effective, engaging, and inclusive teaching methods.</p>
+      <div class="service-card">
+        <span class="service-icon-emoji">👩‍🏫</span>
+        <h3>Teacher Training</h3>
+        <p>Practical, proven training for teachers on effective, engaging, and inclusive teaching methods.</p>
       </div>
     </div>
     <div style="text-align:center;margin-top:32px" class="reveal reveal-d2">
       <a href="https://wa.me/2348068600747?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20your%20consulting%20services" target="_blank" rel="noopener" class="btn btn-navy">Enquire About Consulting</a>
+      <a href="media.html" class="btn btn-outline-navy" style="margin-left:8px">Or Request a Consultation →</a>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
+<!-- ═══════════════ CTA ═══════════════ -->
 <section class="cta-section">
   <div class="cta-inner">
     <h2 class="cta-headline reveal">Ready to get started?</h2>
@@ -426,32 +425,73 @@
   </div>
 </section>
 
-<footer class="footer">
+</main>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="aurora-local aurora-dark" aria-hidden="true">
+    <div class="aurora-blob b1"></div>
+    <div class="aurora-blob b2"></div>
+    <div class="aurora-blob b3"></div>
+  </div>
   <div class="container">
-    <div class="footer-grid">
-      <div class="f-brand">
-        <img src="assets/images/logo/logo.jpg" alt="Logo" style="height:48px;width:auto;border-radius:10px;margin-bottom:12px"/>
-        <div class="f-brand-name">D'Marie Vivre</div>
-        <span class="f-brand-tag">Learning Hub · Learn. Grow. Thrive.</span>
-        <p>Holistic children's education hub in Lugbe, Abuja, Nigeria.</p>
-        <div class="f-socials">
-          <a href="https://www.instagram.com/dvlearninghub/" target="_blank" rel="noopener" class="f-soc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg></a>
-          <a href="https://www.youtube.com/@kidspraywithmsmary2218" target="_blank" rel="noopener" class="f-soc" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
-          <a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="f-soc" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    <div class="footer-panel">
+      <div class="footer-grid">
+        <div class="f-brand">
+          <img src="assets/images/logo/logo.jpg" alt="D'Marie Vivre Learning Hub logo" style="height:52px;width:auto;border-radius:11px;margin-bottom:14px"/>
+          <div class="f-brand-name">D'Marie Vivre</div>
+          <span class="f-brand-tag">Learning Hub · Learn. Grow. Thrive.</span>
+          <p>A holistic educational environment that nurtures children beyond academics — confident, creative, and morally sound. Based in Lugbe, Abuja, Nigeria.</p>
+          <div class="f-socials">
+            <a href="https://www.instagram.com/dvlearninghub/" target="_blank" rel="noopener" class="f-soc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg></a>
+            <a href="https://www.youtube.com/@kidspraywithmsmary2218" target="_blank" rel="noopener" class="f-soc" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
+            <a href="https://web.facebook.com/kidspraywithmsmary" target="_blank" rel="noopener" class="f-soc" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="f-soc" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          </div>
+        </div>
+        <div class="f-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="#afterschool">After-School</a></li>
+            <li><a href="#reading-club">Reading Club</a></li>
+            <li><a href="#write-well">Creative Writing</a></li>
+            <li><a href="#arts-crafts">Arts &amp; Crafts</a></li>
+            <li><a href="#tech-club">Tech Club</a></li>
+            <li><a href="#special-needs">Special Needs</a></li>
+            <li><a href="#adult-education">Adult Education</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Ms. Mary</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="book.html">The Book</a></li>
+            <li><a href="kidspray.html">KidsPray</a></li>
+            <li><a href="media.html">Media &amp; Press</a></li>
+            <li><a href="resources.html">Free Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h4>Contact</h4>
+          <div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 15a19.79 19.79 0 01-3.07-8.67A2 2 0 013.88 4.26h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6z"/></svg><div><a href="tel:+2348068600747">08068600747</a><br><a href="tel:+2349015566523">09015566523</a></div></div>
+          <div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>139 Trademore Ave, Lugbe, Abuja</span></div>
+          <div style="margin-top:16px"><a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="btn btn-orange btn-sm">WhatsApp Us</a></div>
         </div>
       </div>
-      <div class="f-col"><h4>Programs</h4><ul><li><a href="#afterschool">After-School</a></li><li><a href="#reading-club">Reading Club</a></li><li><a href="#write-well">Creative Writing</a></li><li><a href="#arts-crafts">Arts & Crafts</a></li><li><a href="#tech-club">Tech Club</a></li><li><a href="#special-needs">Special Needs</a></li></ul></div>
-      <div class="f-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Ms. Mary</a></li><li><a href="shop.html">Shop</a></li><li><a href="book.html">The Book</a></li><li><a href="kidspray.html">KidsPray</a></li><li><a href="resources.html">Free Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div class="f-col"><h4>Contact</h4>
-        <div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.95 15a19.79 19.79 0 01-3.07-8.67A2 2 0 013.88 4.26h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6z"/></svg><div><a href="tel:+2348068600747">08068600747</a><br/><a href="tel:+2349015566523">09015566523</a></div></div>
-        <div class="f-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>139 Trademore Ave, Lugbe, Abuja</span></div>
+      <div class="footer-bottom">
+        <p>© 2025 D'Marie Vivre Learning Hub. All rights reserved.</p>
+        <p><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a> &nbsp;·&nbsp; <a href="resources.html">Free Resources</a></p>
       </div>
     </div>
-    <div class="footer-bottom"><p>© 2025 D'Marie Vivre Learning Hub. All rights reserved.</p><p><a href="index.html">Home</a> · <a href="contact.html">Contact</a> · <a href="resources.html">Free Resources</a></p></div>
   </div>
 </footer>
 
-<a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="float-wa" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<a href="https://wa.me/2348068600747" target="_blank" rel="noopener" class="float-wa" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
