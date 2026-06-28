@@ -1196,7 +1196,7 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
 .social-handle{font-size:.72rem;color:rgba(255,255,255,.72)}
 
 @media(max-width:900px){.comm-grid{grid-template-columns:1fr!important;gap:36px!important}}
-@media(max-width:900px){.book-details-grid{grid-template-columns:1fr!important;gap:40px!important}}
+@media(max-width:900px){.book-details-grid{grid-template-columns:1fr!important;gap:40px!important}.pkg-teaser-grid{grid-template-columns:1fr!important;gap:28px!important}}
 
 /* ════════════════════════════════════════════════════════════════════════
    SHOP — selar banner + digital product cards
