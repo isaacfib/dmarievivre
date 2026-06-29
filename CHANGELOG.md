@@ -9,6 +9,33 @@ Versioning follows [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATC
 
 ---
 
+## v1.2.0 — 2026-06-28
+
+**Bug fixes + UI polish** — caught from real on-device screenshots.
+
+### Fixed
+- Sticky quick-nav on Learning Hub was overlapping/peeking out from behind the floating
+  nav on mobile. Root cause: its sticky position was a hardcoded guess that didn't account
+  for the nav's actual height (which varies by screen size and whether the announcement
+  bar is showing). Now measured and set dynamically in `main.js`.
+- Program detail placeholders (and the real photos that will replace them) were rendering
+  far taller than intended on mobile. Root cause: a `min-height:400px` on the grid
+  container wasn't cleared when the layout stacked to one column, and CSS grid's default
+  stretch behavior dumped all the leftover space into the image area.
+
+### Changed
+- Image fallback placeholders now size by `aspect-ratio` (16:9 landscape, 3:4 for
+  portrait contexts like Ms. Mary's photo and book covers) instead of fixed `min-height` —
+  more robust against being stretched oddly by whatever container they end up in
+- Fallback icon/label opacity increased so empty states read as an intentional design
+  choice rather than a washed-out gray placeholder
+- Mobile menu background glow tightened to smaller, brighter corner spots instead of a
+  wide wash that was blending into a muddy mid-tone
+- Mobile page-hero padding reduced (128px→104px top, 64px→48px bottom) for a lighter
+  first impression before reaching real content
+
+---
+
 ## v1.1.0 — 2026-06-28
 
 **Decluttering pass** — same design system, leaner and more premium-feeling content.

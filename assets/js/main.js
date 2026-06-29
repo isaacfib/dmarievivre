@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     annBar.style.display = 'none';
     sessionStorage.setItem('annDismissed', 'true');
     setNavTop();
+    setQuickNavTop();
   });
 
   /* ── NAV: offset for announcement bar (floating pill sits below it) ── */
@@ -34,6 +35,26 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   setNavTop();
   window.addEventListener('resize', setNavTop, { passive: true });
+
+  /* ── PROGRAM QUICK-NAV: align precisely below the floating nav ──────────
+   * The CSS top value is just a sane fallback. The real nav's height varies
+   * by screen size and whether the announcement bar is showing, so it's
+   * measured directly here rather than guessed — this is what prevents the
+   * quick-nav pill from sliding up behind/under the floating nav. ── */
+  const quickNav = document.querySelector('.prog-quicknav');
+  const setQuickNavTop = () => {
+    if (!quickNav || !navWrap) return;
+    const navEl = document.getElementById('nav') || navWrap;
+    const bottom = navEl.getBoundingClientRect().bottom;
+    quickNav.style.top = Math.max(bottom + 10, 0) + 'px';
+  };
+  if (quickNav) {
+    setQuickNavTop();
+    window.addEventListener('resize', setQuickNavTop, { passive: true });
+    // Re-measure shortly after load too, in case fonts/logo shift the nav's height
+    window.addEventListener('load', setQuickNavTop);
+    setTimeout(setQuickNavTop, 300);
+  }
 
   /* ── NAV: scroll behaviour ── */
   const updateNav = () => {
