@@ -127,18 +127,23 @@
       <h2 class="d-lg reveal reveal-d1" style="color:var(--navy)">Beautiful illustrations.<br><em class="accent">A story that stays with you.</em></h2>
       <p class="body-md text-soft reveal reveal-d2" style="max-width:480px;margin:12px auto 0">Every page is designed with warmth and detail — an activity and creativity-based approach with well-illustrated storytelling.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px" class="reveal" id="insideGrid">
-      <div class="glass-card" style="overflow:hidden;cursor:zoom-in;border-radius:var(--r-lg)" data-fallback="Book Image" data-lightbox="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye-2.jpg">
-        <img src="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye-2.jpg" alt="Book cover" loading="lazy"/>
+    <div class="carousel" data-carousel aria-label="Pages from the book" id="insideGrid">
+      <button class="carousel-arrow carousel-arrow-prev" aria-label="Previous image"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="carousel-track" tabindex="0" role="region" aria-label="Book pages, swipeable">
+        <div class="carousel-card img-card" data-fallback="Book Image" data-lightbox="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye-2.jpg">
+          <img src="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye-2.jpg" alt="Book cover" loading="lazy"/>
+        </div>
+        <div class="carousel-card img-card" data-fallback="Book Image" data-lightbox="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye1-2.jpg">
+          <img src="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye1-2.jpg" alt="Book interior spread" loading="lazy"/>
+        </div>
+        <div class="carousel-card img-card" data-fallback="Book Image" data-lightbox="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye2-2.jpg">
+          <img src="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye2-2.jpg" alt="Book illustration detail" loading="lazy"/>
+        </div>
       </div>
-      <div class="glass-card" style="overflow:hidden;cursor:zoom-in;border-radius:var(--r-lg)" data-fallback="Book Image" data-lightbox="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye1-2.jpg">
-        <img src="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye1-2.jpg" alt="Book interior spread" loading="lazy"/>
-      </div>
-      <div class="glass-card" style="overflow:hidden;cursor:zoom-in;border-radius:var(--r-lg)" data-fallback="Book Image" data-lightbox="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye2-2.jpg">
-        <img src="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye2-2.jpg" alt="Book illustration detail" loading="lazy"/>
-      </div>
+      <button class="carousel-arrow carousel-arrow-next" aria-label="Next image"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+      <div class="carousel-dots"></div>
     </div>
-    <p class="text-center reveal" style="margin-top:16px;font-size:.8rem;color:var(--ink-muted)">Tap any image to enlarge</p>
+    <p class="text-center reveal" style="margin-top:-12px;font-size:.8rem;color:var(--ink-muted)">Swipe, or tap the arrows — tap the centre image to enlarge</p>
   </div>
 </section>
 

@@ -1346,3 +1346,73 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
   .quick-actions{grid-template-columns:1fr}
   .qa-full{grid-column:span 1}
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   CAROUSEL — premium overlapping "peek" carousel
+   Real native scroll-snap underneath (buttery touch-swipe, no JS required
+   for it to work at all) with JS-enhanced arrows/dots layered on top.
+   Active card rises in scale + z-index + shadow; neighbours sit dimmed and
+   tucked partially behind it via negative margin overlap.
+   ════════════════════════════════════════════════════════════════════════ */
+.carousel{position:relative}
+.carousel-track{
+  display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  padding:26px 6% 38px;scrollbar-width:none;scroll-padding:0 6%;
+}
+.carousel-track::-webkit-scrollbar{display:none}
+.carousel-card{
+  flex:0 0 auto;width:min(82vw,320px);scroll-snap-align:center;position:relative;
+  opacity:.5;transform:scale(.86);z-index:1;
+  transition:transform .45s var(--ease-soft),opacity .45s var(--ease-soft);
+  cursor:pointer;
+}
+.carousel-card:not(:first-child){margin-left:-46px}
+.carousel-card.is-active{opacity:1;transform:scale(1);z-index:5;cursor:default}
+.carousel-card.is-active .value-card,
+.carousel-card.is-active .glass-card{box-shadow:var(--s-xl)}
+
+.carousel-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;
+  background:var(--glass-bg-strong);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);
+  border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);
+  display:flex;align-items:center;justify-content:center;z-index:8;color:var(--navy);
+  transition:all var(--t-fast) var(--ease);-webkit-tap-highlight-color:transparent;
+}
+.carousel-arrow:hover{background:#fff;transform:translateY(-50%) scale(1.06)}
+.carousel-arrow svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.carousel-arrow-prev{left:-6px}
+.carousel-arrow-next{right:-6px}
+.carousel-arrow[disabled]{opacity:0;pointer-events:none}
+.carousel.no-scroll-needed .carousel-arrow,
+.carousel.no-scroll-needed .carousel-dots{display:none}
+.carousel.no-scroll-needed .carousel-track{padding:26px 0 6px}
+.carousel.no-scroll-needed .carousel-card{opacity:1;transform:scale(1);cursor:default}
+.carousel.no-scroll-needed .carousel-card:not(:first-child){margin-left:0}
+
+/* Dark variant for arrows sitting over a navy band */
+.carousel-dark .carousel-arrow{
+  background:var(--glass-dark-bg);-webkit-backdrop-filter:var(--glass-dark-blur);backdrop-filter:var(--glass-dark-blur);
+  border-color:var(--glass-dark-border);color:#fff;
+}
+.carousel-dark .carousel-arrow:hover{background:var(--glass-dark-bg-deep)}
+
+.carousel-dots{display:flex;justify-content:center;gap:7px;margin-top:-22px;position:relative;z-index:6}
+.carousel-dot{width:6px;height:6px;border-radius:50%;background:rgba(36,51,73,.18);transition:all var(--t-fast) var(--ease);cursor:pointer}
+.carousel-dot.active{width:20px;border-radius:4px;background:var(--orange)}
+.carousel-dark .carousel-dot{background:rgba(255,255,255,.22)}
+.carousel-dark .carousel-dot.active{background:var(--orange-light)}
+
+/* Image-card variant (book gallery, hub gallery) — image fills the card,
+   no inner card chrome, rounded corners + shadow live on the card itself */
+.carousel-card.img-card{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--s-sm);aspect-ratio:1/1}
+.carousel-card.img-card.is-active{box-shadow:var(--s-xl)}
+.carousel-card.img-card img{width:100%;height:100%;object-fit:cover;display:block}
+
+@media(max-width:480px){
+  .carousel-card{width:min(86vw,300px)}
+  .carousel-arrow{width:40px;height:40px}
+  .carousel-arrow svg{width:16px;height:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  .carousel-track{scroll-behavior:auto}
+}

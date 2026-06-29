@@ -9,6 +9,46 @@ Versioning follows [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATC
 
 ---
 
+## v1.3.0 — 2026-06-28
+
+**New: premium overlapping "peek" carousel** — for compactness and a more
+gallery-like browsing feel, wherever content is meant to be sampled rather
+than exhaustively compared side-by-side.
+
+### Added
+- New reusable carousel component (`assets/css/style.css` + `assets/js/main.js`).
+  Built on native CSS scroll-snap, so touch-swipe works perfectly even if JS
+  fails to load — arrows, dots, and the active-card scale/shadow effect are
+  progressive enhancement layered on top, not the only way it works.
+- The active (centred) card sits forward — full scale, full opacity, lifted
+  shadow — while neighbours are dimmed, scaled down, and tucked partially
+  *behind* it via negative-margin overlap, giving a genuine layered "deck"
+  feel rather than a flat slider.
+- **Adaptive**: if a carousel's content already fits without needing to
+  scroll (common on wide desktop screens with only 3–4 items), the arrows
+  and dots disappear automatically and it presents as a clean static row —
+  it never fakes interactivity that isn't there.
+- Keyboard support (arrow keys when focused) and full ARIA labelling.
+
+### Applied to
+- Core Values — Home, About, Shop (replacing the 4-card vertical stack,
+  which was a lot of scrolling on mobile for content meant to be a quick
+  browse, not a comparison task)
+- "Inside the Book" gallery — Book page
+- Hub photo gallery — Resources page (also future-proofs this section for
+  when more real photos are added — it'll keep working cleanly whether
+  there are 3 photos or 30)
+
+### Deliberately left as a grid (not converted)
+- **Programs** (Home, Learning Hub) — comparison content where seeing all
+  options at once matters more than compact browsing
+- **Gift Packages** (Shop) — same reasoning; side-by-side aids the actual
+  pricing/tier comparison a visitor is trying to make
+- **KidsPray's 3-card intro** — already compact enough at 3 short items
+  that a carousel would add interaction overhead without a real space payoff
+
+---
+
 ## v1.2.0 — 2026-06-28
 
 **Bug fixes + UI polish** — caught from real on-device screenshots.

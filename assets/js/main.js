@@ -201,7 +201,88 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ── LIGHTBOX for gallery images ── */
+  /* ── CAROUSEL — premium overlapping "peek" carousel ─────────────────────
+   * Scroll-snap handles touch swipe natively (works even if this JS fails).
+   * This layer adds: arrow buttons, active-card scale/shadow, dot indicator,
+   * keyboard arrows, and hides controls entirely when nothing needs scrolling.
+   * ─────────────────────────────────────────────────────────────────── */
+  const initCarousels = () => {
+    document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+      const track = carousel.querySelector('.carousel-track');
+      if (!track || track.dataset.carouselInit) return;
+      track.dataset.carouselInit = 'true';
+
+      const cards = Array.from(track.querySelectorAll('.carousel-card'));
+      const prevBtn = carousel.querySelector('.carousel-arrow-prev');
+      const nextBtn = carousel.querySelector('.carousel-arrow-next');
+      const dotsWrap = carousel.querySelector('.carousel-dots');
+      if (dotsWrap && !dotsWrap.children.length) {
+        cards.forEach((_, i) => {
+          const d = document.createElement('span');
+          d.className = 'carousel-dot';
+          d.setAttribute('role', 'button');
+          d.setAttribute('aria-label', `Go to item ${i + 1}`);
+          dotsWrap.appendChild(d);
+        });
+      }
+      const dots = dotsWrap ? Array.from(dotsWrap.children) : [];
+      let current = 0;
+
+      const checkScrollNeeded = () => {
+        const needed = track.scrollWidth > track.clientWidth + 4;
+        carousel.classList.toggle('no-scroll-needed', !needed);
+      };
+      checkScrollNeeded();
+      window.addEventListener('resize', checkScrollNeeded, { passive: true });
+
+      const setActive = (idx) => {
+        current = idx;
+        cards.forEach((c, i) => c.classList.toggle('is-active', i === idx));
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        if (prevBtn) prevBtn.disabled = idx === 0;
+        if (nextBtn) nextBtn.disabled = idx === cards.length - 1;
+      };
+
+      const goTo = (idx) => {
+        idx = Math.max(0, Math.min(cards.length - 1, idx));
+        cards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      };
+
+      prevBtn?.addEventListener('click', () => goTo(current - 1));
+      nextBtn?.addEventListener('click', () => goTo(current + 1));
+      dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+
+      // Clicking a dimmed side-card brings it to focus (and only that —
+      // stopImmediatePropagation keeps this click from also triggering the
+      // lightbox listener that may be bound to the same element)
+      cards.forEach((c, i) => {
+        c.addEventListener('click', (e) => {
+          if (i !== current) { e.preventDefault(); e.stopImmediatePropagation(); goTo(i); }
+        });
+      });
+
+      // Keyboard support when the track itself is focused
+      track.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+      });
+
+      // Detect which card is centred as the user swipes/scrolls
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.intersectionRatio > 0.62) {
+            setActive(cards.indexOf(entry.target));
+          }
+        });
+      }, { root: track, threshold: [0.62] });
+      cards.forEach((c) => observer.observe(c));
+
+      setActive(0);
+    });
+  };
+  initCarousels();
+
+
   const galleryImgs = document.querySelectorAll('[data-lightbox]');
   if (galleryImgs.length) {
     const overlay = document.createElement('div');
