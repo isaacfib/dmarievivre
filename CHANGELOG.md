@@ -9,6 +9,61 @@ Versioning follows [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATC
 
 ---
 
+## v1.4.0 — 2026-06-29
+
+**Emoji-to-icon pass, book cover redesign, and a real grid bug fix.**
+
+### Fixed
+- **KidsPray's "What is KidsPray" section had a genuine mobile bug**, independent
+  of zoom level: an inline `style="grid-template-columns:repeat(3,1fr)"` was
+  beating every responsive breakpoint in the stylesheet (inline styles always
+  win over external CSS unless the external rule uses `!important`), forcing
+  3 cramped columns on every screen size, always. Converted this section to
+  the carousel component, which removes the bug at its root — there's no
+  hardcoded column count left to fight responsive rules.
+- **Swept the whole site for the same bug pattern.** Found 3 more instances
+  (service-card rows on Book, KidsPray, and Learning Hub) with zero responsive
+  handling at all. Gave them a proper `.service-grid-3` class (3 cols desktop,
+  2 cols tablet, 1 col mobile) instead of a bare inline style.
+- Capped pinch-zoom at 5x (`maximum-scale=5.0`) across all 9 pages. This
+  doesn't disable zoom (`user-scalable=no` would be an accessibility
+  violation and was deliberately avoided) but reduces how far a layout can
+  be stretched by an accidental extreme pinch.
+
+### Changed — Emoji → custom SVG icons, site-wide
+Every platform emoji (📍 ⏰ 👶 🚗 📚 👧 ✍️ 💻 🎨 📅 🤝 👁️ 📋 🤗 🎓 🏫 👩‍🏫 🎁 📺
+📰 🎥 🎤 ✓ ✕, and the gold-package ⭐) replaced with hand-drawn line-icon SVGs
+matching the rest of the brand's icon language. Platform emoji render
+inconsistently across iOS/Android/desktop/Windows and read as template-y;
+custom icons are consistent everywhere and feel intentional.
+- The ⭐ "Most Popular" / "Flagship" mark specifically replaced with a custom
+  4-point geometric sparkle — cleaner and more premium than a platform star,
+  and immune to emoji-font rendering differences
+- All 29 checkmarks in Learning Hub's "what's included" lists converted from
+  the ✓ glyph to a proper SVG check
+- Close buttons (announcement bar, mobile menu) converted from the ✕ glyph
+  to an SVG X — same reasoning, consistent rendering
+
+### Redesigned — Book cover presentation
+- Replaced the old "two raw images side by side" hero treatment with a new
+  **floating cover** component (`.cover-stage` / `.cover-frame`): a single
+  confident cover shot with a soft layered shadow, a faint second "page"
+  peeking from behind for implied depth, and a subtle warm glow — no literal
+  device/phone framing anywhere
+- This addresses the dated phone-mockup look flagged from screenshots: that
+  framing was baked into the source photo's pixels (not something the site's
+  code was adding), so the new component crops in tighter via `object-fit`
+  and biases the crop position to minimize the visible artifact today, while
+  being designed to look excellent with any clean cover photography dropped
+  in later — no further code changes will be needed once a proper photo exists
+- Applied consistently everywhere the cover appears: Book page hero, Book page
+  details section, Homepage Book Spotlight
+- The "Inside the Book" gallery (already a carousel as of v1.3.0) now does
+  the job of showing multiple images, so the hero only needs to make one
+  confident first impression rather than doubling up
+
+---
+
 ## v1.3.0 — 2026-06-28
 
 **New: premium overlapping "peek" carousel** — for compactness and a more

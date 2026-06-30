@@ -269,7 +269,8 @@ em.accent{font-style:italic;color:var(--orange)}
 .ann-bar strong{font-weight:700;color:var(--orange-light)}
 .ann-bar a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
 .ann-bar a:hover{color:var(--orange-light)}
-.ann-close{position:absolute;top:50%;right:14px;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.45);font-size:.9rem;cursor:pointer;padding:6px;line-height:1;transition:color var(--t-fast)}
+.ann-close{position:absolute;top:50%;right:14px;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.45);cursor:pointer;padding:6px;line-height:1;transition:color var(--t-fast);display:flex;align-items:center;justify-content:center}
+.ann-close svg{width:13px;height:13px}
 .ann-close:hover{color:#fff}
 
 /* ════════════════════════════════════════════════════════════════════════
@@ -314,7 +315,8 @@ em.accent{font-style:italic;color:var(--orange)}
 .mobile-menu.open{display:flex}
 .mobile-menu a{position:relative;z-index:1;font-family:var(--font-display);font-size:1.85rem;color:#fff;font-weight:400;transition:color var(--t-fast);padding:8px 0;-webkit-tap-highlight-color:transparent}
 .mobile-menu a:hover,.mobile-menu a:active{color:var(--orange)}
-.mobile-close{position:absolute;top:24px;right:24px;color:rgba(255,255,255,.55);font-size:1.6rem;line-height:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:50%;width:42px;height:42px;display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-tap-highlight-color:transparent;z-index:2}
+.mobile-close{position:absolute;top:24px;right:24px;color:rgba(255,255,255,.55);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:50%;width:42px;height:42px;display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-tap-highlight-color:transparent;z-index:2}
+.mobile-close svg{width:16px;height:16px}
 .mobile-close:hover{color:#fff;background:rgba(255,255,255,.16)}
 .mobile-wa-link{position:relative;z-index:1;margin-top:18px;background:rgba(37,211,102,.15);border:1px solid rgba(37,211,102,.35);border-radius:var(--r-pill);padding:11px 30px;color:#25D366 !important;font-size:.88rem !important;font-family:var(--font-body) !important;font-weight:700 !important;letter-spacing:.04em}
 
@@ -625,11 +627,6 @@ em.accent{font-style:italic;color:var(--orange)}
    BOOK PAGE
    ════════════════════════════════════════════════════════════════════════ */
 .book-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
-.book-images{display:grid;grid-template-columns:1.3fr .9fr;gap:16px;align-items:start}
-.book-img-main{
-  border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--s-xl);border:1px solid var(--glass-border);
-}
-.book-img-sm{border-radius:var(--r-md);overflow:hidden;box-shadow:var(--s-lg);border:1px solid var(--glass-border);margin-top:20%}
 .book-title-hero{font-family:var(--font-display);font-size:clamp(2.4rem,5.6vw,4.6rem);color:#fff;line-height:1.05;letter-spacing:-.015em}
 .book-quote{
   background:rgba(255,125,30,.14);border:1px solid rgba(255,125,30,.28);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
@@ -842,8 +839,6 @@ em.accent{font-style:italic;color:var(--orange)}
   .hero-actions{flex-wrap:wrap}
   .hero-actions .btn{flex:0 0 auto}
   .values-grid{grid-template-columns:1fr}
-  .book-images{grid-template-columns:1fr}
-  .book-img-sm{margin-top:16px}
   .float-wa{bottom:18px;right:18px;width:50px;height:50px}
   .float-wa svg{width:24px;height:24px}
   .stats-strip{grid-template-columns:1fr}
@@ -1182,6 +1177,9 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
 .service-icon-emoji{font-size:2rem;display:block;margin-bottom:14px}
 .service-card h3{font-family:var(--font-display);font-size:1.3rem;color:var(--navy);margin-bottom:10px;font-weight:400}
 .service-card p{font-size:.85rem;color:var(--ink-soft);line-height:1.7}
+.service-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:860px){.service-grid-3{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.service-grid-3{grid-template-columns:1fr}}
 
 /* ════════════════════════════════════════════════════════════════════════
    KIDSPRAY — orange community band + social cards
@@ -1220,6 +1218,8 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
 }
 .product-card:hover{transform:translateY(-6px);background:var(--glass-bg-strong)}
 .product-img{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.product-img.product-img-portrait{aspect-ratio:3/4}
+.product-img.product-img-portrait img{object-position:center 40%}
 .product-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
 .product-card:hover .product-img img{transform:scale(1.05)}
 .product-img-icon{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center}
@@ -1406,7 +1406,7 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
    no inner card chrome, rounded corners + shadow live on the card itself */
 .carousel-card.img-card{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--s-sm);aspect-ratio:1/1}
 .carousel-card.img-card.is-active{box-shadow:var(--s-xl)}
-.carousel-card.img-card img{width:100%;height:100%;object-fit:cover;display:block}
+.carousel-card.img-card img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block}
 
 @media(max-width:480px){
   .carousel-card{width:min(86vw,300px)}
@@ -1415,4 +1415,52 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
 }
 @media(prefers-reduced-motion:reduce){
   .carousel-track{scroll-behavior:auto}
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   ICON SYSTEM EXTENSIONS — replacing emoji with custom SVG icons
+   (platform emoji render inconsistently across iOS/Android/desktop and
+   read as template-y; custom line icons match the rest of the brand)
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* Service cards (consulting / free-resources) — icon badge instead of bare emoji */
+.service-icon{width:52px;height:52px;border-radius:15px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.service-icon svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+/* Small inline icons inside meta-chips and glass tags */
+.chip-ic{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+/* The "featured/popular" mark — a clean geometric sparkle, not a platform emoji */
+.spark{display:inline-flex;width:12px;height:12px;flex-shrink:0}
+.spark svg{width:100%;height:100%}
+.pkg-popular .spark,.pkg-popular svg{width:13px;height:13px}
+
+/* ════════════════════════════════════════════════════════════════════════
+   BOOK COVER — premium "floating cover" presentation
+   Designed to look excellent with any cover photography dropped in — crops
+   intelligently via object-fit, frames with a soft mat + layered shadow for
+   genuine depth, and intentionally avoids any literal device/phone styling.
+   ════════════════════════════════════════════════════════════════════════ */
+.cover-stage{position:relative;display:flex;align-items:center;justify-content:center;padding:8px}
+.cover-frame{
+  position:relative;width:min(100%,300px);aspect-ratio:3/4;border-radius:var(--r-lg);overflow:hidden;
+  background:linear-gradient(150deg,#fff 0%,#F4EFE6 100%);
+  box-shadow:0 2px 4px rgba(22,31,45,.06),0 14px 28px -6px rgba(22,31,45,.22),0 30px 60px -18px rgba(22,31,45,.28);
+  transform:rotate(-1.4deg);transition:transform .5s var(--ease-soft);
+}
+.cover-frame:hover{transform:rotate(0deg) scale(1.015)}
+.cover-frame img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}
+/* A second, fainter "page" peeking from behind — quick implied depth without
+   needing multiple real photos */
+.cover-stage::before{
+  content:'';position:absolute;width:min(92%,276px);aspect-ratio:3/4;
+  background:linear-gradient(150deg,#fff 0%,#EDE6D8 100%);border-radius:var(--r-lg);
+  transform:rotate(4deg) translateY(6px);box-shadow:0 10px 24px -10px rgba(22,31,45,.18);z-index:0;
+}
+.cover-frame{z-index:1}
+.cover-glow{position:absolute;inset:-30px;background:radial-gradient(ellipse at center,rgba(255,125,30,.16) 0%,transparent 68%);pointer-events:none;z-index:0}
+
+@media(max-width:560px){
+  .cover-frame{width:min(78vw,260px)}
+  .cover-stage::before{width:min(72vw,240px)}
 }
