@@ -9,6 +9,64 @@ Versioning follows [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATC
 
 ---
 
+## v1.5.0 — 2026-06-30
+
+**Desktop-focused pass.** Recent work optimized mobile heavily; this pass
+audited desktop specifically, without touching mobile's behavior.
+
+### Fixed — layout bugs only visible at desktop widths
+- **Homepage program grid had a genuine gap bug at 3 columns.** 1 wide card
+  (spans 2) + 5 standard cards = 7 grid units, which doesn't divide evenly
+  into rows of 3 — the last row held a single lone card with two empty
+  cells beside it. Fixed by adding a 6th tile: a wide "7+ Programs. One
+  Learning Hub." closing CTA card that links to Learning Hub. This isn't a
+  patch — it completes the grid to a clean 3×3 (9 units) exactly, mirrors
+  the flagship wide card at the top for a deliberate visual bookend, and
+  adds real navigational value on both desktop and mobile.
+- **Media & Press page had the same bug, twice**, in both the Featured
+  Coverage and Publications sections (3-column grids with 4 and 2 items
+  respectively, neither divisible by 3). Rather than patch with filler
+  content, changed `.press-grid` to 2 columns site-wide: the featured/lead
+  item already spans both columns, so it now reads as a genuine full-width
+  "lead story" — fitting for a press page's editorial feel — with a clean
+  2-up row of supporting cards underneath. Both sections now fill exactly,
+  with zero empty cells, at every screen size.
+- **Carousels had zero gap between cards whenever there were few enough
+  items to fit without scrolling** — which is most 3-item carousels (book
+  gallery, hub photo gallery, KidsPray's "What is KidsPray" intro) on a
+  typical desktop width. Cards collapsed to touching edge-to-edge on the
+  left with empty space on the right, instead of presenting as a clean,
+  evenly-spaced static row. Fixed: the static state now centers the row
+  with a proper 22px gap between cards.
+- **Book cover was capped at a flat 300px** regardless of how much room its
+  column actually had — on a typical desktop width, that column is closer
+  to 500px, leaving the cover looking small and adrift in empty space.
+  Switched to `clamp(260px, 26vw, 400px)` so it scales properly with
+  available space up to a sane ceiling.
+
+### Added — desktop hover polish
+- `routine-card` (Resources page) and `faq-question` rows now have hover
+  feedback, matching the treatment every other card/interactive element on
+  the site already had. Desktop mouse users get consistent feedback
+  everywhere now, not just on some components.
+
+### Removed — dead CSS
+- `.testi-*` and `.values-grid`/`.val-cards` rules (including all their
+  responsive breakpoint overrides) were leftover from earlier passes —
+  fake testimonials were removed in v1.1.0, and Core Values sections were
+  converted to carousels in v1.3.0, but the old grid/card CSS was never
+  cleaned up. Removed entirely; nothing in the HTML referenced them.
+
+### Note on scope
+This pass specifically targeted layout math (grid-unit gaps), sizing that
+didn't scale with available space, and hover-state consistency — the kinds
+of issues that only show up once there's enough screen width for them to
+matter. Nothing here changes mobile behavior; all fixes are either scoped
+to desktop-only CSS rules or improve every breakpoint equally (e.g. the
+carousel gap fix, which helps tablet too).
+
+---
+
 ## v1.4.0 — 2026-06-29
 
 **Emoji-to-icon pass, book cover redesign, and a real grid bug fix.**

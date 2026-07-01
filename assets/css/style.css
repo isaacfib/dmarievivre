@@ -469,7 +469,6 @@ em.accent{font-style:italic;color:var(--orange)}
    ════════════════════════════════════════════════════════════════════════ */
 .values-section{padding:96px 0}
 .values-header{text-align:center;margin-bottom:56px}
-.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .value-card{
   background:var(--glass-bg);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);
   border:1px solid var(--glass-border);border-radius:var(--r-xl);padding:34px 24px;text-align:center;box-shadow:var(--glass-shadow);
@@ -557,17 +556,7 @@ em.accent{font-style:italic;color:var(--orange)}
 /* ════════════════════════════════════════════════════════════════════════
    TESTIMONIALS
    ════════════════════════════════════════════════════════════════════════ */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.testi-card{
-  background:var(--glass-bg);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);
-  border:1px solid var(--glass-border);border-radius:var(--r-xl);padding:30px 28px;box-shadow:var(--glass-shadow);
-  transition:transform var(--t-base) var(--ease-soft);
-}
-.testi-card:hover{transform:translateY(-5px)}
-.testi-stars{color:var(--gold);font-size:.85rem;margin-bottom:14px;letter-spacing:2px}
-.testi-text{font-size:.92rem;color:var(--ink-mid);line-height:1.75;margin-bottom:18px;font-style:italic}
-.testi-name{font-size:.85rem;font-weight:700;color:var(--navy)}
-.testi-role{font-size:.74rem;color:var(--ink-soft)}
+
 
 /* ════════════════════════════════════════════════════════════════════════
    PACKAGES / SHOP CARDS
@@ -608,7 +597,9 @@ em.accent{font-style:italic;color:var(--orange)}
 .faq-question{
   width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding:22px 26px;text-align:left;font-size:.96rem;font-weight:700;color:var(--navy);
+  transition:color var(--t-fast);
 }
+.faq-question:hover{color:var(--orange-deep)}
 .faq-question svg{width:18px;height:18px;flex-shrink:0;color:var(--orange-deep);transition:transform var(--t-base) var(--ease)}
 .faq-item.open .faq-question svg{transform:rotate(45deg)}
 .faq-answer{max-height:0;overflow:hidden;transition:max-height var(--t-base) var(--ease)}
@@ -645,7 +636,7 @@ em.accent{font-style:italic;color:var(--orange)}
 .press-masthead .rule{height:1px;flex:1;background:linear-gradient(to right,transparent,rgba(255,255,255,.35),transparent)}
 .press-filter-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:48px}
 
-.press-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.press-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
 .press-card{
   background:var(--glass-bg);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);
   border:1px solid var(--glass-border);border-radius:var(--r-xl);box-shadow:var(--glass-shadow);
@@ -761,16 +752,13 @@ em.accent{font-style:italic;color:var(--orange)}
   .pkg-grid{grid-template-columns:repeat(2,1fr)}
   .book-grid{grid-template-columns:1fr;gap:48px}
   .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
-  .values-grid{grid-template-columns:repeat(2,1fr)}
   .mission-inner{grid-template-columns:1fr}
   .press-grid{grid-template-columns:repeat(2,1fr)}
   .press-card-feature{grid-column:span 2}
   .stats-strip{grid-template-columns:repeat(2,1fr)}
-  .testi-grid{grid-template-columns:1fr 1fr}
   .about-grid{grid-template-columns:1fr}
   .about-img-wrap{position:static}
   .credential-grid{grid-template-columns:1fr 1fr}
-  .val-cards,.values-grid.val-cards{grid-template-columns:1fr 1fr}
 }
 
 /* ════════════════════════════════════════════════════════════════════════
@@ -817,9 +805,7 @@ em.accent{font-style:italic;color:var(--orange)}
   .programs-header{grid-template-columns:1fr;gap:14px}
   .programs-header .btn{align-self:flex-start}
 
-  .values-grid{grid-template-columns:repeat(2,1fr)}
   .pkg-grid{grid-template-columns:1fr}
-  .testi-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto}
   .press-grid{grid-template-columns:1fr}
   .press-card-feature{grid-column:span 1}
   .stats-strip{grid-template-columns:1fr 1fr}
@@ -838,7 +824,6 @@ em.accent{font-style:italic;color:var(--orange)}
   .hero h1{font-size:clamp(2.2rem,12vw,3.2rem)}
   .hero-actions{flex-wrap:wrap}
   .hero-actions .btn{flex:0 0 auto}
-  .values-grid{grid-template-columns:1fr}
   .float-wa{bottom:18px;right:18px;width:50px;height:50px}
   .float-wa svg{width:24px;height:24px}
   .stats-strip{grid-template-columns:1fr}
@@ -966,11 +951,6 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
 /* ════════════════════════════════════════════════════════════════════════
    TESTIMONIALS — author row with avatar
    ════════════════════════════════════════════════════════════════════════ */
-.testi-header{text-align:center;margin-bottom:52px}
-.testi-quote{font-size:.92rem;color:var(--ink-mid);line-height:1.75;margin-bottom:20px;font-style:italic}
-.testi-author{display:flex;align-items:center;gap:11px;margin-bottom:14px}
-.testi-av{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1rem;flex-shrink:0}
-.testi-prog-tag{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-deep);background:var(--orange-pale);padding:5px 12px;border-radius:var(--r-pill)}
 
 /* ════════════════════════════════════════════════════════════════════════
    VISIT / HUB SECTION — location + hours
@@ -1081,7 +1061,7 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
 /* Active/tap feedback (touch screens have no :hover) */
 @media(hover:none){
   .btn:active{transform:scale(.97)}
-  .glass-card:active,.prog-card:active,.pkg-card:active,.value-card:active,.testi-card:active,.press-card:active{transform:translateY(-2px) scale(.995)}
+  .glass-card:active,.prog-card:active,.pkg-card:active,.value-card:active,.press-card:active{transform:translateY(-2px) scale(.995)}
   .f-soc:active{background:var(--orange);color:#fff}
 }
 
@@ -1260,7 +1240,9 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
 .routine-card{
   background:var(--glass-bg);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);
   border:1px solid var(--glass-border);border-radius:var(--r-xl);box-shadow:var(--glass-shadow);padding:30px 32px;
+  transition:transform var(--t-base) var(--ease-soft),background var(--t-base) var(--ease-soft);
 }
+.routine-card:hover{transform:translateY(-4px);background:var(--glass-bg-strong)}
 .routine-card h3{font-family:var(--font-display);font-size:1.3rem;color:var(--navy);margin-bottom:14px;font-weight:400}
 .routine-row{display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--ink-soft)}
 .routine-time{font-weight:700;font-size:.78rem;width:46px;flex-shrink:0}
@@ -1385,7 +1367,7 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
 .carousel-arrow[disabled]{opacity:0;pointer-events:none}
 .carousel.no-scroll-needed .carousel-arrow,
 .carousel.no-scroll-needed .carousel-dots{display:none}
-.carousel.no-scroll-needed .carousel-track{padding:26px 0 6px}
+.carousel.no-scroll-needed .carousel-track{padding:26px 0 6px;justify-content:center;gap:22px}
 .carousel.no-scroll-needed .carousel-card{opacity:1;transform:scale(1);cursor:default}
 .carousel.no-scroll-needed .carousel-card:not(:first-child){margin-left:0}
 
@@ -1443,7 +1425,7 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
    ════════════════════════════════════════════════════════════════════════ */
 .cover-stage{position:relative;display:flex;align-items:center;justify-content:center;padding:8px}
 .cover-frame{
-  position:relative;width:min(100%,300px);aspect-ratio:3/4;border-radius:var(--r-lg);overflow:hidden;
+  position:relative;width:min(100%,clamp(260px,26vw,400px));aspect-ratio:3/4;border-radius:var(--r-lg);overflow:hidden;
   background:linear-gradient(150deg,#fff 0%,#F4EFE6 100%);
   box-shadow:0 2px 4px rgba(22,31,45,.06),0 14px 28px -6px rgba(22,31,45,.22),0 30px 60px -18px rgba(22,31,45,.28);
   transform:rotate(-1.4deg);transition:transform .5s var(--ease-soft);
@@ -1453,7 +1435,7 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
 /* A second, fainter "page" peeking from behind — quick implied depth without
    needing multiple real photos */
 .cover-stage::before{
-  content:'';position:absolute;width:min(92%,276px);aspect-ratio:3/4;
+  content:'';position:absolute;width:min(92%,clamp(238px,24vw,368px));aspect-ratio:3/4;
   background:linear-gradient(150deg,#fff 0%,#EDE6D8 100%);border-radius:var(--r-lg);
   transform:rotate(4deg) translateY(6px);box-shadow:0 10px 24px -10px rgba(22,31,45,.18);z-index:0;
 }
@@ -1464,3 +1446,27 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
   .cover-frame{width:min(78vw,260px)}
   .cover-stage::before{width:min(72vw,240px)}
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   PROGRAM GRID — closing CTA tile (desktop bookend)
+   At 3 columns, 1 wide card (span 2) + 5 standard cards leaves a lone card
+   on the last row with two empty cells beside it on wide screens. This wide
+   CTA tile completes that row exactly (2+5+2=9 grid units = clean 3×3) while
+   adding real navigational value — a deliberate "bookend" to the flagship
+   wide card at the top, not a patch.
+   ════════════════════════════════════════════════════════════════════════ */
+.prog-card-cta{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);
+  display:flex;align-items:center;justify-content:center;padding:44px 36px;position:relative;overflow:hidden;
+}
+.prog-card-cta::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 85% 15%,rgba(255,125,30,.22) 0%,transparent 55%);
+  pointer-events:none;
+}
+.prog-cta-inner{position:relative;z-index:1;text-align:center;max-width:380px}
+.prog-cta-icons{display:flex;justify-content:center;gap:9px;margin-bottom:20px}
+.prog-cta-dot{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.85);flex-shrink:0}
+.prog-cta-dot svg{width:16px;height:16px;stroke-width:1.8}
+.prog-cta-title{font-family:var(--font-display);font-size:1.55rem;color:#fff;line-height:1.25;margin-bottom:11px;font-weight:400}
+.prog-cta-desc{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:24px}
