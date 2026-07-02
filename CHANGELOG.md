@@ -9,6 +9,39 @@ Versioning follows [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATC
 
 ---
 
+## v1.5.1 — 2026-07-01
+
+**Patch: confirmed carousel bug fix, one more hardening.**
+
+### Confirmed fixed (already present as of v1.5.0, verified against screenshots)
+Screenshots from the live site showed the Core Values carousel opening on
+the **last** card ("Growth") instead of the first, on a fresh page load —
+with the neighboring card harshly clipped at the page edge as a result.
+Traced this to a genuine bug in the carousel's `IntersectionObserver`:
+calling `.observe()` on multiple cards fires an initial callback reporting
+each one's visibility, and if several cards report as visible in that same
+first batch (which reliably happens before scroll position has settled),
+the old code let *every* qualifying entry call `setActive()` in turn —
+so whichever card happened to be last in that batch silently won,
+overriding the correct first-card state. Confirmed this bug is present in
+every previously-shipped version (checked back to v1.3.0, where the
+carousel was introduced) but is fixed in the current source: only the
+single most-visible entry per callback batch is now allowed to set the
+active card, and the track's scroll position is additionally forced to
+the true start on load as a second safeguard. If you're still seeing the
+last-card-active behavior, it means the live site hasn't picked up v1.5.0
+yet — redeploy using the commands below, and hard-refresh (or reopen in a
+fresh private window) to rule out a cached asset.
+
+### Added
+- The "does this carousel need arrows" check now also re-runs after web
+  fonts finish loading (plus a short delayed re-check), not just once
+  immediately when the page script runs. Custom fonts (DM Serif Display,
+  DM Sans) loading a beat late can shift text width just enough to make an
+  instant-only check stale in rare cases.
+
+---
+
 ## v1.5.0 — 2026-06-30
 
 **Desktop-focused pass.** Recent work optimized mobile heavily; this pass

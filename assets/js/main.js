@@ -234,6 +234,8 @@ document.addEventListener('DOMContentLoaded', () => {
       };
       checkScrollNeeded();
       window.addEventListener('resize', checkScrollNeeded, { passive: true });
+      window.addEventListener('load', checkScrollNeeded);
+      setTimeout(checkScrollNeeded, 300);
 
       const setActive = (idx) => {
         current = idx;
@@ -267,15 +269,33 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
       });
 
-      // Detect which card is centred as the user swipes/scrolls
+      // Detect which card is centred as the user swipes/scrolls.
+      // NOTE: intersectionRatio is normalized to each card's OWN box, not
+      // the viewport — so on initial load, before any scrolling happens,
+      // every card that's simply "fully visible" can report ratio ≈1.0
+      // simultaneously, regardless of which one is actually centred. If we
+      // called setActive() for every qualifying entry, whichever happened
+      // to be LAST in that batch would silently win (overwriting earlier
+      // calls in the same synchronous forEach) — this was making the final
+      // card in the set appear active on fresh page loads instead of the
+      // first. Only the single most-visible entry per batch should win.
       const observer = new IntersectionObserver((entries) => {
+        let best = null;
         entries.forEach((entry) => {
-          if (entry.intersectionRatio > 0.62) {
-            setActive(cards.indexOf(entry.target));
+          if (entry.intersectionRatio > 0.62 && (!best || entry.intersectionRatio > best.intersectionRatio)) {
+            best = entry;
           }
         });
+        if (best) setActive(cards.indexOf(best.target));
       }, { root: track, threshold: [0.62] });
       cards.forEach((c) => observer.observe(c));
+
+      // Belt-and-suspenders: force the scroll position to the true start,
+      // both synchronously and after layout settles, so the carousel can
+      // never visually open on anything but the first card.
+      track.scrollLeft = 0;
+      requestAnimationFrame(() => { track.scrollLeft = 0; });
+      setTimeout(() => { track.scrollLeft = 0; }, 150);
 
       setActive(0);
     });
