@@ -318,7 +318,12 @@ em.accent{font-style:italic;color:var(--orange)}
 .mobile-close{position:absolute;top:24px;right:24px;color:rgba(255,255,255,.55);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:50%;width:42px;height:42px;display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-tap-highlight-color:transparent;z-index:2}
 .mobile-close svg{width:16px;height:16px}
 .mobile-close:hover{color:#fff;background:rgba(255,255,255,.16)}
-.mobile-wa-link{position:relative;z-index:1;margin-top:18px;background:rgba(37,211,102,.15);border:1px solid rgba(37,211,102,.35);border-radius:var(--r-pill);padding:11px 30px;color:#25D366 !important;font-size:.88rem !important;font-family:var(--font-body) !important;font-weight:700 !important;letter-spacing:.04em}
+.mobile-wa-link{
+  position:relative;z-index:1;margin-top:18px;display:inline-flex;align-items:center;justify-content:center;
+  white-space:nowrap;min-height:46px;box-sizing:border-box;
+  background:rgba(37,211,102,.15);border:1px solid rgba(37,211,102,.35);border-radius:var(--r-pill);
+  padding:11px 28px;color:#25D366 !important;font-size:.88rem !important;font-family:var(--font-body) !important;font-weight:700 !important;letter-spacing:.04em;
+}
 
 /* ════════════════════════════════════════════════════════════════════════
    HERO — photo + floating glass content panel
@@ -428,6 +433,9 @@ em.accent{font-style:italic;color:var(--orange)}
   display:flex;flex-direction:column;
 }
 .prog-card:hover{transform:translateY(-7px);box-shadow:var(--s-xl);background:var(--glass-bg-strong)}
+.prog-card-cta:hover{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);
+}
 .prog-card-wide{grid-column:span 2}
 .prog-card-wide .prog-img{min-height:280px}
 .prog-card-wide .prog-inner{display:grid;grid-template-columns:1.2fr 1fr}
@@ -1338,17 +1346,17 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
    ════════════════════════════════════════════════════════════════════════ */
 .carousel{position:relative}
 .carousel-track{
-  display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
-  padding:26px 6% 38px;scrollbar-width:none;scroll-padding:0 6%;
+  display:flex;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;touch-action:pan-x;
+  padding:26px 7% 38px;scrollbar-width:none;scroll-padding:0 7%;
 }
 .carousel-track::-webkit-scrollbar{display:none}
 .carousel-card{
   flex:0 0 auto;width:min(82vw,320px);scroll-snap-align:center;position:relative;
-  opacity:.5;transform:scale(.86);z-index:1;
+  opacity:.68;transform:scale(.88);z-index:1;
   transition:transform .45s var(--ease-soft),opacity .45s var(--ease-soft);
   cursor:pointer;
 }
-.carousel-card:not(:first-child){margin-left:-46px}
+.carousel-card:not(:first-child){margin-left:-28px}
 .carousel-card.is-active{opacity:1;transform:scale(1);z-index:5;cursor:default}
 .carousel-card.is-active .value-card,
 .carousel-card.is-active .glass-card{box-shadow:var(--s-xl)}
@@ -1356,20 +1364,25 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
 .carousel-arrow{
   position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;
   background:var(--glass-bg-strong);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);
-  border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);
-  display:flex;align-items:center;justify-content:center;z-index:8;color:var(--navy);
+  border:1px solid var(--glass-border);box-shadow:0 6px 20px rgba(22,31,45,.16),0 2px 6px rgba(22,31,45,.1);
+  display:flex;align-items:center;justify-content:center;z-index:9;color:var(--navy);
   transition:all var(--t-fast) var(--ease);-webkit-tap-highlight-color:transparent;
 }
 .carousel-arrow:hover{background:#fff;transform:translateY(-50%) scale(1.06)}
 .carousel-arrow svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.carousel-arrow-prev{left:-6px}
-.carousel-arrow-next{right:-6px}
+.carousel-arrow-prev{left:-20px}
+.carousel-arrow-next{right:-20px}
 .carousel-arrow[disabled]{opacity:0;pointer-events:none}
 .carousel.no-scroll-needed .carousel-arrow,
 .carousel.no-scroll-needed .carousel-dots{display:none}
 .carousel.no-scroll-needed .carousel-track{padding:26px 0 6px;justify-content:center;gap:22px}
 .carousel.no-scroll-needed .carousel-card{opacity:1;transform:scale(1);cursor:default}
 .carousel.no-scroll-needed .carousel-card:not(:first-child){margin-left:0}
+
+@media(max-width:600px){
+  .carousel-arrow-prev{left:-4px}
+  .carousel-arrow-next{right:-4px}
+}
 
 /* Dark variant for arrows sitting over a navy band */
 .carousel-dark .carousel-arrow{
@@ -1418,34 +1431,8 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
 .pkg-popular .spark,.pkg-popular svg{width:13px;height:13px}
 
 /* ════════════════════════════════════════════════════════════════════════
-   BOOK COVER — premium "floating cover" presentation
-   Designed to look excellent with any cover photography dropped in — crops
-   intelligently via object-fit, frames with a soft mat + layered shadow for
-   genuine depth, and intentionally avoids any literal device/phone styling.
+   (Book cover presentation now lives in the BOOK COVER CAROUSEL block below)
    ════════════════════════════════════════════════════════════════════════ */
-.cover-stage{position:relative;display:flex;align-items:center;justify-content:center;padding:8px}
-.cover-frame{
-  position:relative;width:min(100%,clamp(260px,26vw,400px));aspect-ratio:3/4;border-radius:var(--r-lg);overflow:hidden;
-  background:linear-gradient(150deg,#fff 0%,#F4EFE6 100%);
-  box-shadow:0 2px 4px rgba(22,31,45,.06),0 14px 28px -6px rgba(22,31,45,.22),0 30px 60px -18px rgba(22,31,45,.28);
-  transform:rotate(-1.4deg);transition:transform .5s var(--ease-soft);
-}
-.cover-frame:hover{transform:rotate(0deg) scale(1.015)}
-.cover-frame img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}
-/* A second, fainter "page" peeking from behind — quick implied depth without
-   needing multiple real photos */
-.cover-stage::before{
-  content:'';position:absolute;width:min(92%,clamp(238px,24vw,368px));aspect-ratio:3/4;
-  background:linear-gradient(150deg,#fff 0%,#EDE6D8 100%);border-radius:var(--r-lg);
-  transform:rotate(4deg) translateY(6px);box-shadow:0 10px 24px -10px rgba(22,31,45,.18);z-index:0;
-}
-.cover-frame{z-index:1}
-.cover-glow{position:absolute;inset:-30px;background:radial-gradient(ellipse at center,rgba(255,125,30,.16) 0%,transparent 68%);pointer-events:none;z-index:0}
-
-@media(max-width:560px){
-  .cover-frame{width:min(78vw,260px)}
-  .cover-stage::before{width:min(72vw,240px)}
-}
 
 /* ════════════════════════════════════════════════════════════════════════
    PROGRAM GRID — closing CTA tile (desktop bookend)
@@ -1470,3 +1457,42 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
 .prog-cta-dot svg{width:16px;height:16px;stroke-width:1.8}
 .prog-cta-title{font-family:var(--font-display);font-size:1.55rem;color:#fff;line-height:1.25;margin-bottom:11px;font-weight:400}
 .prog-cta-desc{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:24px}
+
+/* ════════════════════════════════════════════════════════════════════════
+   BOOK COVER CAROUSEL — front + back cover, swipeable
+   Reuses the shared carousel component (img-card variant) at a portrait
+   book-cover size. Always built for 2 slides (front, back) — when a real
+   back-cover photo isn't available yet, repeat the front-cover image as a
+   placeholder in the 2nd slot so the carousel UI is ready the moment a real
+   photo exists; nothing else needs to change but the one image src.
+   ════════════════════════════════════════════════════════════════════════ */
+.book-cover-carousel .carousel-track{padding:22px 9% 34px}
+.book-cover-card{
+  width:min(66vw,260px) !important;aspect-ratio:3/4;border-radius:var(--r-lg);
+  box-shadow:0 2px 4px rgba(22,31,45,.06),0 14px 28px -6px rgba(22,31,45,.22),0 30px 60px -18px rgba(22,31,45,.28);
+}
+.book-cover-card img{object-position:center 42%}
+.book-cover-carousel.no-scroll-needed .carousel-track{padding:22px 0 6px}
+
+/* ════════════════════════════════════════════════════════════════════════
+   EVENT YEAR PANELS — KidsPray Fun Art page
+   Reuses existing tab-nav/tab-btn/tab-panel, prog-meta-chip, and carousel
+   components; only a small status-badge treatment is new here.
+   ════════════════════════════════════════════════════════════════════════ */
+.event-badge{
+  display:inline-flex;align-items:center;gap:6px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:7px 14px;border-radius:var(--r-pill);margin-bottom:16px;
+}
+.event-badge-past{background:rgba(36,51,73,.08);color:var(--ink-mid)}
+.event-badge-upcoming{background:var(--green-pale);color:#1A7A4C}
+.event-badge-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+
+.event-panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-bottom:44px}
+@media(max-width:900px){.event-panel-grid{grid-template-columns:1fr;gap:32px}}
+
+.event-reg-table{margin-top:18px}
+.event-reg-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--glass-border);font-size:.86rem}
+.event-reg-row:last-child{border-bottom:none}
+.event-reg-label{color:var(--ink-soft)}
+.event-reg-price{font-weight:700;color:var(--navy)}
+.event-reg-price.closed{color:var(--ink-muted);text-decoration:line-through;font-weight:600}

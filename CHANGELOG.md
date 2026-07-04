@@ -9,6 +9,83 @@ Versioning follows [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATC
 
 ---
 
+## v1.6.0 — 2026-07-02
+
+**Bug fixes from real device/browser screenshots, a book cover redesign, and a new page.**
+
+### Fixed
+- **"7+ Programs, One Learning Hub" CTA card went invisible on hover** — both
+  desktop and mobile. Root cause: the general `.prog-card:hover` rule swaps
+  in a near-white translucent background (correct for the light program
+  cards), but this card inherits `.prog-card` as a base class too, so
+  hovering was replacing its dark navy gradient entirely — washing out
+  every bit of white text and every icon against a now-near-white
+  background. Added a specific `.prog-card-cta:hover` override that keeps
+  the dark gradient.
+- **Mobile scroll felt jittery/"jacking"** when scrolling past a carousel
+  section and reversing direction. Root cause: carousel tracks had no
+  `touch-action` set, so the browser had to disambiguate every touch
+  gesture between "the page wants to scroll vertically" and "this nested
+  element wants to scroll horizontally" — with mandatory scroll-snap
+  fighting an ambiguous gesture, that disambiguation is exactly what
+  produces a stuttery, dragging feel. Added `touch-action:pan-x` to
+  carousel tracks (so vertical gestures pass straight through to the page)
+  and softened `scroll-snap-type` from `mandatory` to `proximity`
+  site-wide, for a less grabby feel generally.
+- **Carousels read as cramped/"stuck"** on desktop. Reworked the overlap
+  math: reduced card overlap (46px → 28px) so neighbouring cards reveal
+  meaningfully more of themselves instead of being mostly hidden behind
+  the active card, raised inactive-card opacity (.5 → .68) so unfocused
+  content reads as clearly present rather than ghosted, and pushed arrows
+  further outside the card zone (6px → 20px) so they never visually sit on
+  top of a peeking card's text — all three combined were contributing to
+  the "jammed together" appearance.
+- **Mobile menu's WhatsApp pill could look "cut" at the sides.** Added
+  `white-space:nowrap` and explicit `box-sizing` — without it, if the pill
+  text ever wrapped to two lines on a narrow screen, the fully-rounded
+  pill shape (radius derived from box height) would distort and could
+  visually read as clipping into the text.
+
+### Redesigned — book cover, now always front + back
+Per direct request: book cover images are now always presented as a
+2-slide swipeable carousel (front cover, back cover) everywhere the cover
+appears prominently (book page hero, homepage Book Spotlight) — replacing
+the single-image "floating cover" treatment from v1.4.0.
+- **No real back-cover photo exists yet**, so the 2nd slide currently
+  repeats the front-cover image as a placeholder. The moment Mary supplies
+  a real back-cover photo, only that one `<img src>` needs to change —
+  the carousel, arrows, and dots are already fully wired up.
+- The small supporting thumbnail in the Book Details section (a
+  secondary "buy now" reminder, not the main visual) was simplified to a
+  single static image rather than a third carousel on the same page —
+  the hero above it already provides the full interactive experience.
+
+### Added — easier to extend
+- Shop page: added clear "copy this block to add a new product/package"
+  instructional comments directly above the product and package grids,
+  matching the pattern already used on the Media & Press page.
+- **New page: `kidspray-funart.html`** — KidsPray Fun Art, the hub's
+  annual event. Year-based tabs (reusing the site's existing tab
+  component) let visitors click a year to see that year's date, venue,
+  what was featured, a photo carousel, and a link to more content on
+  Instagram. Built to hold both past and upcoming years side by side:
+  - **2025** is seeded with real event details (Nike Art Gallery, Piwoyi,
+    Abuja · Saturday 17 May 2025 · Paintings, Bible Songs, Dance, Splash,
+    Prayers, Gifts, Refreshments), shown clearly as a concluded/past event
+    with historical registration pricing for reference, not an active CTA.
+  - **2026** is an honest "details coming soon" placeholder with a
+    WhatsApp notify-me CTA — no fabricated date, venue, or price.
+  - Event photos use the same graceful placeholder convention as the rest
+    of the site (`assets/images/kidspray-funart/2025-*.jpg`, which don't
+    exist yet in this deliverable) — drop real photos at those exact
+    paths and the placeholders disappear automatically.
+  - Adding a future year (2027 and beyond) is a two-step copy-paste,
+    documented directly in an HTML comment on the page itself.
+  - Linked from KidsPray's main page (a new banner section), and added to
+    the mobile menu and relevant footer columns site-wide.
+
+---
+
 ## v1.5.1 — 2026-07-01
 
 **Patch: confirmed carousel bug fix, one more hardening.**

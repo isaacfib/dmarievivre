@@ -58,6 +58,7 @@
   <a href="index.html">Home</a>
   <a href="learning-hub.html">Programs</a>
   <a href="kidspray.html">KidsPray</a>
+  <a href="kidspray-funart.html">Fun Art Event</a>
   <a href="shop.html">Shop</a>
   <a href="book.html">The Book</a>
   <a href="about.html">About Us</a>
@@ -82,11 +83,21 @@
 
     <div class="book-grid">
       <div class="reveal reveal-left">
-        <div class="cover-stage">
-          <div class="cover-glow" aria-hidden="true"></div>
-          <div class="cover-frame" data-fallback="Book Cover">
-            <img src="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye-2.jpg" alt="The Monkey With One Hand — book cover" loading="eager"/>
+        <!-- BOOK COVER CAROUSEL — front + back. To add a real back-cover
+             photo later, just swap the 2nd slide's img src; everything
+             else (carousel, arrows, dots) already works. -->
+        <div class="carousel book-cover-carousel" data-carousel aria-label="Book cover — front and back">
+          <button class="carousel-arrow carousel-arrow-prev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <div class="carousel-track" tabindex="0" role="region" aria-label="Front and back cover, swipeable">
+            <div class="carousel-card img-card book-cover-card" data-fallback="Front Cover">
+              <img src="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye-2.jpg" alt="The Monkey With One Hand — front cover" loading="eager"/>
+            </div>
+            <div class="carousel-card img-card book-cover-card" data-fallback="Back Cover">
+              <img src="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye-2.jpg" alt="The Monkey With One Hand — back cover (placeholder — front cover shown until a back cover photo is available)" loading="lazy"/>
+            </div>
           </div>
+          <button class="carousel-arrow carousel-arrow-next" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+          <div class="carousel-dots"></div>
         </div>
       </div>
 
@@ -197,11 +208,8 @@
         </div>
       </div>
       <div class="reveal reveal-d2" style="text-align:center">
-        <div class="cover-stage" style="margin-bottom:28px">
-          <div class="cover-glow" aria-hidden="true"></div>
-          <div class="cover-frame" style="width:200px" data-fallback="Book Cover">
-            <img src="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye-2.jpg" alt="Book cover"/>
-          </div>
+        <div style="display:inline-block;width:180px;aspect-ratio:3/4;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 10px 24px -8px rgba(0,0,0,.35);margin-bottom:28px" data-fallback="Book Cover">
+          <img src="https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye-2.jpg" alt="Book cover" style="width:100%;height:100%;object-fit:cover;object-position:center 42%"/>
         </div>
         <a href="https://selar.co/t8355l" target="_blank" rel="noopener" class="btn btn-orange btn-xl" style="width:100%;justify-content:center">
           Buy on Selar

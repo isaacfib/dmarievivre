@@ -1,6 +1,6 @@
 # D'Marie Vivre Learning Hub — Website
 
-**Release Version:** `v1.5.1` — see `CHANGELOG.md` for full version history.
+**Release Version:** `v1.6.0` — see `CHANGELOG.md` for full version history.
 **Live URL (once deployed):** `https://isaacfib.github.io/dmarievivre/`
 **Production domain:** `https://dmarievivre.org`
 
@@ -57,6 +57,7 @@ dmarievivre/
 ├── about.html                              ✅ COMPLETE — Ms. Mary's story + credentials
 ├── media.html                              ✅ NEW — Media & Press, publications, consultation form
 ├── resources.html                          ✅ COMPLETE — Free tips, routines, FAQ, gallery
+├── kidspray-funart.html                    ✅ NEW — Annual event, year-tabs, past + upcoming
 ├── contact.html                            ✅ COMPLETE — Contact & location
 │
 ├── README.md                               ✅ This file
@@ -204,6 +205,8 @@ The site is fully built and functions correctly with zero local photos beyond th
 | `assets/images/programs/*.jpg` | One real photo per program (after-school, reading, arts, tech) |
 | `assets/images/programs/special-needs.jpg` | Patient one-on-one or small-group learning moment |
 | `assets/images/og/og-image.jpg` | 1200×630px social-share graphic |
+| `assets/images/kidspray-funart/2025-1.jpg` through `2025-4.jpg` | Real photos from the May 2025 Fun Art event (painting, dance, prayer, finished art) — already exist on Instagram (@dvlearninghub), just need exporting at full resolution |
+| Book back cover | A clean photo of the back cover of "The Monkey With One Hand" — currently the front cover is shown twice as a placeholder in the front/back carousel on the Book page and homepage |
 
 Once shot, drop files into the matching `assets/images/...` path and update the `src=`
 on the relevant `<img>` — the `data-fallback` placeholder disappears automatically the
@@ -246,6 +249,6 @@ then set the custom domain under Settings → Pages, and enable "Enforce HTTPS."
 
 ---
 
-*Release v1.5.1 — June 2026 — design system: v6.0 "Glasslight" premium glassmorphism*
+*Release v1.6.0 — June 2026 — design system: v6.0 "Glasslight" premium glassmorphism*
 *Built for D'Marie Vivre Learning Hub, Lugbe, Abuja, Nigeria*
 *Full version history: see `CHANGELOG.md`*
