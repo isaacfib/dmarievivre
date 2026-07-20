@@ -247,6 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const goTo = (idx) => {
         idx = Math.max(0, Math.min(cards.length - 1, idx));
+        setActive(idx);
         cards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       };
 
@@ -294,8 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // both synchronously and after layout settles, so the carousel can
       // never visually open on anything but the first card.
       track.scrollLeft = 0;
-      requestAnimationFrame(() => { track.scrollLeft = 0; });
-      setTimeout(() => { track.scrollLeft = 0; }, 150);
+      requestAnimationFrame(() => { if (current === 0) track.scrollLeft = 0; });
 
       setActive(0);
     });

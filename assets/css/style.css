@@ -1062,6 +1062,7 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
     --glass-dark-blur: blur(11px) saturate(150%);
   }
   .aurora-blob{filter:blur(46px)}
+  .aurora{position:absolute;inset:auto 0 auto 0;top:0;height:100vh;max-height:900px}
   .aurora-blob.b4{display:none}
   .nav{-webkit-backdrop-filter:blur(14px) saturate(160%);backdrop-filter:blur(14px) saturate(160%)}
 }
@@ -1487,8 +1488,6 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
 .event-badge-upcoming{background:var(--green-pale);color:#1A7A4C}
 .event-badge-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
 
-.event-panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-bottom:44px}
-@media(max-width:900px){.event-panel-grid{grid-template-columns:1fr;gap:32px}}
 
 .event-reg-table{margin-top:18px}
 .event-reg-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--glass-border);font-size:.86rem}
@@ -1496,3 +1495,24 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
 .event-reg-label{color:var(--ink-soft)}
 .event-reg-price{font-weight:700;color:var(--navy)}
 .event-reg-price.closed{color:var(--ink-muted);text-decoration:line-through;font-weight:600}
+
+/* ════════════════════════════════════════════════════════════════════════
+   EVENT FEATURE BANNER — image + content, used to make Fun Art prominent
+   on the KidsPray page (not just a text-only panel)
+   ════════════════════════════════════════════════════════════════════════ */
+.event-feature-banner{
+  display:grid;grid-template-columns:.9fr 1.1fr;gap:0;align-items:stretch;
+  background:var(--glass-bg);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);
+  border:1px solid var(--glass-border);border-radius:var(--r-xl);box-shadow:var(--glass-shadow);overflow:hidden;
+}
+.event-feature-img{position:relative;min-height:220px}
+.event-feature-img img{width:100%;height:100%;object-fit:cover;display:block}
+.event-feature-body{padding:36px 38px;display:flex;flex-direction:column;justify-content:center}
+.event-feature-body h4{font-family:var(--font-display);font-size:1.5rem;color:var(--navy);margin-bottom:10px;font-weight:400}
+.event-feature-body p{font-size:.88rem;color:var(--ink-soft);line-height:1.75;margin-bottom:20px;max-width:440px}
+
+@media(max-width:760px){
+  .event-feature-banner{grid-template-columns:1fr}
+  .event-feature-img{min-height:180px}
+  .event-feature-body{padding:28px 26px}
+}

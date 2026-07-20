@@ -9,6 +9,62 @@ Versioning follows [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATC
 
 ---
 
+## v1.7.0 — 2026-07-08
+
+**Root-cause fixes for mobile zoom stability and desktop carousel
+interaction, a full restructure of the Fun Art event page, and improved
+event discoverability.**
+
+### Fixed — mobile pinch-zoom getting stuck
+Reported as happening "practically everywhere" on mobile: pinch to zoom
+out, and the page gets stuck zoomed, with the nav rendering in the wrong
+place relative to content. Root cause: `.aurora` (the soft animated
+background glow) was `position:fixed` spanning the *entire* viewport at
+all times — meaning the browser had to keep a blurred, animated,
+full-screen layer continuously composited through every scroll **and**
+every pinch-zoom gesture. This is a well-documented mobile Safari
+stability hazard. On mobile, `.aurora` is now `position:absolute` and
+bounded to roughly one screen's height, so it scrolls away naturally
+instead of staying pinned and constantly recalculated. Also removed
+`maximum-scale` from the viewport meta tag (reverted to the simpler,
+universally-safe default), removing a second variable that could
+interact badly with the OS's own zoom handling.
+
+### Fixed — carousel arrows not working / only first card ever active
+The active-card state relied solely on `IntersectionObserver` to detect
+scroll position — but that observer's callback isn't guaranteed to fire
+reliably (or at all, in every browser) after a fast, JS-driven
+smooth-scroll. That meant clicking an arrow could scroll the track while
+the "active" card visually never updated, making the carousel look stuck
+on the first card no matter what was clicked. Arrow and dot clicks now
+update the active state immediately and directly — the observer remains
+in place only as a secondary signal for free-swipe gestures.
+
+### Rebuilt — Fun Art event page
+The 2025 event panel previously squeezed event details and a photo
+carousel into a fragile 2-column grid, which was overlapping and cutting
+off content (confirmed from screenshots — meta-chip text truncating,
+carousel rendering on top of the description text). Rebuilt as a robust
+vertical stack: full-width details block, then a full-width photo
+gallery below it. This class of layout can't overlap regardless of
+container width, and also gives the gallery meaningfully more room.
+
+### Changed
+- **URL simplified**: `kidspray-funart.html` → `funart.html`, updated
+  across every internal link site-wide.
+- **New "Events" item added to the main nav** (desktop and mobile),
+  linking to the Fun Art page — previously it was only reachable via a
+  banner on the KidsPray page, which wasn't prominent enough.
+- **KidsPray page's Fun Art banner now includes a real image** (was
+  text-only before), using the same graceful placeholder convention as
+  the rest of the site.
+- **Mobile menu decluttered**: removed "The Book" (a future library of
+  books belongs in Shop, not a standalone menu item for one title), and
+  renamed "Fun Art Event" to "Events" for consistency with the new nav
+  item. Down from 9 items to 8.
+
+---
+
 ## v1.6.0 — 2026-07-02
 
 **Bug fixes from real device/browser screenshots, a book cover redesign, and a new page.**
