@@ -1,6 +1,6 @@
 /* ════════════════════════════════════════════════════════════════════════
    D'MARIE VIVRE LEARNING HUB
-   Design System v5.0 — "Glasslight"
+   Design System v5.1 — "Glasslight"
    Premium gentle-glassmorphism · Brand: Orange #FF7D1E + Navy #243349
    Learn. Grow. Thrive.
    ════════════════════════════════════════════════════════════════════════ */
@@ -740,10 +740,11 @@ em.accent{font-style:italic;color:var(--orange)}
 /* ════════════════════════════════════════════════════════════════════════
    SCROLL REVEAL
    ════════════════════════════════════════════════════════════════════════ */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease-soft),transform .7s var(--ease-soft)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-left{transform:translateX(-26px)}
-.reveal-left.visible{transform:translateX(0)}
+.reveal{opacity:1;transform:none;transition:none}
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease-soft),transform .7s var(--ease-soft)}
+.js .reveal.visible{opacity:1;transform:translateY(0)}
+.js .reveal-left{transform:translateX(-26px)}
+.js .reveal-left.visible{transform:translateX(0)}
 .reveal-d1{transition-delay:.1s}
 .reveal-d2{transition-delay:.2s}
 .reveal-d3{transition-delay:.3s}
@@ -1516,3 +1517,128 @@ img.img-broken{opacity:0;position:absolute;pointer-events:none}
   .event-feature-img{min-height:180px}
   .event-feature-body{padding:28px 26px}
 }
+
+/* ════════════════════════════════════════════════════════════════════════
+   v1.8.0 — MOBILE VIEWPORT STABILITY + PREMIUM CONTAINMENT
+   Fixes the pinch-zoom/right-gutter bug by containing wide premium devices
+   (glass nav, carousels, pill rows, hero panels) inside the viewport without
+   flattening the visual language.
+   ════════════════════════════════════════════════════════════════════════ */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+@supports (overflow-x:clip){html,body{overflow-x:clip}}
+body{min-width:0}
+
+main,header,footer,section,.container,.container-sm,.nav-wrap,.hero,.page-hero,.aurora,.aurora-local{
+  max-width:100%;
+}
+
+.carousel,.carousel-track,.book-cover-carousel,.prog-quicknav,.trust-bar,.trust-inner,.tab-nav,.mobile-menu{
+  max-width:100%;
+  min-width:0;
+}
+
+.carousel,.book-cover-carousel,.prog-quicknav,.trust-bar,.tab-nav{
+  overflow-x:clip;
+}
+@supports not (overflow-x:clip){
+  .carousel,.book-cover-carousel,.prog-quicknav,.trust-bar,.tab-nav{overflow-x:hidden}
+}
+
+.tag,.btn,.prog-meta-chip,.glass-tag{max-width:100%}
+
+@media(max-width:768px){
+  body{position:relative;touch-action:pan-x pan-y pinch-zoom}
+  .container,.container-sm{width:100%;max-width:100%;min-width:0}
+
+  .ann-bar{max-width:100%;box-sizing:border-box;line-height:1.35}
+  .ann-close{right:8px}
+
+  .nav-wrap{
+    left:0;right:0;width:100%;box-sizing:border-box;
+    padding-left:max(12px,env(safe-area-inset-left));
+    padding-right:max(12px,env(safe-area-inset-right));
+  }
+  .nav{
+    width:100%;max-width:100%;min-width:0;overflow:hidden;
+    border-radius:28px;gap:10px;justify-content:flex-start;
+  }
+  .nav-logo{flex:1 1 auto;min-width:0;max-width:calc(100% - 54px);overflow:hidden}
+  .nav-right{margin-left:auto;flex:0 0 auto}
+  .nav-wordmark,.nav-tagline-mini{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .nav-logo-img{flex-shrink:0}
+  .mobile-menu{width:100vw;max-width:100vw;overflow-x:hidden}
+
+  .hero{min-height:min(100svh,760px)}
+  @supports (height:100dvh){.hero{min-height:min(100dvh,760px)}}
+  .hero-content{width:100%;max-width:100%;padding:0 16px 34px;min-width:0}
+  .hero-panel{width:100%;max-width:100%;padding:24px 20px;border-radius:28px;overflow:hidden}
+  .hero h1{font-size:clamp(2.15rem,10.6vw,3.25rem);line-height:.98}
+  .hero-tagline{font-size:.9rem;line-height:1.5;margin-bottom:20px}
+  .hero-actions{display:grid;grid-template-columns:1fr;gap:9px;width:100%}
+  .hero-actions .btn{width:100%;justify-content:center;white-space:normal;text-align:center}
+  .hero-eyebrow,.hero h1,.hero-tagline,.hero-actions,.hero-stats{animation:none!important;opacity:1!important;transform:none!important}
+  .hero-stats{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;
+    overflow:visible;-webkit-mask:none;mask:none;margin-top:20px;padding-top:15px;
+  }
+  .hero-stat-item{min-width:0;text-align:left}
+  .hero-stat-num{font-size:1.16rem;white-space:nowrap}
+  .hero-stat-label{font-size:.5rem;letter-spacing:.07em;line-height:1.25}
+  .hero-stat-sep{display:none}
+
+  .page-hero{padding:122px 0 64px;overflow:hidden}
+  .page-hero-inner{max-width:100%;min-width:0}
+  .d-2xl{font-size:clamp(2.25rem,12vw,4rem);line-height:.98}
+  .d-xl{font-size:clamp(2rem,10vw,3.35rem);line-height:1.02}
+  .d-lg{font-size:clamp(1.7rem,8.3vw,2.75rem)}
+
+  .book-grid,.book-details-grid,.pkg-teaser-grid,.comm-grid{max-width:100%;min-width:0;overflow:hidden}
+  .book-title-hero{font-size:clamp(2.55rem,13vw,4rem);line-height:.96;overflow-wrap:anywhere}
+  .book-cover-carousel{width:100%;max-width:100%;overflow:hidden;padding-inline:0}
+  .book-cover-carousel .carousel-track{
+    width:100%;max-width:100%;overflow-x:auto;overflow-y:visible;
+    scroll-padding-inline:18px;padding:18px 18px 32px;overscroll-behavior-x:contain;
+  }
+  .book-cover-card{width:min(72vw,260px)!important;max-width:260px;flex-basis:min(72vw,260px)!important}
+  .carousel-card:not(:first-child){margin-left:-16px}
+  .carousel-arrow-prev{left:4px}.carousel-arrow-next{right:4px}
+
+  .tag,.tag-glass,.btn,.btn-lg,.btn-xl,.btn-sm{
+    white-space:normal;overflow-wrap:anywhere;text-align:center;
+  }
+  .tab-nav,.prog-quicknav-inner,.trust-inner{
+    overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;
+  }
+  .prog-quicknav{overflow:hidden}
+  .prog-quicknav-inner{max-width:calc(100vw - 28px);box-sizing:border-box}
+
+  .product-grid,.pkg-grid,.prog-grid,.service-grid-3,.tip-grid,.gallery-grid,.directions-grid,.quick-actions{
+    max-width:100%;min-width:0;
+  }
+  .glass-card,.prog-card,.product-card,.pkg-card,.service-card,.contact-card,.cta-inner,.footer-panel{
+    max-width:100%;min-width:0;overflow:hidden;
+  }
+
+  .float-wa{
+    right:max(14px,env(safe-area-inset-right));
+    bottom:max(18px,env(safe-area-inset-bottom));
+    width:50px;height:50px;
+  }
+}
+
+@media(max-width:420px){
+  .nav{padding:8px 8px 8px 13px}
+  .hero-content{padding-left:14px;padding-right:14px}
+  .hero-panel{padding:22px 18px;border-radius:26px}
+  .hero h1{font-size:clamp(2rem,10.8vw,2.95rem)}
+  .book-cover-card{width:min(76vw,250px)!important;flex-basis:min(76vw,250px)!important}
+}
+
+/* v1.8.0 mobile carousel/grid final containment */
+@media(max-width:768px){
+  .book-grid > *,.book-details-grid > *,.pkg-teaser-grid > *,.comm-grid > *{min-width:0;max-width:100%;width:100%}
+  .book-cover-carousel.no-scroll-needed .carousel-track{justify-content:flex-start;gap:0;padding:18px 18px 32px}
+  .book-cover-carousel.no-scroll-needed .carousel-card:not(:first-child){margin-left:-16px}
+  .carousel.no-scroll-needed:not(.book-cover-carousel) .carousel-track{max-width:100%;overflow:hidden}
+}
+

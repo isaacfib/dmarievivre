@@ -1,6 +1,6 @@
 # D'Marie Vivre Learning Hub — Website
 
-**Release Version:** `v1.7.0` — see `CHANGELOG.md` for full version history.
+**Release Version:** `v1.8.0` — see `CHANGELOG.md` for full version history.
 **Live URL (once deployed):** `https://isaacfib.github.io/dmarievivre/`
 **Production domain:** `https://dmarievivre.org`
 
@@ -249,6 +249,6 @@ then set the custom domain under Settings → Pages, and enable "Enforce HTTPS."
 
 ---
 
-*Release v1.7.0 — June 2026 — design system: v6.0 "Glasslight" premium glassmorphism*
+*Release v1.8.0 — July 2026 — design system: v5.1 "Glasslight" premium glassmorphism*
 *Built for D'Marie Vivre Learning Hub, Lugbe, Abuja, Nigeria*
 *Full version history: see `CHANGELOG.md`*

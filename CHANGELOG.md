@@ -9,6 +9,26 @@ Versioning follows [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATC
 
 ---
 
+## v1.8.0 — 2026-07-20
+
+**Mobile viewport stability release preserving the premium Glasslight look.**
+
+### Fixed — mobile pinch-zoom/right-gutter overflow
+- Added stronger viewport containment for mobile without disabling user zoom.
+- Constrained floating glass navigation, page sections, carousels, tabs, trust bars, and premium card surfaces so they cannot widen the document beyond the phone viewport.
+- Contained the book-cover carousel internally so its swipe/peek effect remains premium but no longer contributes to page-level horizontal overflow.
+- Improved button/tag wrapping so long pill labels do not force the page wider than the screen.
+
+### Refined — mobile premium polish
+- Tightened mobile hero sizing/padding while preserving glass panels, serif display type, soft shadows, and navy/orange brand tone.
+- Converted homepage hero stats into a compact contained mobile grid to reduce WhatsApp overlap risk.
+- Added safe-area-aware nav and WhatsApp positioning for modern iOS/Android screens.
+
+### Hardened — progressive reveal fallback
+- Reveal animations now degrade safely: content remains visible if JavaScript fails, while JS-enabled browsers keep the intended premium motion.
+
+---
+
 ## v1.7.0 — 2026-07-08
 
 **Root-cause fixes for mobile zoom stability and desktop carousel
