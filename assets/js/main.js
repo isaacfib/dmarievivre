@@ -1,5 +1,5 @@
 /* ============================================================
-   D'MARIE VIVRE LEARNING HUB — main.js v5.1 "Glasslight"
+   D'MARIE VIVRE LEARNING HUB — main.js v5.2 "Glasslight"
    Nav scroll, mobile menu, scroll reveal, count-up, banner,
    gentle aurora parallax
    ============================================================ */

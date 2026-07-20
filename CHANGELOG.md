@@ -9,6 +9,30 @@ Versioning follows [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATC
 
 ---
 
+## v1.9.0 — 2026-07-20
+
+**Premium polish and conversion refinement release.**
+
+### Added — premium trust and conversion surfaces
+- Added a homepage parent-trust panel after the Learn/Grow/Thrive section to make the brand feel safer, more intentional, and more parent-ready.
+- Added a contact-page concierge strip for the three highest-intent actions: enrolment WhatsApp, Google Maps visit, and email for partnerships/media.
+
+### Improved — missing image presentation
+- Upgraded broken/missing image fallbacks from plain placeholders to premium editorial glass art cards with soft gradients, framed texture, and branded fallback copy.
+- Preserves the image layout while making absent local program/gallery photos look intentional rather than unfinished.
+
+### Improved — premium mobile/page readability
+- Refined announcement banner copy and styling so the offer feels more boutique and less cheap-promotional.
+- Added stronger dark-hero readability/text-shadow treatments for book/shop-style page heroes without flattening the navy/orange luxury look.
+- Improved CTA visual hierarchy with subtle primary-action shadowing.
+
+### Improved — social sharing polish
+- Added large-preview Twitter card and Open Graph image tags where missing.
+- Added root `favicon.ico` generated from the existing logo to stop browser `/favicon.ico` 404s.
+- Updated README and design-system labels to v1.9.0 / Glasslight v5.2.
+
+---
+
 ## v1.8.0 — 2026-07-20
 
 **Mobile viewport stability release preserving the premium Glasslight look.**

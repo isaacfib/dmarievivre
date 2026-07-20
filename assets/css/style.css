@@ -1,6 +1,6 @@
 /* ════════════════════════════════════════════════════════════════════════
    D'MARIE VIVRE LEARNING HUB
-   Design System v5.1 — "Glasslight"
+   Design System v5.2 — "Glasslight"
    Premium gentle-glassmorphism · Brand: Orange #FF7D1E + Navy #243349
    Learn. Grow. Thrive.
    ════════════════════════════════════════════════════════════════════════ */
@@ -352,6 +352,7 @@ em.accent{font-style:italic;color:var(--orange)}
 .hero-pulse{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 3px rgba(255,125,30,.3);animation:pulse 2.5s infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(255,125,30,.3)}50%{box-shadow:0 0 0 9px rgba(255,125,30,.08)}}
 .hero-eyebrow-text{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.68)}
+.hero-eyebrow-text .mobile-short{display:none}
 
 .hero h1{font-family:var(--font-display);font-size:clamp(2.6rem,7.2vw,6.4rem);font-weight:400;line-height:.96;letter-spacing:-.02em;color:#fff;margin-bottom:16px;animation:fadeUp .7s .35s both}
 .hero-accent{color:var(--orange);font-style:italic;display:block}
@@ -1640,5 +1641,109 @@ main,header,footer,section,.container,.container-sm,.nav-wrap,.hero,.page-hero,.
   .book-cover-carousel.no-scroll-needed .carousel-track{justify-content:flex-start;gap:0;padding:18px 18px 32px}
   .book-cover-carousel.no-scroll-needed .carousel-card:not(:first-child){margin-left:-16px}
   .carousel.no-scroll-needed:not(.book-cover-carousel) .carousel-track{max-width:100%;overflow:hidden}
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   v1.9.0 — PREMIUM POLISH + CONVERSION REFINEMENT
+   Preserve the Glasslight luxury language while adding trust, better
+   missing-image art, stronger mobile readability, and calmer CTAs.
+   ════════════════════════════════════════════════════════════════════════ */
+.ann-bar{
+  background:linear-gradient(90deg,var(--navy-deep),#1f3047 54%,var(--navy-deep));
+  letter-spacing:.01em;
+}
+.ann-kicker{color:rgba(255,255,255,.78);font-weight:600}
+.ann-bar strong{color:var(--orange-light);font-family:var(--font-display);font-weight:400;font-size:1.02em}
+.ann-bar a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.42)}
+.ann-close{background:rgba(255,255,255,.07);border-radius:50%}
+
+.hero-eyebrow-text{display:inline-flex;align-items:center;gap:0;flex-wrap:wrap;row-gap:3px}
+.hero-dot-sep{padding:0 .35em;color:rgba(255,255,255,.4)}
+
+/* Premium editorial fallback art for missing local photos */
+[data-fallback].img-failed,
+[data-fallback]:has(> img.img-broken){
+  position:relative;isolation:isolate;
+  background:
+    radial-gradient(circle at 18% 18%,rgba(255,255,255,.55),transparent 22%),
+    radial-gradient(circle at 82% 78%,rgba(255,125,30,.20),transparent 28%),
+    linear-gradient(135deg,#fff6eb 0%,#f7ebdb 45%,#eaf0fb 100%)!important;
+}
+[data-fallback].img-failed::before,
+[data-fallback]:has(> img.img-broken)::before{
+  content:'';position:absolute;inset:14px;border-radius:inherit;z-index:0;pointer-events:none;
+  border:1px solid rgba(255,255,255,.62);
+  background:
+    linear-gradient(120deg,rgba(255,255,255,.32),rgba(255,255,255,.04)),
+    repeating-linear-gradient(135deg,rgba(61,81,115,.055) 0 1px,transparent 1px 12px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5);
+}
+[data-fallback].img-failed::after,
+[data-fallback]:has(> img.img-broken)::after{
+  content:attr(data-fallback);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;
+  min-width:min(72%,260px);max-width:82%;text-align:center;
+  padding:16px 18px;border-radius:22px;
+  background:rgba(255,255,255,.52);-webkit-backdrop-filter:blur(14px) saturate(150%);backdrop-filter:blur(14px) saturate(150%);
+  border:1px solid rgba(255,255,255,.66);box-shadow:0 18px 42px rgba(36,51,73,.13);
+  color:var(--navy);font-family:var(--font-display);font-size:clamp(1.05rem,3.5vw,1.55rem);line-height:1.05;
+}
+.prog-img.img-failed::after,.prog-detail-img.img-failed::after{content:attr(data-fallback) '\A curated learning experience';white-space:pre-line}
+.img-card.img-failed::after{content:attr(data-fallback) '\A Gallery moment';white-space:pre-line}
+
+/* Parent trust section */
+.premium-proof{padding:0 0 42px;position:relative}
+.proof-panel{
+  display:grid;grid-template-columns:.82fr 1.18fr;gap:26px;align-items:center;
+  padding:30px clamp(22px,4vw,42px);border-radius:var(--r-2xl);
+  background:linear-gradient(135deg,rgba(255,255,255,.58),rgba(255,255,255,.28));
+  -webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);
+  border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);
+}
+.proof-intro h2{font-family:var(--font-display);font-weight:400;color:var(--navy);font-size:clamp(1.75rem,4vw,3rem);line-height:1;margin:10px 0}
+.proof-intro p{color:var(--ink-soft);line-height:1.72;font-size:.94rem;max-width:520px}
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.proof-item{padding:20px 18px;border-radius:var(--r-lg);background:rgba(255,255,255,.54);border:1px solid rgba(255,255,255,.64);box-shadow:var(--s-xs)}
+.proof-item strong{display:block;font-family:var(--font-display);font-weight:400;color:var(--navy);font-size:1.22rem;margin-bottom:6px;line-height:1.05}
+.proof-item span{display:block;color:var(--ink-soft);font-size:.8rem;line-height:1.55}
+
+/* Contact concierge */
+.contact-concierge{padding:28px 0 0;margin-bottom:-16px;position:relative;z-index:2}
+.concierge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.concierge-card{
+  display:block;padding:20px 22px;border-radius:var(--r-xl);
+  background:rgba(255,255,255,.58);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);
+  border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);transition:transform var(--t-base) var(--ease-soft),background var(--t-base) var(--ease-soft);
+}
+.concierge-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.74)}
+.concierge-card.primary{background:linear-gradient(135deg,rgba(255,125,30,.18),rgba(255,255,255,.58));border-color:rgba(255,125,30,.26)}
+.concierge-card span{display:block;font-size:.63rem;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--orange-deep);margin-bottom:8px}
+.concierge-card strong{display:block;font-family:var(--font-display);font-weight:400;color:var(--navy);font-size:1.32rem;line-height:1.05;margin-bottom:7px}
+.concierge-card em{display:block;font-style:normal;color:var(--ink-soft);font-size:.82rem;line-height:1.45}
+
+/* Dark page readability: richer contrast without flattening luxury styling */
+.page-hero .page-hero-inner{position:relative}
+.page-hero .body-lg{max-width:660px;text-shadow:0 1px 12px rgba(0,0,0,.22)}
+.book-title-hero,.page-hero h1{text-shadow:0 10px 32px rgba(0,0,0,.25)}
+.book-grid .tag,.page-hero .tag{box-shadow:0 8px 22px rgba(0,0,0,.14)}
+
+/* Conversion polish: clearer primary choices on mobile without changing palette */
+.hero-actions .btn:first-child,.prog-actions .btn:first-child,.prog-ctas .btn:first-child{box-shadow:0 12px 30px rgba(255,125,30,.28)}
+
+@media(max-width:900px){
+  .proof-panel{grid-template-columns:1fr;gap:20px}
+  .proof-grid,.concierge-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .ann-bar{font-size:.70rem;padding:8px 38px 8px 12px;white-space:normal;line-height:1.25}
+  .ann-kicker{display:inline}
+  .premium-proof{padding:0 0 30px}
+  .proof-panel{padding:22px 18px;border-radius:28px}
+  .proof-grid{gap:10px}
+  .proof-item{padding:17px 16px}
+  .contact-concierge{padding:20px 0 0;margin-bottom:-8px}
+  .concierge-card{padding:18px 18px;border-radius:22px}
+  [data-fallback].img-failed::before,[data-fallback]:has(> img.img-broken)::before{inset:10px}
+  [data-fallback].img-failed::after,[data-fallback]:has(> img.img-broken)::after{padding:13px 14px;border-radius:18px;min-width:min(76%,240px)}
+  .page-hero{padding-top:138px;padding-bottom:72px}
 }
 
