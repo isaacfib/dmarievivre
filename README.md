@@ -1,254 +1,52 @@
-# D'Marie Vivre Learning Hub — Website
+# D'Marie Vivre Learning Hub: Website (classic version) v2.0.0
 
-**Release Version:** `v1.9.0` — see `CHANGELOG.md` for full version history.
-**Live URL (once deployed):** `https://isaacfib.github.io/dmarievivre/`
-**Production domain:** `https://dmarievivre.org`
-
-> *"Learn. Grow. Thrive."*
-> Your one-stop education solution — Lugbe, Abuja, Nigeria.
-
----
-
-## About This Project
-
-A complete, premium "gentle-glassmorphism" rebuild of the D'Marie Vivre site. Every page
-is built — no build step, no framework, deployable to GitHub Pages by pushing files.
-Brand colours, tagline, programs, and contact details are confirmed from the official
-2025 flyers, Instagram account, and (for Ms. Mary's credentials) a national newspaper feature.
-
-**Business:** D'Marie Vivre Learning Hub
-**Founder / Executive Director:** Mary Okunloye (Ms. Mary) — also an Educational Psychologist & Consultant
-**Tagline:** Learn. Grow. Thrive.
-**Location:** No. 139, Trademore Avenue, Trademore Estate, off VON Garden Estate, Lugbe, Abuja
-**Phone 1:** 08068600747
-**Phone 2:** 09015566523
-**Email:** info@dmarievivre.org · dmarievivre@gmail.com
-**Instagram:** @dvlearninghub (the ONLY active handle as of 2025)
-**Store:** https://selar.com/m/d-marievivre
-
----
-
-## Tech Stack
-
-| Layer | Choice | Reason |
-|---|---|---|
-| HTML | HTML5 semantic | No framework needed |
-| CSS | Custom CSS design system — v6.0 "Glasslight" | Premium gentle-glassmorphism, full brand control |
-| JavaScript | Vanilla JS | Zero dependencies |
-| Fonts | DM Serif Display + DM Sans (Google Fonts) | CDN, no build step |
-| Hosting | GitHub Pages | Free, 60-second deploy |
-| Shop | Selar.com (external links) | All purchases route to Selar |
-| Forms | Client-side only (WhatsApp / mailto deep links) | No backend, no data stored |
-
-**No build step. No npm. No bundler. Push to GitHub → live in 60 seconds.**
-
----
-
-## Repository File Structure
+**Live URL:** https://www.dmarievivre.org
+**Stack:** HTML5, one CSS file, vanilla JavaScript. No build step, no framework, no npm. Same layout as the previous site (v1.9.0), so it deploys the same way: upload or push the files (GitHub Pages works as before).
 
 ```
-dmarievivre/
-│
-├── index.html                              ✅ COMPLETE — Homepage
-├── learning-hub.html                       ✅ COMPLETE — All 7 programs incl. Adult Education
-├── kidspray.html                           ✅ COMPLETE — Faith arm, birthday packages, community
-├── shop.html                               ✅ COMPLETE — Gift packages + digital products
-├── book.html                               ✅ COMPLETE — The Monkey With One Hand
-├── about.html                              ✅ COMPLETE — Ms. Mary's story + credentials
-├── media.html                              ✅ NEW — Media & Press, publications, consultation form
-├── resources.html                          ✅ COMPLETE — Free tips, routines, FAQ, gallery
-├── funart.html                    ✅ NEW — Annual event, year-tabs, past + upcoming
-├── contact.html                            ✅ COMPLETE — Contact & location
-│
-├── README.md                               ✅ This file
-│
-└── assets/
-    │
-    ├── css/
-    │   └── style.css                       ✅ v6.0 "Glasslight" design system (~1350 lines)
-    │
-    ├── js/
-    │   └── main.js                         ✅ Nav, scroll, FAQ, tabs, lightbox, consultation form, parallax
-    │
-    └── images/
-        └── logo/
-            ├── logo.jpg                    ✅ Official logo (lightbulb + pencil)
-            └── logo.png
+index.html            Home
+learning-hub.html     Programmes and fees, FAQ
+calendar.html         2027 calendar
+shop.html             Hub Bookshop (order list sent by email)
+book.html             The Monkey With One Hand
+kidspray.html         Kidspray (faith and community)
+funart.html           Kidspray Fun Art
+about.html            About Ms. Mary
+media.html            Media and press
+resources.html        Free resources and FAQ
+services.html         Space hire and school training
+contact.html          Contact and enquiry form
+404.html
+assets/css/style.css  Design system
+assets/js/main.js     Behaviour (menu, calendar, books, forms)
+assets/js/config.js   Site settings: Hub email, WhatsApp, placeholder switch
+assets/data/          events.json and books.json (edit these to update the site)
+assets/images/        logo, photos, book covers
+tools/books-editor.html  Edit the book list without coding
+docs/                 Placeholder checklist (PDF)
 ```
 
-**Note on photography:** beyond the logo, this rebuild intentionally does not bundle local
-program/portrait photos. Where a real photo exists on the live WordPress site
-(`dmarievivre.org/wp-content/uploads/...`), pages link to it directly. Where no real photo
-is available, pages show a styled glass-tinted placeholder (icon + label) via the
-`data-fallback` system in `main.js` / `style.css` — this degrades gracefully even if an
-external image 404s. **Replacing these with real, owned photography is the single highest-leverage
-next step** (see "Image Brief" below).
+## Before going live
+1. **Set the Hub email.** Open `assets/js/config.js` and put the address that should receive enquiries and book orders in `email`. Double-check the spelling: a wrong address loses orders.
+2. **Activate form delivery once.** Forms are delivered by FormSubmit (free). The first form sent from the live site makes FormSubmit email a one-time "Activate" link to that inbox. Click it, then send a test enquiry and a test book order. If delivery ever fails, visitors are offered "Send by email" and WhatsApp.
+3. **Fill the placeholders.** Dashed orange boxes mark missing photos, books and testimonials. `docs/placeholders-checklist.pdf` lists every one by ID with the format needed. Drop a photo with the right name into `assets/images/photos/` and it replaces the placeholder automatically. When you launch with gaps still open, set `showPlaceholders` to `false` in `assets/js/config.js` and all placeholders disappear.
 
----
+## Books (10 to 20 titles)
+Open `tools/books-editor.html` in any browser, load `assets/data/books.json`, replace the placeholder rows with real books (title, author, category, ages, price, cover path), then download and replace `books.json`. Leave price empty to show "Ask for price". Put cover images in `assets/images/books/`. Visitors add books to an order list; the order arrives by email with their name, phone, pickup or delivery choice and the list. No payment happens online.
 
-## Design System — v6.0 "Glasslight"
+## Updating the calendar
+Edit `assets/data/events.json`. Each event has a date (`YYYY-MM-DD`) or a month, a type (`free`, `paid`, `ad`, `ws`) and an optional fee. The Home page "Next at the Hub" and the Calendar update by themselves, and past events fade out.
 
-A signature look built around soft, ambient "aurora" light blobs behind frosted glass
-surfaces — warm and pastel rather than the cooler/darker glassmorphism seen elsewhere,
-to match a nurturing children's-education brand. Brand colours are preserved; a cool
-periwinkle counter-tone and the lightbulb-echoing "halo ring" motif were added.
+## Changing fees
+Fees live in the programmes page (search for the amount). The Adult Learning offer price switches to the normal price automatically after 30 January 2027.
 
-| Token | Hex | Usage |
-|---|---|---|
-| `--orange` | `#FF7D1E` | Primary brand — buttons, badges, glow |
-| `--orange-deep` | `#E56500` | Hover states |
-| `--navy` / `--navy-deep` | `#243349` / `#161F2D` | Ink, dark glass surfaces, footer |
-| `--peri` (periwinkle) | `#AFC2E8` | NEW — cool glass counter-tone, aurora blobs |
-| `--gold` | `#FFD040` | Accent glow, Arts & Crafts |
-| `--green` | `#2EAD6B` | Special Needs accent |
-| `--purple` | `#7B3FE4` | Tech Club accent |
+## Private information
+Nothing about staffing, capacity, margins or finances is on the site.
 
-**Glass recipe (light):** `background: rgba(255,255,255,.58)`, `backdrop-filter: blur(22px) saturate(180%)`,
-soft top-edge highlight border, navy-tinted shadow. **Dark variant** used for footer / hero panels.
-
-**Mobile-first:** lighter blur + fewer aurora blobs under 768px (GPU cost), 16px minimum
-form font-size (prevents iOS auto-zoom), 44px+ tap targets, `scroll-margin-top` on all
-anchors so the floating nav never covers a jumped-to section, `dvh` viewport units for the hero.
-
----
-
-## Media & Press (`media.html`) — NEW
-
-Built per request, linked from `about.html` ("Learn More" panel) and the footer. Structure:
-
-- **Real, verified items only.** Currently features:
-  - A national newspaper feature (THISDAY, June 21 2026) on intentional parenting,
-    quoting Ms. Mary as "Educational Psychologist & Consultant."
-  - A YouTube video feature (embedded player).
-- **Expandable by design.** Each press item is a self-contained `<article class="press-card">`
-  block — to add a new feature, copy one and edit the outlet, headline, excerpt, date, and link.
-  A "Publications" section follows the same pattern for future books/articles.
-- **"Coming soon" placeholder cards** are dashed-border and clearly templated — never
-  filled with invented claims.
-- **Consultation request form** (`#consultForm`): a no-backend form that builds a
-  pre-filled WhatsApp or email message client-side (see `main.js`). Nothing is stored.
-
-> ⚠️ When adding new press coverage, only add items that are real and verifiable — do not
-> invent quotes, dates, or outlet names.
-
----
-
-## Brand Identity (Confirmed)
-
-### Logo
-Lightbulb outline (orange) with a pencil inside (navy). Text "D'Marie Vivre Learning Hub"
-in navy, tagline "Learn. Grow. Thrive." Saved at `assets/images/logo/logo.jpg`.
-
-### Tagline
-**"Learn. Grow. Thrive."**
-
-### Core Values
-**Creativity · Diligence · Nurturing · Growth**
-
-### Typography
-DM Serif Display (headings/quotes) + DM Sans (body/UI) — both Google Fonts, loaded via CDN.
-
----
-
-## Complete Program & Service List
-
-### For Children
-| Program | Type | Schedule |
-|---|---|---|
-| After-School Service | Physical hub | Mon–Sat |
-| Reading Club | Physical + Online | Ongoing |
-| Creative Writing Club (Write Well) | Online | Sat 10–12pm & 4–6pm, Sun 4–6pm |
-| Arts & Crafts Club | Physical hub | Ongoing |
-| Saturday Tech Club | Physical hub | Saturdays |
-| Special Needs Education | Physical hub | By arrangement |
-| World Read Aloud Day | Annual event | February |
-
-### For Adults
-| Program | Type | Skills |
-|---|---|---|
-| Adult Education (Beginner Classes) | Physical hub | Reading, Writing, Simple Maths, Everyday English |
-
-### Cross-Cutting Services
-Education Consulting · School Start-up Consulting · Curriculum Development ·
-Teacher Training · Parent Coaching · KidsPray (faith arm — own dedicated page, in nav)
-
----
-
-## Key Links & Integrations
-
-| Integration | URL / Handle |
-|---|---|
-| Selar Store | https://selar.com/m/d-marievivre |
-| Book on Selar | https://selar.co/t8355l |
-| WhatsApp (primary) | https://wa.me/2348068600747 |
-| Phone 2 | +234 901 556 6523 |
-| Instagram (hub) | https://www.instagram.com/dvlearninghub/ |
-| Instagram (KidsPray) | https://www.instagram.com/kidspraywithms.mary/ |
-| YouTube | https://www.youtube.com/@kidspraywithmsmary2218 |
-| Facebook | https://web.facebook.com/kidspraywithmsmary |
-| TikTok | https://www.tiktok.com/@kidspray |
-| Press: THISDAY feature | https://www.thisdaylive.com/2026/06/21/educational-psychological-consultant-warns-against-confusing-availability-with-presence-in-parenting/ |
-| Press: video feature | https://youtu.be/glQ0uyShjLg |
-
----
-
-## Image Brief — Highest-Leverage Next Step
-
-The site is fully built and functions correctly with zero local photos beyond the logo
-(styled placeholders fill every gap), but real photography will lift it from "great" to
-"unmistakably theirs." Priority shoot list:
-
-| File (suggested path) | What to shoot |
-|---|---|
-| `assets/images/hero/hero-home.jpg` | Ms. Mary with children at the hub — wide, joyful, bright. 1920×1080 min. |
-| `assets/images/about/mary-portrait.jpg` | Warm professional portrait of Ms. Mary, 3:4 ratio |
-| `assets/images/programs/*.jpg` | One real photo per program (after-school, reading, arts, tech) |
-| `assets/images/programs/special-needs.jpg` | Patient one-on-one or small-group learning moment |
-| `assets/images/og/og-image.jpg` | 1200×630px social-share graphic |
-| `assets/images/funart/2025-1.jpg` through `2025-4.jpg` | Real photos from the May 2025 Fun Art event (painting, dance, prayer, finished art) — already exist on Instagram (@dvlearninghub), just need exporting at full resolution |
-| Book back cover | A clean photo of the back cover of "The Monkey With One Hand" — currently the front cover is shown twice as a placeholder in the front/back carousel on the Book page and homepage |
-
-Once shot, drop files into the matching `assets/images/...` path and update the `src=`
-on the relevant `<img>` — the `data-fallback` placeholder disappears automatically the
-moment a real image loads successfully.
-
----
-
-## GitHub Pages Deployment
-
+## Deploying to GitHub Pages
 ```bash
 git add .
-git commit -m "Description of change"
+git commit -m "Website v2.0.0"
 git push origin main
-# Auto-deploys in ~30 seconds
 ```
-
-**Custom domain (dmarievivre.org):** add 4 A records to GitHub's IPs (185.199.108–111.153),
-then set the custom domain under Settings → Pages, and enable "Enforce HTTPS."
-
----
-
-## Important Notes for Anyone Editing the Site
-
-1. **Brand colours are Orange (#FF7D1E) + Navy (#243349)** — confirmed from the logo and
-   official flyers. The v6 "Glasslight" system adds a periwinkle glass counter-tone and
-   gold glow as accents — it does not replace the brand colours.
-2. **Two phone numbers**: 08068600747 AND 09015566523 — both must appear everywhere.
-3. **Use `@dvlearninghub` ONLY** for the hub's main Instagram.
-4. **Adult Education is a core program** — has its own homepage banner and a full section
-   on `learning-hub.html#adult-education`. Do not remove it.
-5. **KidsPray has its own dedicated page and nav link** (`kidspray.html`) — it is the
-   faith arm of the hub, not a footer-only afterthought.
-6. **Media & Press (`media.html`) must only contain real, verifiable items.** Never invent
-   press coverage, quotes, or outlets. Use the dashed "coming soon" card style for anything
-   not yet confirmed.
-7. **All purchases go through Selar** — never build an in-house checkout. The consultation
-   form on `media.html` is *not* a checkout — it just opens WhatsApp/email with a pre-filled
-   message; nothing is stored or processed.
-8. **Full address**: No. 139, Trademore Avenue, Trademore Estate, off VON Garden Estate, Lugbe, Abuja.
-
----
-
-*Release v1.9.0 — July 2026 — design system: v5.2 "Glasslight" premium glassmorphism*
-*Built for D'Marie Vivre Learning Hub, Lugbe, Abuja, Nigeria*
-*Full version history: see `CHANGELOG.md`*
+Custom domain: keep the existing DNS records and the Pages custom domain setting.
