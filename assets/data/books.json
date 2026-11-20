@@ -1,0 +1,140 @@
+{
+ "categories": [
+  "Storybooks",
+  "Learning",
+  "Faith & Values",
+  "Parents"
+ ],
+ "books": [
+  {
+   "id": "monkey-one-hand",
+   "title": "The Monkey With One Hand",
+   "author": "Fortune Okunloye",
+   "category": "Storybooks",
+   "age": "3-10",
+   "price": null,
+   "hue": 0,
+   "cover": "https://dmarievivre.org/wp-content/uploads/2024/03/The-Monkey-With-One-Hand-Fortune-Okunloye-2.jpg"
+  },
+  {
+   "id": "placeholder-01",
+   "title": "Book title 01",
+   "author": "Author to come",
+   "category": "Storybooks",
+   "age": "",
+   "price": null,
+   "hue": 1,
+   "placeholder": true
+  },
+  {
+   "id": "placeholder-02",
+   "title": "Book title 02",
+   "author": "Author to come",
+   "category": "Learning",
+   "age": "",
+   "price": null,
+   "hue": 2,
+   "placeholder": true
+  },
+  {
+   "id": "placeholder-03",
+   "title": "Book title 03",
+   "author": "Author to come",
+   "category": "Faith & Values",
+   "age": "",
+   "price": null,
+   "hue": 3,
+   "placeholder": true
+  },
+  {
+   "id": "placeholder-04",
+   "title": "Book title 04",
+   "author": "Author to come",
+   "category": "Parents",
+   "age": "",
+   "price": null,
+   "hue": 4,
+   "placeholder": true
+  },
+  {
+   "id": "placeholder-05",
+   "title": "Book title 05",
+   "author": "Author to come",
+   "category": "Storybooks",
+   "age": "",
+   "price": null,
+   "hue": 5,
+   "placeholder": true
+  },
+  {
+   "id": "placeholder-06",
+   "title": "Book title 06",
+   "author": "Author to come",
+   "category": "Learning",
+   "age": "",
+   "price": null,
+   "hue": 6,
+   "placeholder": true
+  },
+  {
+   "id": "placeholder-07",
+   "title": "Book title 07",
+   "author": "Author to come",
+   "category": "Faith & Values",
+   "age": "",
+   "price": null,
+   "hue": 7,
+   "placeholder": true
+  },
+  {
+   "id": "placeholder-08",
+   "title": "Book title 08",
+   "author": "Author to come",
+   "category": "Parents",
+   "age": "",
+   "price": null,
+   "hue": 8,
+   "placeholder": true
+  },
+  {
+   "id": "placeholder-09",
+   "title": "Book title 09",
+   "author": "Author to come",
+   "category": "Storybooks",
+   "age": "",
+   "price": null,
+   "hue": 9,
+   "placeholder": true
+  },
+  {
+   "id": "placeholder-10",
+   "title": "Book title 10",
+   "author": "Author to come",
+   "category": "Learning",
+   "age": "",
+   "price": null,
+   "hue": 10,
+   "placeholder": true
+  },
+  {
+   "id": "placeholder-11",
+   "title": "Book title 11",
+   "author": "Author to come",
+   "category": "Faith & Values",
+   "age": "",
+   "price": null,
+   "hue": 11,
+   "placeholder": true
+  },
+  {
+   "id": "placeholder-12",
+   "title": "Book title 12",
+   "author": "Author to come",
+   "category": "Parents",
+   "age": "",
+   "price": null,
+   "hue": 12,
+   "placeholder": true
+  }
+ ]
+}

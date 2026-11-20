@@ -1,0 +1,20 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Books editor</title>
+<style>body{font:15px system-ui;margin:20px;color:#1f1c52}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ddd;padding:4px}input,select{width:100%;padding:6px;box-sizing:border-box}button{padding:8px 14px;margin:4px 4px 4px 0;cursor:pointer}th{background:#fff0e3;text-align:left}.s{overflow-x:auto}</style></head><body>
+<h1>Hub Bookshop editor</h1>
+<p>1. Click <b>Open books.json</b> and choose the <code>assets/data/books.json</code> file. 2. Edit, add or remove books. 3. Click <b>Download books.json</b> and replace the file in the website folder. Leave Price empty to show "Ask for price". Cover is optional: type the name of an image file you put in <code>assets/img/books/</code>, for example <code>assets/img/books/my-book.jpg</code>.</p>
+<input type="file" id="f" accept=".json" style="width:auto"> <button id="add">Add a book</button> <button id="dl">Download books.json</button>
+<p>Categories (comma separated): <input id="cats" style="width:60%"></p>
+<div class="s"><table><thead><tr><th>Title</th><th>Author</th><th>Category</th><th>Ages</th><th>Price (₦)</th><th>Cover image path</th><th>Sold out</th><th></th></tr></thead><tbody id="b"></tbody></table></div>
+<script>
+let data={categories:[],books:[]};
+const $=s=>document.querySelector(s);
+function draw(){$('#cats').value=data.categories.join(', ');$('#b').innerHTML='';data.books.forEach((b,i)=>{const tr=document.createElement('tr');
+[['title'],['author'],['category'],['age'],['price','number'],['cover']].forEach(([k,t])=>{const td=document.createElement('td'),inp=document.createElement('input');inp.value=b[k]==null?'':b[k];if(t)inp.type=t;inp.oninput=()=>{b[k]=t==='number'?(inp.value?Number(inp.value):null):inp.value;if(k==='title'&&!b._idset&&!b._keep){b.id=inp.value.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||('book-'+i)}};td.append(inp);tr.append(td)});
+const so=document.createElement('td'),c=document.createElement('input');c.type='checkbox';c.checked=!!b.soldOut;c.onchange=()=>b.soldOut=c.checked;so.append(c);tr.append(so);
+const d=document.createElement('td'),x=document.createElement('button');x.textContent='Remove';x.onclick=()=>{data.books.splice(i,1);draw()};d.append(x);tr.append(d);$('#b').append(tr)})}
+$('#f').onchange=e=>{const r=new FileReader();r.onload=()=>{data=JSON.parse(r.result);data.books.forEach(b=>b._keep=true);draw()};r.readAsText(e.target.files[0])};
+$('#add').onclick=()=>{data.books.push({id:'book-'+Date.now(),title:'',author:'',category:data.categories[0]||'',age:'',price:null});draw()};
+$('#dl').onclick=()=>{data.categories=$('#cats').value.split(',').map(s=>s.trim()).filter(Boolean);const out={categories:data.categories,books:data.books.filter(b=>b.title).map(b=>{const o={...b};delete o._keep;delete o._idset;if(!o.cover)delete o.cover;if(!o.soldOut)delete o.soldOut;return o})};
+const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(out,null,1)],{type:'application/json'}));a.download='books.json';a.click()};
+draw();
+</script></body></html>

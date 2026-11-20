@@ -1,0 +1,183 @@
+{
+ "events": [
+  {
+   "id": "team-jan",
+   "title": "Team Building",
+   "type": "free",
+   "blurb": "A free Hub celebration.",
+   "month": 1,
+   "date": "2027-01-30",
+   "fee": 0,
+   "topic": "Celebrations"
+  },
+  {
+   "id": "adult-jan",
+   "title": "Adult Learning: new course",
+   "type": "ad",
+   "blurb": "Literacy, Numeracy or General Study. Three months, weekdays 10am to 1pm, with a certificate and a payment plan.",
+   "month": 1,
+   "end": "2027-01-30",
+   "fee": 85000,
+   "feeNote": "a term",
+   "when": "January",
+   "topic": "Adult Learning"
+  },
+  {
+   "id": "teachers-ws",
+   "title": "Teachers' Workshop",
+   "type": "ws",
+   "blurb": "A practical workshop for teachers. Date to be announced.",
+   "month": 1,
+   "when": "January",
+   "tba": true,
+   "topic": "Teachers' Workshop"
+  },
+  {
+   "id": "wrad",
+   "title": "World Read Aloud Day",
+   "type": "free",
+   "blurb": "A free read-aloud celebration for children and families.",
+   "month": 2,
+   "fee": 0,
+   "when": "February",
+   "tba": true,
+   "topic": "Celebrations"
+  },
+  {
+   "id": "womens",
+   "title": "Women's Day",
+   "type": "free",
+   "blurb": "A free Hub celebration.",
+   "month": 3,
+   "date": "2027-03-06",
+   "fee": 0,
+   "topic": "Celebrations"
+  },
+  {
+   "id": "reading-ch",
+   "title": "Reading Challenge",
+   "type": "paid",
+   "blurb": "A month-long special programme to build confident readers.",
+   "month": 3,
+   "end": "2027-03-31",
+   "fee": 30000,
+   "when": "March",
+   "topic": "Special programmes"
+  },
+  {
+   "id": "bookday",
+   "title": "Book Day",
+   "type": "free",
+   "blurb": "A free celebration of books and reading.",
+   "month": 4,
+   "date": "2027-04-03",
+   "fee": 0,
+   "topic": "Celebrations"
+  },
+  {
+   "id": "boys",
+   "title": "Boys' Day",
+   "type": "free",
+   "blurb": "A free Hub celebration.",
+   "month": 5,
+   "date": "2027-05-15",
+   "fee": 0,
+   "topic": "Celebrations"
+  },
+  {
+   "id": "children",
+   "title": "Children's Day",
+   "type": "free",
+   "blurb": "A free Hub celebration for children.",
+   "month": 5,
+   "date": "2027-05-29",
+   "fee": 0,
+   "topic": "Celebrations"
+  },
+  {
+   "id": "fathers",
+   "title": "Father's Day",
+   "type": "free",
+   "blurb": "A free Hub celebration.",
+   "month": 6,
+   "date": "2027-06-19",
+   "fee": 0,
+   "topic": "Celebrations"
+  },
+  {
+   "id": "team-jun",
+   "title": "Team Building",
+   "type": "free",
+   "blurb": "A free Hub celebration.",
+   "month": 6,
+   "date": "2027-06-26",
+   "fee": 0,
+   "topic": "Celebrations"
+  },
+  {
+   "id": "handwriting",
+   "title": "Handwriting",
+   "type": "paid",
+   "blurb": "A month-long special programme for neat, confident handwriting.",
+   "month": 6,
+   "end": "2027-06-30",
+   "fee": 30000,
+   "when": "June",
+   "topic": "Special programmes"
+  },
+  {
+   "id": "summer",
+   "title": "Summer Programme",
+   "type": "paid",
+   "blurb": "Holiday learning and fun across July and August.",
+   "month": 7,
+   "end": "2027-08-31",
+   "fee": 50000,
+   "feeNote": "per child",
+   "when": "Jul – Aug",
+   "topic": "Summer Programme"
+  },
+  {
+   "id": "parents-ws",
+   "title": "Parents' Workshop",
+   "type": "ws",
+   "blurb": "A free workshop for parents.",
+   "month": 9,
+   "end": "2027-09-30",
+   "fee": 0,
+   "when": "September",
+   "topic": "Parents' Workshop"
+  },
+  {
+   "id": "girls",
+   "title": "Girls' Day",
+   "type": "free",
+   "blurb": "A free Hub celebration.",
+   "month": 10,
+   "date": "2027-10-09",
+   "fee": 0,
+   "topic": "Celebrations"
+  },
+  {
+   "id": "strictly",
+   "title": "Strictly Read",
+   "type": "paid",
+   "blurb": "A month-long special programme for strong, joyful readers.",
+   "month": 11,
+   "end": "2027-11-30",
+   "fee": 30000,
+   "when": "November",
+   "topic": "Special programmes"
+  },
+  {
+   "id": "xmas",
+   "title": "Christmas Party",
+   "type": "free",
+   "blurb": "A free end-of-year celebration at the Hub.",
+   "month": 12,
+   "date": "2027-12-17",
+   "fee": 0,
+   "topic": "Celebrations"
+  }
+ ]
+}
