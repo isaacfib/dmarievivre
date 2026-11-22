@@ -323,3 +323,10 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--brand);b
 @media(max-width:380px){.jump{margin:0 -16px;padding:4px 16px 12px}}
 @media(min-width:700px){.strip{grid-template-columns:repeat(3,1fr)}.gallery{grid-template-columns:repeat(4,1fr)}}
 @media(min-width:700px) and (max-width:1023px){.gallery{grid-template-columns:repeat(2,1fr)}}
+
+.ev .d{align-self:start}
+.ev .d.m b{font-size:1.5rem}
+.ev .d.m.r b{font-size:1.02rem;letter-spacing:-.02em}
+.ev .row{gap:6px 14px}
+.perk{display:flex;gap:12px;align-items:center;background:var(--brand-soft);border-radius:var(--r);padding:14px 18px;color:var(--ink);font-weight:600;margin-top:24px}
+.perk .ico{color:var(--brand-d)}

@@ -57,14 +57,14 @@
   var TYPE = { free: 'Free celebration', paid: 'Programme', ad: 'Adult learning', ws: 'Workshop' };
   function evDate(e) {
     if (e.date) { var d = new Date(e.date + 'T12:00:00'); return { top: DAYS[d.getDay()], big: d.getDate(), small: MONTHS[d.getMonth()].slice(0, 3), m: false }; }
-    return { top: '', big: e.when || MONTHS[e.month - 1], small: '', m: true };
+    var rng = e.when && e.when.indexOf('\u2013') > -1; return { top: '2027', big: rng ? e.when.replace(/\s/g, '') : MONTHS[e.month - 1].slice(0, 3), small: '', m: true, r: rng };
   }
   function evCard(e, past) {
     var d = evDate(e);
     var pill = e.fee === 0 ? '<span class="pill free">Free</span>' : (e.fee ? '<span class="pill paid">' + naira(e.fee) + (e.feeNote ? ' ' + esc(e.feeNote) : '') + '</span>' : '');
     if (e.tba) pill += ' <span class="pill tba">Date to be announced</span>';
     var ics = e.date ? '<a class="mini" href="#" data-ics="' + esc(e.id) + '">+ Add to calendar</a>' : '';
-    return '<article class="ev' + (past ? ' past' : '') + '" data-type="' + e.type + '"><div class="d' + (d.m ? ' m' : '') + '">' + (d.m ? '<b>' + esc(d.big) + '</b>' : '<span>' + d.top + '</span><b>' + d.big + '</b><span>' + d.small + '</span>') + '</div><div><h3>' + esc(e.title) + '</h3><p>' + esc(e.blurb) + '</p><div class="row">' + pill + ics + '<a class="mini" href="' + CFG.base + 'contact.html?topic=' + encodeURIComponent(e.topic || e.title) + '#enquire">Ask about this</a></div></div></article>';
+    return '<article class="ev' + (past ? ' past' : '') + '" data-type="' + e.type + '"><div class="d' + (d.m ? ' m' : '') + (d.r ? ' r' : '') + '">' + (d.m ? '<span>' + d.top + '</span><b>' + esc(d.big) + '</b>' : '<span>' + d.top + '</span><b>' + d.big + '</b><span>' + d.small + '</span>') + '</div><div><h3>' + esc(e.title) + '</h3>' + (e.blurb ? '<p>' + esc(e.blurb) + '</p>' : '') + '<div class="row">' + pill + ics + '<a class="mini" href="' + CFG.base + 'contact.html?topic=' + encodeURIComponent(e.topic || e.title) + '#enquire">Ask about this</a></div></div></article>';
   }
   function icsEscape(s) { return String(s).replace(/[\\;,]/g, function (c) { return '\\' + c; }).replace(/\n/g, '\\n'); }
   function icsFor(list) {
@@ -180,7 +180,7 @@
   });
 
   /* ---------- forms: deliver to the Hub email ---------- */
-  function setStatus(f, cls, msg) { var s = $('.status', f); s.className = 'status ' + cls; s.textContent = msg; s.setAttribute('role', 'status'); }
+  function setStatus(f, cls, msg) { var s = $('.status', f); s.className = 'status ' + cls; s.textContent = msg; s.setAttribute('role', 'status'); if (cls !== 'work' && s.scrollIntoView) s.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
   function send(f, subject, fields, onOk) {
     if ($('.hp input', f) && $('.hp input', f).value) return; /* spam trap */
     var btn = $('button[type=submit]', f); btn.disabled = true; setStatus(f, 'work', 'Sending…');
